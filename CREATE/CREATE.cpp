@@ -12,8 +12,8 @@
 #include <string>
 #include <filesystem>
 #include <fstream>
-#include <pugixml.hpp>
-#include <json/json.h>
+//#include <pugixml.hpp>
+//#include <json/json.h>
 #include <hiredis/hiredis.h>
 
 class xml_document;
@@ -76,7 +76,7 @@ void createOneKeyValue(){
  * Et le nom des clés est le nom du fichier XML
 */
 
-void createAllKeyValue() {
+/*void createAllKeyValue() {
     redisContext* c = connectionRedis();
     string path;
 
@@ -100,4 +100,4 @@ void createAllKeyValue() {
         }
     }
     redisFree(c);
-}
+}*/
