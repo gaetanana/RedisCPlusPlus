@@ -23,7 +23,7 @@ int main() {
 
     std::cout << "Connecte a Redis! Envoi d'une commande PING...\n";
 
-    redisReply* reply = (redisReply*)redisCommand(c, "PING");
+    auto* reply = (redisReply*)redisCommand(c, "PING");
     if (reply == nullptr) {
         std::cout << "Erreur lors de l'envoi de la commande PING: " << c->errstr << "\n";
         redisFree(c);
@@ -53,7 +53,6 @@ int main() {
             }
         }
     }
-
     freeReplyObject(reply);
     redisFree(c);
 

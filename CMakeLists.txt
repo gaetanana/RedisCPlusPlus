@@ -10,7 +10,6 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories("DriverHiredis/hiredis/build/install/include")
 link_directories("DriverHiredis/hiredis/build/install/lib")
 
-
 add_executable(RedisCPlusPlus main.cpp)
 
 target_link_libraries(RedisCPlusPlus hiredisd)
