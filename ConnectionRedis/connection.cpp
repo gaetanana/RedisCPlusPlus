@@ -6,8 +6,10 @@
 #include <iostream>
 #include <hiredis/hiredis.h>
 #include <WinSock2.h>
+
 using namespace std;
-void connectionRedis(){
+
+redisContext* connectionRedis(){
     const char* hostname = "localhost";
     int port = 6379;
     struct timeval timeout = { 1, 500000 }; // 1.5 secondes
@@ -25,6 +27,7 @@ void connectionRedis(){
         }
     }
     cout << "Connecte a Redis!\n";
+    return c;
 }
 
 void fermertureRedis(redisContext* c){

@@ -6,3 +6,5 @@
 #define REDISCPLUSPLUS_CREATE_H
 
 #endif //REDISCPLUSPLUS_CREATE_H
+
+void createOneKeyValue();
