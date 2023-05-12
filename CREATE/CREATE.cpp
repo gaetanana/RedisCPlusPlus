@@ -51,13 +51,19 @@ Json::Value xmlNodeToJson(const pugi::xml_node& xmlNode){
     }
     for (pugi::xml_node child = xmlNode.first_child(); child; child = child.next_sibling()){
         if (child.first_child().type() == pugi::node_pcdata){
-            jsonNode[child.name()] = child.child_value();
+            Json::Value childJson;
+            childJson["value"] = child.child_value();
+            for (pugi::xml_attribute attr = child.first_attribute(); attr; attr = attr.next_attribute()){
+                childJson["attributes"][attr.name()] = attr.value();
+            }
+            jsonNode[child.name()].append(childJson);
         } else {
             jsonNode[child.name()].append(xmlNodeToJson(child));
         }
     }
     return jsonNode;
 }
+
 
 string xmlToJson(string xml){
     pugi::xml_document doc;

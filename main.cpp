@@ -9,7 +9,29 @@ using namespace std;
 
 int main() {
     //Partie test des fonctions
-    //cout << xmlToJson("<root><child1>value1</child1><child2>value2</child2></root>");
+    /*cout << xmlToJson("<tt:MetadataStream xmlns:tt=\"http://www.onvif.org/ver10/schema\" xmlns:fc=\"http://www.onvif.org/ver20/analytics/humanface\" xmlns:bd=\"http://www.onvif.org/ver20/analytics/humanbody\">\n"
+                      "<tt:VideoAnalytics>\n"
+                      "<tt:Frame UtcTime=\"2023-04-21T14:40:20.72Z\" AplSource=\"AIPeopleDetection\">\n"
+                      "<tt:Object ObjectId=\"5504\">\n"
+                      "<tt:Appearance>\n"
+                      "<tt:Shape>\n"
+                      "<tt:BoundingBox left=\"-0.94\" top=\"-0.01\" right=\"-0.84\" bottom=\"-0.58\"/>\n"
+                      "<tt:CenterOfGravity x=\"-0.89\" y=\"-0.29\"/>\n"
+                      "</tt:Shape>\n"
+                      "<tt:Class>\n"
+                      "<tt:Type Likelihood=\"0.37\">Human</tt:Type>\n"
+                      "</tt:Class>\n"
+                      "</tt:Appearance>\n"
+                      "<tt:Extension xmlns=\"\">\n"
+                      "<Properties>\n"
+                      "<Property name=\"DirectionNamed\">Left</Property>\n"
+                      "<Property name=\"Color\">1</Property>\n"
+                      "</Properties>\n"
+                      "</tt:Extension>\n"
+                      "</tt:Object>\n"
+                      "</tt:Frame>\n"
+                      "</tt:VideoAnalytics>\n"
+                      "</tt:MetadataStream>");*/
 
     //Partie DELETE
     //deleteOneKeyValue(); //Fonction qui permet de supprimer une clé et une valeur dans la base de données Redis
@@ -24,7 +46,8 @@ int main() {
 
     //Partie READ
     //readAllKey();
-    readAllKeyWithHuman();
+    //readAllKeyWithHuman();
+    //readAllKeyWithHumanProbability();
 
     return 0;
 }

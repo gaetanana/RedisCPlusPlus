@@ -103,10 +103,15 @@ void readAllKeyWithHuman(){
                 }
                 else if (valueReply->type == REDIS_REPLY_STRING) {
                     std::string valueStr(valueReply->str);
-                    // Vériier si la valeur contient "tt:Type" : "Human"
-                    if (valueStr.find("\"tt:Type\" : \"Human\"") != std::string::npos) {
-                        std::cout << "Cle " << i+1 << ": " << reply->element[i]->str << "\n";
-                        //std::cout << "Valeur: " << valueReply->str << "\n";
+                    // Vérifier si la valeur contient "tt:Type"
+                    std::size_t found = valueStr.find("\"tt:Type\"");
+                    if (found != std::string::npos) {
+                        // Vérifier si la valeur contient "Human"
+                        std::size_t foundHuman = valueStr.find("Human", found);
+                        if (foundHuman != std::string::npos) {
+                            std::cout << "Cle " << i+1 << ": " << reply->element[i]->str << "\n";
+                            //std::cout << "Valeur: " << valueReply->str << "\n";
+                        }
                     }
                 }
                 freeReplyObject(valueReply);
@@ -117,14 +122,57 @@ void readAllKeyWithHuman(){
     fermertureRedis(c);
 }
 
+
 /**
  * Cette fonction permet de retrouver toutes les clé-valeur de la base de données Redis
  * Elle permet de filtrer les valeurs qui possèdent le type "Human"
  * Elle permet de filtrer les valeurs qui possèdent une probabilité supérieur à 0.5
  */
 void readAllKeyWithHumanProbability(){
-
+    redisContext *c = connectionRedis();
+    auto* reply = (redisReply*)redisCommand(c, "KEYS *");
+    if (reply == nullptr) {
+        std::cout << "Erreur lors de l'envoi de la commande KEYS *: " << c->errstr << "\n";
+        fermertureRedis(c);
+        return;
+    }
+    if (reply->type == REDIS_REPLY_ERROR) {
+        std::cout << "Erreur lors de l'envoi de la commande KEYS *: " << reply->str << "\n";
+    } else if (reply->type == REDIS_REPLY_ARRAY) {
+        for (int i = 0; i < reply->elements; i++) {
+            auto* valueReply = (redisReply*)redisCommand(c, "GET %s", reply->element[i]->str);
+            if (valueReply != nullptr) {
+                if (valueReply->type == REDIS_REPLY_ERROR) {
+                    std::cout << "Erreur lors de l'obtention de la valeur: " << valueReply->str << "\n";
+                }
+                else if (valueReply->type == REDIS_REPLY_STRING) {
+                    std::string valueStr(valueReply->str);
+                    // Parse the JSON string
+                    Json::Value valueJson;
+                    Json::CharReaderBuilder builder;
+                    std::string errs;
+                    std::istringstream iss(valueStr);
+                    if (!Json::parseFromStream(builder, iss, &valueJson, &errs)) {
+                        std::cout << "Erreur lors de l'analyse de la valeur JSON: " << errs << "\n";
+                    } else {
+                        // Navigate the JSON structure to find "tt:Type" and "tt:Probability"
+                        // This is just an example and might not match your actual JSON structure
+                        const Json::Value& ttClass = valueJson["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Class"][0];
+                        if (ttClass["tt:Type"].asString() == "Human") {
+                            if (ttClass["Likelihood"].asFloat() > 0.5) {
+                                std::cout << "Cle " << i+1 << ": " << reply->element[i]->str << "\n";
+                            }
+                        }
+                    }
+                }
+                freeReplyObject(valueReply);
+            }
+        }
+    }
+    freeReplyObject(reply);
+    fermertureRedis(c);
 }
+
 
 
 

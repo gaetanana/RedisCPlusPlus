@@ -12,3 +12,5 @@ void readOneKeyValue();
 void readAllKey();
 
 void readAllKeyWithHuman();
+
+void readAllKeyWithHumanProbability();
