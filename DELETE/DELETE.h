@@ -8,3 +8,5 @@
 #endif //REDISCPLUSPLUS_DELETE_H
 
 void deleteAllKeyValue();
+
+void deleteOneKeyValue();

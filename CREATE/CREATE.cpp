@@ -102,9 +102,11 @@ void createOneKeyValueXML() {
     string jsonStr = xmlToJson(xmlStr);
 
     // Save jsonStr in Redis with the key being the file name
-    cout << "Saisir une clé : ";
+    cout << "Saisir une cle : ";
     cin >> key;
     redisCommand(c,"SET %s %s", key.c_str(), jsonStr.c_str());
+
+    fermertureRedis(c);
 }
 
 
