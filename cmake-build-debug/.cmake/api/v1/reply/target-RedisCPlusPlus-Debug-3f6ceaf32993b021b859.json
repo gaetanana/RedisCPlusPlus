@@ -95,7 +95,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd"
+					"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd"
 				},
 				{
 					"fragment" : "-std:c++17"
@@ -105,15 +105,15 @@
 			[
 				{
 					"backtrace" : 8,
-					"path" : "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverHiredis/hiredis/build/install/include"
+					"path" : "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverHiredis/hiredis2/build/install/include"
 				},
 				{
 					"backtrace" : 9,
-					"path" : "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/pugixml/build/install/include"
+					"path" : "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/pugixml2/build/install/include"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/install/include"
+					"path" : "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp2/build/install/include"
 				}
 			],
 			"language" : "CXX",
@@ -141,7 +141,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd",
+				"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd",
 				"role" : "flags"
 			},
 			{
@@ -150,17 +150,17 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "-LIBPATH:C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverHiredis\\hiredis\\build\\install\\lib",
+				"fragment" : "-LIBPATH:C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverHiredis\\hiredis2\\build\\install\\lib",
 				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "-LIBPATH:C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverPugiXML\\pugixml\\build\\install\\lib",
+				"fragment" : "-LIBPATH:C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverPugiXML\\pugixml2\\build\\install\\lib",
 				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "-LIBPATH:C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\install\\lib",
+				"fragment" : "-LIBPATH:C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp2\\build\\install\\lib",
 				"role" : "libraryPath"
 			},
 			{

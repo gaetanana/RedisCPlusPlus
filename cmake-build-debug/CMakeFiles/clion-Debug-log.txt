@@ -1,4 +1,4 @@
-"C:\Program Files\JetBrains\CLion 2023.1.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2023.1.2/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus -B C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug
+"C:\Program Files\JetBrains\CLion 2023.1.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - NMake Makefiles" -S C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus -B C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug
 -- Configuring done
 -- Generating done
 -- Build files have been written to: C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/cmake-build-debug

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="RedisCPlusPlus"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="msvc8"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\Makefile VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="RedisCPlusPlus">
+				<Option output="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/cmake-build-debug/RedisCPlusPlus.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverHiredis/hiredis2/build/install/include"/>
+					<Add directory="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/pugixml2/build/install/include"/>
+					<Add directory="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp2/build/install/include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio .NET 2003\SDK\v1.1\include\"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\Makefile VERBOSE=1 RedisCPlusPlus"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="RedisCPlusPlus/fast">
+				<Option output="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/cmake-build-debug/RedisCPlusPlus.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverHiredis/hiredis2/build/install/include"/>
+					<Add directory="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/pugixml2/build/install/include"/>
+					<Add directory="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp2/build/install/include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio .NET 2003\SDK\v1.1\include\"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\Makefile VERBOSE=1 RedisCPlusPlus/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\Makefile VERBOSE=1 edit_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\Makefile VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/CREATE/CREATE.cpp">
+			<Option target="RedisCPlusPlus"/>
+		</Unit>
+		<Unit filename="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/CREATE/CREATE.h">
+			<Option target="RedisCPlusPlus"/>
+		</Unit>
+		<Unit filename="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/ConnectionRedis/connection.cpp">
+			<Option target="RedisCPlusPlus"/>
+		</Unit>
+		<Unit filename="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/ConnectionRedis/connection.h">
+			<Option target="RedisCPlusPlus"/>
+		</Unit>
+		<Unit filename="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DELETE/DELETE.cpp">
+			<Option target="RedisCPlusPlus"/>
+		</Unit>
+		<Unit filename="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DELETE/DELETE.h">
+			<Option target="RedisCPlusPlus"/>
+		</Unit>
+		<Unit filename="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/READ/READ.cpp">
+			<Option target="RedisCPlusPlus"/>
+		</Unit>
+		<Unit filename="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/READ/READ.h">
+			<Option target="RedisCPlusPlus"/>
+		</Unit>
+		<Unit filename="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/main.cpp">
+			<Option target="RedisCPlusPlus"/>
+		</Unit>
+		<Unit filename="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
