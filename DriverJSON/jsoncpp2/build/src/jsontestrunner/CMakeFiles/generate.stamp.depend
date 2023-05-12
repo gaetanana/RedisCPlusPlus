@@ -1,0 +1,6 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.26/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.26/Modules/FindPython/Support.cmake
+C:/Program Files/CMake/share/cmake-3.26/Modules/FindPython3.cmake
+C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/src/jsontestrunner/CMakeLists.txt

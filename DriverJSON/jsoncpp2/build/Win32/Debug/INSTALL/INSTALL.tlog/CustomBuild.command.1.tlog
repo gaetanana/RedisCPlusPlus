@@ -1,0 +1,10 @@
+^C:\USERS\G.GONFIANTINI\DESKTOP\REDISCPLUSPLUS\DRIVERJSON\JSONCPP\BUILD\CMAKEFILES\20125079E4EC29228E35F1A5E5D991B1\INSTALL_FORCE.RULE
+setlocal
+cd .
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

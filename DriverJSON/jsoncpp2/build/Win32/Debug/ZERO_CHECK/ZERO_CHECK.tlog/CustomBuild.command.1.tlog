@@ -1,0 +1,10 @@
+^C:\USERS\G.GONFIANTINI\DESKTOP\REDISCPLUSPLUS\DRIVERJSON\JSONCPP\BUILD\CMAKEFILES\20125079E4EC29228E35F1A5E5D991B1\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp -BC:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/jsoncpp.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

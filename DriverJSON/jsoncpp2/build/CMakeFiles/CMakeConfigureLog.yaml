@@ -1,0 +1,578 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeDetermineSystem.cmake:204 (message)"
+      - "CMakeLists.txt:67 (project)"
+    message: |
+      The system is: Windows - 10.0.19045 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:67 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Microsoft (R) Build Engine version 16.11.2+f32259642 pour .NET Framework
+      Copyright (C) Microsoft Corporation. Tous droits réservés.
+      
+      La génération a démarré 12/05/2023 15:32:20.
+      Projet "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\3.26.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" sur le nœud 1 (cibles par défaut).
+      PrepareForBuild:
+        Création du répertoire "Debug\\".
+        Création du répertoire "Debug\\CompilerIdCXX.tlog\\".
+      InitializeBuildStatus:
+        Création de "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild", car "AlwaysCreate" a été spécifié.
+      VcpkgTripletSelection:
+        Using triplet "x86-windows" from "C:\\src\\vcpkg\\installed\\x86-windows\\"
+        Using normalized configuration "Release"
+      ClCompile:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x86\\CL.exe /c /I"C:\\src\\vcpkg\\installed\\x86-windows\\include" /nologo /W0 /WX- /diagnostics:column /Od /Oy- /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc142.pdb" /external:W0 /Gd /TP /analyze- /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\\src\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"C:\\src\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "C:\\src\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X86 /SAFESEH Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\3.26.3\\CompilerIdCXX\\CompilerIdCXX.exe
+      AppLocalFromInstalled:
+        pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\3.26.3\\CompilerIdCXX\\CompilerIdCXX.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"
+        'pwsh.exe' n'est pas reconnu en tant que commande interne
+        ou externe, un programme exécutable ou un fichier de commandes.
+        La commande "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\3.26.3\\CompilerIdCXX\\CompilerIdCXX.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"" s'est arrêtée avec le code 9009.
+        "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\3.26.3\\CompilerIdCXX\\CompilerIdCXX.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\Hostx64\\x86\\cl.exe
+      FinalizeBuildStatus:
+        Suppression du fichier "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+        Mise à jour de l'horodatage "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate".
+      Génération du projet "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\3.26.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" terminée (cibles par défaut).
+      
+      La génération a réussi.
+          0 Avertissement(s)
+          0 Erreur(s)
+      
+      Temps écoulé 00:00:04.00
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/3.26.3/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:67 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-4y9n9w"
+      binary: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-4y9n9w"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:X86"
+      CMAKE_MODULE_PATH: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/cmake"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-4y9n9w
+        
+        Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_00384.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=16.0 /v:n && Microsoft (R) Build Engine version 16.11.2+f32259642 pour .NET Framework
+        Copyright (C) Microsoft Corporation. Tous droits réservés.
+        
+        La génération a démarré 12/05/2023 15:32:25.
+        Projet "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4y9n9w\\cmTC_00384.vcxproj" sur le nœud 1 (cibles par défaut).
+        PrepareForBuild:
+          Création du répertoire "cmTC_00384.dir\\Debug\\".
+          Création du répertoire "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4y9n9w\\Debug\\".
+          Création du répertoire "cmTC_00384.dir\\Debug\\cmTC_00384.tlog\\".
+        InitializeBuildStatus:
+          Création de "cmTC_00384.dir\\Debug\\cmTC_00384.tlog\\unsuccessfulbuild", car "AlwaysCreate" a été spécifié.
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "C:\\src\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x86\\CL.exe /c /I"C:\\src\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_00384.dir\\Debug\\\\" /Fd"cmTC_00384.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp"
+          Compilateur d'optimisation Microsoft (R) C/C++ version 19.29.30148 pour x86
+          Copyright (C) Microsoft Corporation. Tous droits réservés.
+          CMakeCXXCompilerABI.cpp
+          cl /c /I"C:\\src\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_00384.dir\\Debug\\\\" /Fd"cmTC_00384.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4y9n9w\\Debug\\cmTC_00384.exe" /INCREMENTAL /ILK:"cmTC_00384.dir\\Debug\\cmTC_00384.ilk" /NOLOGO /LIBPATH:"C:\\src\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"C:\\src\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\src\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-4y9n9w/Debug/cmTC_00384.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-4y9n9w/Debug/cmTC_00384.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_00384.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_00384.vcxproj -> C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4y9n9w\\Debug\\cmTC_00384.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4y9n9w\\Debug\\cmTC_00384.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_00384.dir\\Debug\\cmTC_00384.tlog\\cmTC_00384.write.1u.tlog" "cmTC_00384.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe' n'est pas reconnu en tant que commande interne
+          ou externe, un programme exécutable ou un fichier de commandes.
+          La commande "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4y9n9w\\Debug\\cmTC_00384.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_00384.dir\\Debug\\cmTC_00384.tlog\\cmTC_00384.write.1u.tlog" "cmTC_00384.dir\\Debug\\vcpkg.applocal.log"" s'est arrêtée avec le code 9009.
+          "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4y9n9w\\Debug\\cmTC_00384.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_00384.dir\\Debug\\cmTC_00384.tlog\\cmTC_00384.write.1u.tlog" "cmTC_00384.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          Suppression du fichier "cmTC_00384.dir\\Debug\\cmTC_00384.tlog\\unsuccessfulbuild".
+          Mise à jour de l'horodatage "cmTC_00384.dir\\Debug\\cmTC_00384.tlog\\cmTC_00384.lastbuildstate".
+        Génération du projet "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4y9n9w\\cmTC_00384.vcxproj" terminée (cibles par défaut).
+        
+        La génération a réussi.
+            0 Avertissement(s)
+            0 Erreur(s)
+        
+        Temps écoulé 00:00:02.85
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CheckIncludeFileCXX.cmake:94 (try_compile)"
+      - "src/lib_json/CMakeLists.txt:11 (check_include_file_cxx)"
+    checks:
+      - "Looking for C++ include clocale"
+    directories:
+      source: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-6ouzlu"
+      binary: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-6ouzlu"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:X86"
+      CMAKE_MODULE_PATH: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/cmake"
+    buildResult:
+      variable: "HAVE_CLOCALE"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-6ouzlu
+        
+        Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_0558e.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=16.0 /v:n && Microsoft (R) Build Engine version 16.11.2+f32259642 pour .NET Framework
+        Copyright (C) Microsoft Corporation. Tous droits réservés.
+        
+        La génération a démarré 12/05/2023 15:32:29.
+        Projet "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6ouzlu\\cmTC_0558e.vcxproj" sur le nœud 1 (cibles par défaut).
+        PrepareForBuild:
+          Création du répertoire "cmTC_0558e.dir\\Debug\\".
+          Création du répertoire "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6ouzlu\\Debug\\".
+          Création du répertoire "cmTC_0558e.dir\\Debug\\cmTC_0558e.tlog\\".
+        InitializeBuildStatus:
+          Création de "cmTC_0558e.dir\\Debug\\cmTC_0558e.tlog\\unsuccessfulbuild", car "AlwaysCreate" a été spécifié.
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "C:\\src\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x86\\CL.exe /c /I"C:\\src\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_0558e.dir\\Debug\\\\" /Fd"cmTC_0558e.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6ouzlu\\CheckIncludeFile.cxx"
+          Compilateur d'optimisation Microsoft (R) C/C++ version 19.29.30148 pour x86
+          Copyright (C) Microsoft Corporation. Tous droits réservés.
+          CheckIncludeFile.cxx
+          cl /c /I"C:\\src\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_0558e.dir\\Debug\\\\" /Fd"cmTC_0558e.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6ouzlu\\CheckIncludeFile.cxx"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6ouzlu\\Debug\\cmTC_0558e.exe" /INCREMENTAL /ILK:"cmTC_0558e.dir\\Debug\\cmTC_0558e.ilk" /NOLOGO /LIBPATH:"C:\\src\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"C:\\src\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\src\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-6ouzlu/Debug/cmTC_0558e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-6ouzlu/Debug/cmTC_0558e.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_0558e.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_0558e.vcxproj -> C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6ouzlu\\Debug\\cmTC_0558e.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6ouzlu\\Debug\\cmTC_0558e.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_0558e.dir\\Debug\\cmTC_0558e.tlog\\cmTC_0558e.write.1u.tlog" "cmTC_0558e.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe' n'est pas reconnu en tant que commande interne
+          ou externe, un programme exécutable ou un fichier de commandes.
+          La commande "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6ouzlu\\Debug\\cmTC_0558e.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_0558e.dir\\Debug\\cmTC_0558e.tlog\\cmTC_0558e.write.1u.tlog" "cmTC_0558e.dir\\Debug\\vcpkg.applocal.log"" s'est arrêtée avec le code 9009.
+          "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6ouzlu\\Debug\\cmTC_0558e.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_0558e.dir\\Debug\\cmTC_0558e.tlog\\cmTC_0558e.write.1u.tlog" "cmTC_0558e.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          Suppression du fichier "cmTC_0558e.dir\\Debug\\cmTC_0558e.tlog\\unsuccessfulbuild".
+          Mise à jour de l'horodatage "cmTC_0558e.dir\\Debug\\cmTC_0558e.tlog\\cmTC_0558e.lastbuildstate".
+        Génération du projet "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6ouzlu\\cmTC_0558e.vcxproj" terminée (cibles par défaut).
+        
+        La génération a réussi.
+            0 Avertissement(s)
+            0 Erreur(s)
+        
+        Temps écoulé 00:00:02.74
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CheckCXXSymbolExists.cmake:77 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "src/lib_json/CMakeLists.txt:12 (check_cxx_symbol_exists)"
+    checks:
+      - "Looking for localeconv"
+    directories:
+      source: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-g7cwdc"
+      binary: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-g7cwdc"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:X86"
+      CMAKE_MODULE_PATH: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/cmake"
+    buildResult:
+      variable: "HAVE_LOCALECONV"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-g7cwdc
+        
+        Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_00428.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=16.0 /v:n && Microsoft (R) Build Engine version 16.11.2+f32259642 pour .NET Framework
+        Copyright (C) Microsoft Corporation. Tous droits réservés.
+        
+        La génération a démarré 12/05/2023 15:32:32.
+        Projet "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g7cwdc\\cmTC_00428.vcxproj" sur le nœud 1 (cibles par défaut).
+        PrepareForBuild:
+          Création du répertoire "cmTC_00428.dir\\Debug\\".
+          Création du répertoire "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g7cwdc\\Debug\\".
+          Création du répertoire "cmTC_00428.dir\\Debug\\cmTC_00428.tlog\\".
+        InitializeBuildStatus:
+          Création de "cmTC_00428.dir\\Debug\\cmTC_00428.tlog\\unsuccessfulbuild", car "AlwaysCreate" a été spécifié.
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "C:\\src\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x86\\CL.exe /c /I"C:\\src\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_00428.dir\\Debug\\\\" /Fd"cmTC_00428.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g7cwdc\\CheckSymbolExists.cxx"
+          Compilateur d'optimisation Microsoft (R) C/C++ version 19.29.30148 pour x86
+          Copyright (C) Microsoft Corporation. Tous droits réservés.
+          CheckSymbolExists.cxx
+          cl /c /I"C:\\src\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_00428.dir\\Debug\\\\" /Fd"cmTC_00428.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g7cwdc\\CheckSymbolExists.cxx"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g7cwdc\\Debug\\cmTC_00428.exe" /INCREMENTAL /ILK:"cmTC_00428.dir\\Debug\\cmTC_00428.ilk" /NOLOGO /LIBPATH:"C:\\src\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"C:\\src\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\src\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-g7cwdc/Debug/cmTC_00428.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-g7cwdc/Debug/cmTC_00428.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_00428.dir\\Debug\\CheckSymbolExists.obj
+          cmTC_00428.vcxproj -> C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g7cwdc\\Debug\\cmTC_00428.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g7cwdc\\Debug\\cmTC_00428.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_00428.dir\\Debug\\cmTC_00428.tlog\\cmTC_00428.write.1u.tlog" "cmTC_00428.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe' n'est pas reconnu en tant que commande interne
+          ou externe, un programme exécutable ou un fichier de commandes.
+          La commande "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g7cwdc\\Debug\\cmTC_00428.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_00428.dir\\Debug\\cmTC_00428.tlog\\cmTC_00428.write.1u.tlog" "cmTC_00428.dir\\Debug\\vcpkg.applocal.log"" s'est arrêtée avec le code 9009.
+          "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g7cwdc\\Debug\\cmTC_00428.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_00428.dir\\Debug\\cmTC_00428.tlog\\cmTC_00428.write.1u.tlog" "cmTC_00428.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          Suppression du fichier "cmTC_00428.dir\\Debug\\cmTC_00428.tlog\\unsuccessfulbuild".
+          Mise à jour de l'horodatage "cmTC_00428.dir\\Debug\\cmTC_00428.tlog\\cmTC_00428.lastbuildstate".
+        Génération du projet "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g7cwdc\\cmTC_00428.vcxproj" terminée (cibles par défaut).
+        
+        La génération a réussi.
+            0 Avertissement(s)
+            0 Erreur(s)
+        
+        Temps écoulé 00:00:02.80
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CheckIncludeFileCXX.cmake:94 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CheckTypeSize.cmake:256 (check_include_file_cxx)"
+      - "src/lib_json/CMakeLists.txt:15 (check_type_size)"
+    checks:
+      - "Looking for C++ include sys/types.h"
+    directories:
+      source: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-g2r80x"
+      binary: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-g2r80x"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:X86"
+      CMAKE_MODULE_PATH: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/cmake"
+    buildResult:
+      variable: "HAVE_SYS_TYPES_H"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-g2r80x
+        
+        Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_7a7b8.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=16.0 /v:n && Microsoft (R) Build Engine version 16.11.2+f32259642 pour .NET Framework
+        Copyright (C) Microsoft Corporation. Tous droits réservés.
+        
+        La génération a démarré 12/05/2023 15:32:35.
+        Projet "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g2r80x\\cmTC_7a7b8.vcxproj" sur le nœud 1 (cibles par défaut).
+        PrepareForBuild:
+          Création du répertoire "cmTC_7a7b8.dir\\Debug\\".
+          Création du répertoire "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g2r80x\\Debug\\".
+          Création du répertoire "cmTC_7a7b8.dir\\Debug\\cmTC_7a7b8.tlog\\".
+        InitializeBuildStatus:
+          Création de "cmTC_7a7b8.dir\\Debug\\cmTC_7a7b8.tlog\\unsuccessfulbuild", car "AlwaysCreate" a été spécifié.
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "C:\\src\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x86\\CL.exe /c /I"C:\\src\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_7a7b8.dir\\Debug\\\\" /Fd"cmTC_7a7b8.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g2r80x\\CheckIncludeFile.cxx"
+          Compilateur d'optimisation Microsoft (R) C/C++ version 19.29.30148 pour x86
+          Copyright (C) Microsoft Corporation. Tous droits réservés.
+          CheckIncludeFile.cxx
+          cl /c /I"C:\\src\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_7a7b8.dir\\Debug\\\\" /Fd"cmTC_7a7b8.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g2r80x\\CheckIncludeFile.cxx"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g2r80x\\Debug\\cmTC_7a7b8.exe" /INCREMENTAL /ILK:"cmTC_7a7b8.dir\\Debug\\cmTC_7a7b8.ilk" /NOLOGO /LIBPATH:"C:\\src\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"C:\\src\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\src\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-g2r80x/Debug/cmTC_7a7b8.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-g2r80x/Debug/cmTC_7a7b8.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_7a7b8.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_7a7b8.vcxproj -> C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g2r80x\\Debug\\cmTC_7a7b8.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g2r80x\\Debug\\cmTC_7a7b8.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_7a7b8.dir\\Debug\\cmTC_7a7b8.tlog\\cmTC_7a7b8.write.1u.tlog" "cmTC_7a7b8.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe' n'est pas reconnu en tant que commande interne
+          ou externe, un programme exécutable ou un fichier de commandes.
+          La commande "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g2r80x\\Debug\\cmTC_7a7b8.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_7a7b8.dir\\Debug\\cmTC_7a7b8.tlog\\cmTC_7a7b8.write.1u.tlog" "cmTC_7a7b8.dir\\Debug\\vcpkg.applocal.log"" s'est arrêtée avec le code 9009.
+          "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g2r80x\\Debug\\cmTC_7a7b8.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_7a7b8.dir\\Debug\\cmTC_7a7b8.tlog\\cmTC_7a7b8.write.1u.tlog" "cmTC_7a7b8.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          Suppression du fichier "cmTC_7a7b8.dir\\Debug\\cmTC_7a7b8.tlog\\unsuccessfulbuild".
+          Mise à jour de l'horodatage "cmTC_7a7b8.dir\\Debug\\cmTC_7a7b8.tlog\\cmTC_7a7b8.lastbuildstate".
+        Génération du projet "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g2r80x\\cmTC_7a7b8.vcxproj" terminée (cibles par défaut).
+        
+        La génération a réussi.
+            0 Avertissement(s)
+            0 Erreur(s)
+        
+        Temps écoulé 00:00:02.91
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CheckIncludeFileCXX.cmake:94 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CheckTypeSize.cmake:261 (check_include_file_cxx)"
+      - "src/lib_json/CMakeLists.txt:15 (check_type_size)"
+    checks:
+      - "Looking for C++ include stdint.h"
+    directories:
+      source: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-mgas03"
+      binary: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-mgas03"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:X86"
+      CMAKE_MODULE_PATH: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/cmake"
+    buildResult:
+      variable: "HAVE_STDINT_H"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-mgas03
+        
+        Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_c11e1.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=16.0 /v:n && Microsoft (R) Build Engine version 16.11.2+f32259642 pour .NET Framework
+        Copyright (C) Microsoft Corporation. Tous droits réservés.
+        
+        La génération a démarré 12/05/2023 15:32:38.
+        Projet "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mgas03\\cmTC_c11e1.vcxproj" sur le nœud 1 (cibles par défaut).
+        PrepareForBuild:
+          Création du répertoire "cmTC_c11e1.dir\\Debug\\".
+          Création du répertoire "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mgas03\\Debug\\".
+          Création du répertoire "cmTC_c11e1.dir\\Debug\\cmTC_c11e1.tlog\\".
+        InitializeBuildStatus:
+          Création de "cmTC_c11e1.dir\\Debug\\cmTC_c11e1.tlog\\unsuccessfulbuild", car "AlwaysCreate" a été spécifié.
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "C:\\src\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x86\\CL.exe /c /I"C:\\src\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_c11e1.dir\\Debug\\\\" /Fd"cmTC_c11e1.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mgas03\\CheckIncludeFile.cxx"
+          Compilateur d'optimisation Microsoft (R) C/C++ version 19.29.30148 pour x86
+          Copyright (C) Microsoft Corporation. Tous droits réservés.
+          CheckIncludeFile.cxx
+          cl /c /I"C:\\src\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_c11e1.dir\\Debug\\\\" /Fd"cmTC_c11e1.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mgas03\\CheckIncludeFile.cxx"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mgas03\\Debug\\cmTC_c11e1.exe" /INCREMENTAL /ILK:"cmTC_c11e1.dir\\Debug\\cmTC_c11e1.ilk" /NOLOGO /LIBPATH:"C:\\src\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"C:\\src\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\src\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-mgas03/Debug/cmTC_c11e1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-mgas03/Debug/cmTC_c11e1.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_c11e1.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_c11e1.vcxproj -> C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mgas03\\Debug\\cmTC_c11e1.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mgas03\\Debug\\cmTC_c11e1.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_c11e1.dir\\Debug\\cmTC_c11e1.tlog\\cmTC_c11e1.write.1u.tlog" "cmTC_c11e1.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe' n'est pas reconnu en tant que commande interne
+          ou externe, un programme exécutable ou un fichier de commandes.
+          La commande "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mgas03\\Debug\\cmTC_c11e1.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_c11e1.dir\\Debug\\cmTC_c11e1.tlog\\cmTC_c11e1.write.1u.tlog" "cmTC_c11e1.dir\\Debug\\vcpkg.applocal.log"" s'est arrêtée avec le code 9009.
+          "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mgas03\\Debug\\cmTC_c11e1.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_c11e1.dir\\Debug\\cmTC_c11e1.tlog\\cmTC_c11e1.write.1u.tlog" "cmTC_c11e1.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          Suppression du fichier "cmTC_c11e1.dir\\Debug\\cmTC_c11e1.tlog\\unsuccessfulbuild".
+          Mise à jour de l'horodatage "cmTC_c11e1.dir\\Debug\\cmTC_c11e1.tlog\\cmTC_c11e1.lastbuildstate".
+        Génération du projet "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mgas03\\cmTC_c11e1.vcxproj" terminée (cibles par défaut).
+        
+        La génération a réussi.
+            0 Avertissement(s)
+            0 Erreur(s)
+        
+        Temps écoulé 00:00:02.82
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CheckIncludeFileCXX.cmake:94 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CheckTypeSize.cmake:262 (check_include_file_cxx)"
+      - "src/lib_json/CMakeLists.txt:15 (check_type_size)"
+    checks:
+      - "Looking for C++ include stddef.h"
+    directories:
+      source: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-bbihwl"
+      binary: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-bbihwl"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:X86"
+      CMAKE_MODULE_PATH: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/cmake"
+    buildResult:
+      variable: "HAVE_STDDEF_H"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-bbihwl
+        
+        Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_a8810.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=16.0 /v:n && Microsoft (R) Build Engine version 16.11.2+f32259642 pour .NET Framework
+        Copyright (C) Microsoft Corporation. Tous droits réservés.
+        
+        La génération a démarré 12/05/2023 15:32:42.
+        Projet "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bbihwl\\cmTC_a8810.vcxproj" sur le nœud 1 (cibles par défaut).
+        PrepareForBuild:
+          Création du répertoire "cmTC_a8810.dir\\Debug\\".
+          Création du répertoire "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bbihwl\\Debug\\".
+          Création du répertoire "cmTC_a8810.dir\\Debug\\cmTC_a8810.tlog\\".
+        InitializeBuildStatus:
+          Création de "cmTC_a8810.dir\\Debug\\cmTC_a8810.tlog\\unsuccessfulbuild", car "AlwaysCreate" a été spécifié.
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "C:\\src\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x86\\CL.exe /c /I"C:\\src\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_a8810.dir\\Debug\\\\" /Fd"cmTC_a8810.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bbihwl\\CheckIncludeFile.cxx"
+          Compilateur d'optimisation Microsoft (R) C/C++ version 19.29.30148 pour x86
+          Copyright (C) Microsoft Corporation. Tous droits réservés.
+          CheckIncludeFile.cxx
+          cl /c /I"C:\\src\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_a8810.dir\\Debug\\\\" /Fd"cmTC_a8810.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bbihwl\\CheckIncludeFile.cxx"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bbihwl\\Debug\\cmTC_a8810.exe" /INCREMENTAL /ILK:"cmTC_a8810.dir\\Debug\\cmTC_a8810.ilk" /NOLOGO /LIBPATH:"C:\\src\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"C:\\src\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\src\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-bbihwl/Debug/cmTC_a8810.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-bbihwl/Debug/cmTC_a8810.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_a8810.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_a8810.vcxproj -> C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bbihwl\\Debug\\cmTC_a8810.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bbihwl\\Debug\\cmTC_a8810.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_a8810.dir\\Debug\\cmTC_a8810.tlog\\cmTC_a8810.write.1u.tlog" "cmTC_a8810.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe' n'est pas reconnu en tant que commande interne
+          ou externe, un programme exécutable ou un fichier de commandes.
+          La commande "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bbihwl\\Debug\\cmTC_a8810.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_a8810.dir\\Debug\\cmTC_a8810.tlog\\cmTC_a8810.write.1u.tlog" "cmTC_a8810.dir\\Debug\\vcpkg.applocal.log"" s'est arrêtée avec le code 9009.
+          "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bbihwl\\Debug\\cmTC_a8810.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_a8810.dir\\Debug\\cmTC_a8810.tlog\\cmTC_a8810.write.1u.tlog" "cmTC_a8810.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          Suppression du fichier "cmTC_a8810.dir\\Debug\\cmTC_a8810.tlog\\unsuccessfulbuild".
+          Mise à jour de l'horodatage "cmTC_a8810.dir\\Debug\\cmTC_a8810.tlog\\cmTC_a8810.lastbuildstate".
+        Génération du projet "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bbihwl\\cmTC_a8810.vcxproj" terminée (cibles par défaut).
+        
+        La génération a réussi.
+            0 Avertissement(s)
+            0 Erreur(s)
+        
+        Temps écoulé 00:00:02.81
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CheckTypeSize.cmake:148 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CheckTypeSize.cmake:273 (__check_type_size_impl)"
+      - "src/lib_json/CMakeLists.txt:15 (check_type_size)"
+    checks:
+      - "Check size of lconv"
+    directories:
+      source: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-o2793i"
+      binary: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-o2793i"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:X86"
+      CMAKE_MODULE_PATH: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/cmake"
+    buildResult:
+      variable: "HAVE_LCONV_SIZE"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-o2793i
+        
+        Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_dcc04.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=16.0 /v:n && Microsoft (R) Build Engine version 16.11.2+f32259642 pour .NET Framework
+        Copyright (C) Microsoft Corporation. Tous droits réservés.
+        
+        La génération a démarré 12/05/2023 15:32:45.
+        Projet "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-o2793i\\cmTC_dcc04.vcxproj" sur le nœud 1 (cibles par défaut).
+        PrepareForBuild:
+          Création du répertoire "cmTC_dcc04.dir\\Debug\\".
+          Création du répertoire "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-o2793i\\Debug\\".
+          Création du répertoire "cmTC_dcc04.dir\\Debug\\cmTC_dcc04.tlog\\".
+        InitializeBuildStatus:
+          Création de "cmTC_dcc04.dir\\Debug\\cmTC_dcc04.tlog\\unsuccessfulbuild", car "AlwaysCreate" a été spécifié.
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "C:\\src\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x86\\CL.exe /c /I"C:\\src\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_dcc04.dir\\Debug\\\\" /Fd"cmTC_dcc04.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-o2793i\\LCONV_SIZE.cpp"
+          Compilateur d'optimisation Microsoft (R) C/C++ version 19.29.30148 pour x86
+          Copyright (C) Microsoft Corporation. Tous droits réservés.
+          LCONV_SIZE.cpp
+          cl /c /I"C:\\src\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_dcc04.dir\\Debug\\\\" /Fd"cmTC_dcc04.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-o2793i\\LCONV_SIZE.cpp"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-o2793i\\Debug\\cmTC_dcc04.exe" /INCREMENTAL /ILK:"cmTC_dcc04.dir\\Debug\\cmTC_dcc04.ilk" /NOLOGO /LIBPATH:"C:\\src\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"C:\\src\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\src\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-o2793i/Debug/cmTC_dcc04.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-o2793i/Debug/cmTC_dcc04.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_dcc04.dir\\Debug\\LCONV_SIZE.obj
+          cmTC_dcc04.vcxproj -> C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-o2793i\\Debug\\cmTC_dcc04.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-o2793i\\Debug\\cmTC_dcc04.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_dcc04.dir\\Debug\\cmTC_dcc04.tlog\\cmTC_dcc04.write.1u.tlog" "cmTC_dcc04.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe' n'est pas reconnu en tant que commande interne
+          ou externe, un programme exécutable ou un fichier de commandes.
+          La commande "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-o2793i\\Debug\\cmTC_dcc04.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_dcc04.dir\\Debug\\cmTC_dcc04.tlog\\cmTC_dcc04.write.1u.tlog" "cmTC_dcc04.dir\\Debug\\vcpkg.applocal.log"" s'est arrêtée avec le code 9009.
+          "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-o2793i\\Debug\\cmTC_dcc04.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_dcc04.dir\\Debug\\cmTC_dcc04.tlog\\cmTC_dcc04.write.1u.tlog" "cmTC_dcc04.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          Suppression du fichier "cmTC_dcc04.dir\\Debug\\cmTC_dcc04.tlog\\unsuccessfulbuild".
+          Mise à jour de l'horodatage "cmTC_dcc04.dir\\Debug\\cmTC_dcc04.tlog\\cmTC_dcc04.lastbuildstate".
+        Génération du projet "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-o2793i\\cmTC_dcc04.vcxproj" terminée (cibles par défaut).
+        
+        La génération a réussi.
+            0 Avertissement(s)
+            0 Erreur(s)
+        
+        Temps écoulé 00:00:02.75
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CheckCXXSourceCompiles.cmake:76 (cmake_check_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-3.26/Modules/CheckStructHasMember.cmake:83 (CHECK_CXX_SOURCE_COMPILES)"
+      - "src/lib_json/CMakeLists.txt:17 (check_struct_has_member)"
+    checks:
+      - "Performing Test HAVE_DECIMAL_POINT"
+    directories:
+      source: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-gqurjg"
+      binary: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-gqurjg"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:X86"
+      CMAKE_MODULE_PATH: "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/cmake"
+    buildResult:
+      variable: "HAVE_DECIMAL_POINT"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-gqurjg
+        
+        Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_79014.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=16.0 /v:n && Microsoft (R) Build Engine version 16.11.2+f32259642 pour .NET Framework
+        Copyright (C) Microsoft Corporation. Tous droits réservés.
+        
+        La génération a démarré 12/05/2023 15:32:48.
+        Projet "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gqurjg\\cmTC_79014.vcxproj" sur le nœud 1 (cibles par défaut).
+        PrepareForBuild:
+          Création du répertoire "cmTC_79014.dir\\Debug\\".
+          Création du répertoire "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gqurjg\\Debug\\".
+          Création du répertoire "cmTC_79014.dir\\Debug\\cmTC_79014.tlog\\".
+        InitializeBuildStatus:
+          Création de "cmTC_79014.dir\\Debug\\cmTC_79014.tlog\\unsuccessfulbuild", car "AlwaysCreate" a été spécifié.
+        VcpkgTripletSelection:
+          Using triplet "x86-windows" from "C:\\src\\vcpkg\\installed\\x86-windows\\"
+          Using normalized configuration "Release"
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x86\\CL.exe /c /I"C:\\src\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_DECIMAL_POINT /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_79014.dir\\Debug\\\\" /Fd"cmTC_79014.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gqurjg\\src.cxx"
+          Compilateur d'optimisation Microsoft (R) C/C++ version 19.29.30148 pour x86
+          Copyright (C) Microsoft Corporation. Tous droits réservés.
+          src.cxx
+          cl /c /I"C:\\src\\vcpkg\\installed\\x86-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_DECIMAL_POINT /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_79014.dir\\Debug\\\\" /Fd"cmTC_79014.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /analyze- /errorReport:queue "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gqurjg\\src.cxx"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gqurjg\\Debug\\cmTC_79014.exe" /INCREMENTAL /ILK:"cmTC_79014.dir\\Debug\\cmTC_79014.ilk" /NOLOGO /LIBPATH:"C:\\src\\vcpkg\\installed\\x86-windows\\lib" /LIBPATH:"C:\\src\\vcpkg\\installed\\x86-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\src\\vcpkg\\installed\\x86-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-gqurjg/Debug/cmTC_79014.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/build/CMakeFiles/CMakeScratch/TryCompile-gqurjg/Debug/cmTC_79014.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_79014.dir\\Debug\\src.obj
+          cmTC_79014.vcxproj -> C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gqurjg\\Debug\\cmTC_79014.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gqurjg\\Debug\\cmTC_79014.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_79014.dir\\Debug\\cmTC_79014.tlog\\cmTC_79014.write.1u.tlog" "cmTC_79014.dir\\Debug\\vcpkg.applocal.log"
+          'pwsh.exe' n'est pas reconnu en tant que commande interne
+          ou externe, un programme exécutable ou un fichier de commandes.
+          La commande "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gqurjg\\Debug\\cmTC_79014.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_79014.dir\\Debug\\cmTC_79014.tlog\\cmTC_79014.write.1u.tlog" "cmTC_79014.dir\\Debug\\vcpkg.applocal.log"" s'est arrêtée avec le code 9009.
+          "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\src\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gqurjg\\Debug\\cmTC_79014.exe" "C:\\src\\vcpkg\\installed\\x86-windows\\bin" "cmTC_79014.dir\\Debug\\cmTC_79014.tlog\\cmTC_79014.write.1u.tlog" "cmTC_79014.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          Suppression du fichier "cmTC_79014.dir\\Debug\\cmTC_79014.tlog\\unsuccessfulbuild".
+          Mise à jour de l'horodatage "cmTC_79014.dir\\Debug\\cmTC_79014.tlog\\cmTC_79014.lastbuildstate".
+        Génération du projet "C:\\Users\\g.gonfiantini\\Desktop\\RedisCPlusPlus\\DriverJSON\\jsoncpp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gqurjg\\cmTC_79014.vcxproj" terminée (cibles par défaut).
+        
+        La génération a réussi.
+            0 Avertissement(s)
+            0 Erreur(s)
+        
+        Temps écoulé 00:00:02.78
+        
+      exitCode: 0
+...

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON\jsoncpp\src\lib_json\json_reader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON\jsoncpp\src\lib_json\json_value.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON\jsoncpp\src\lib_json\json_writer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON\jsoncpp\include\json\config.h">
+      <Filter>Public API</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON\jsoncpp\include\json\forwards.h">
+      <Filter>Public API</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON\jsoncpp\include\json\json_features.h">
+      <Filter>Public API</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON\jsoncpp\include\json\value.h">
+      <Filter>Public API</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON\jsoncpp\include\json\reader.h">
+      <Filter>Public API</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON\jsoncpp\include\json\version.h">
+      <Filter>Public API</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON\jsoncpp\include\json\writer.h">
+      <Filter>Public API</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON\jsoncpp\include\json\assertions.h">
+      <Filter>Public API</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON\jsoncpp\src\lib_json\json_tool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON\jsoncpp\src\lib_json\json_valueiterator.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON\jsoncpp\src\lib_json\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{D7E42569-C902-354B-94E7-5C0FC955AF6D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public API">
+      <UniqueIdentifier>{E285BD0E-380D-3961-927F-453B9483B603}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{568F1B16-B70D-332A-AAF3-08A4827753CE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

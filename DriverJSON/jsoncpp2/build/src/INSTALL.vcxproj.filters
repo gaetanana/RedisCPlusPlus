@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON\jsoncpp\build\CMakeFiles\080eda1e8b9039207917cfc6375ce04f\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{8D36F329-75C0-335F-9B90-FE8A85A602DD}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

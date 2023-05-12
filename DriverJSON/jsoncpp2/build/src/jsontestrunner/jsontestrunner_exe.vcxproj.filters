@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON\jsoncpp\src\jsontestrunner\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON\jsoncpp\src\jsontestrunner\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{568F1B16-B70D-332A-AAF3-08A4827753CE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

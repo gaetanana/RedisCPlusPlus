@@ -1,0 +1,11 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.26/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.26/Modules/CheckCXXSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.26/Modules/CheckCXXSymbolExists.cmake
+C:/Program Files/CMake/share/cmake-3.26/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.26/Modules/CheckIncludeFileCXX.cmake
+C:/Program Files/CMake/share/cmake-3.26/Modules/CheckStructHasMember.cmake
+C:/Program Files/CMake/share/cmake-3.26/Modules/CheckSymbolExists.cmake
+C:/Program Files/CMake/share/cmake-3.26/Modules/CheckTypeSize.cmake
+C:/Program Files/CMake/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake
+C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverJSON/jsoncpp/src/lib_json/CMakeLists.txt
