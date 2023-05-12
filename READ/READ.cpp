@@ -81,6 +81,7 @@ void readAllKey() {
 /**
  * Cette fonction permet de retrouver toutes les clé-valeur de la base de données Redis
  * Elle permet de filtrer les valeurs qui possèdent le type "Human"
+ * 1 filtre
  */
 
 void readAllKeyWithHuman(){
@@ -127,6 +128,7 @@ void readAllKeyWithHuman(){
  * Cette fonction permet de retrouver toutes les clé-valeur de la base de données Redis
  * Elle permet de filtrer les valeurs qui possèdent le type "Human"
  * Elle permet de filtrer les valeurs qui possèdent une probabilité supérieur à 0.5
+ * 2 filtres
  */
 void readAllKeyWithHumanProbability(){
     redisContext *c = connectionRedis();
@@ -173,6 +175,14 @@ void readAllKeyWithHumanProbability(){
     fermertureRedis(c);
 }
 
+/**
+ * Cette fonction permet de retrouver toutes les clé-valeur de la base de données Redis
+ * Elle permet de filtrer les valeurs qui possèdent le type "Human"
+ * Elle permet de filtrer les valeurs qui possèdent une probabilité supérieur à 0.5
+ * AJOUTER UN FILTRE (DATE )
+ * 3 filtres
+ */
 
+//Todo à faire plus tard
 
 
