@@ -9,8 +9,7 @@
 #include "..\ConnectionRedis\connection.h"
 #include "json/value.h"
 #include "json/writer.h"
-
-
+#include <chrono>
 #include <string>
 #include <filesystem>
 #include <fstream>
@@ -45,7 +44,6 @@ void createOneKeyValue(){
  * @param xml
  * @return
   */
-
 string xmlToJson(string xml){
     pugi::xml_document doc;
     pugi::xml_parse_result result = doc.load_string(xml.c_str());
@@ -53,7 +51,6 @@ string xmlToJson(string xml){
         std::cout << "Erreur lors du chargement du fichier XML : " << result.description() << "\n";
         return "";
     }
-
     pugi::xml_node root = doc.document_element();
     Json::Value rootJson;
     pugi::xml_node child = root.first_child();
@@ -92,6 +89,9 @@ void createAllKeyValue() {
     cout << "Saisir le chemin absolu du dossier : ";
     cin >> path;
 
+    // Début du chrono
+    auto start = std::chrono::high_resolution_clock::now();
+
     for (const auto & entry : fs::directory_iterator(path)){
         if (entry.path().extension() == ".xml"){
             ifstream inFile;
@@ -108,5 +108,12 @@ void createAllKeyValue() {
             redisCommand(c,"SET %s %s", key.c_str(), jsonStr.c_str());
         }
     }
+
+    // Fin du chrono
+    auto finish = std::chrono::high_resolution_clock::now();
+
+    // Calcul de la durée d'exécution
+    std::chrono::duration<double> elapsed = finish - start;
+    std::cout << "Elapsed time: " << elapsed.count() << " s\n";
     redisFree(c);
 }
