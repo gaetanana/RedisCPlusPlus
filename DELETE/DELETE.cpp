@@ -27,16 +27,19 @@ using namespace std;
 void deleteOneKeyValue() {
     redisContext *c = connectionRedis();
     string key;
-    cout << "Saisir une clé : ";
+    cout << "Saisir une cle : ";
     cin >> key;
     auto *reply = (redisReply *) redisCommand(c, "DEL %s", key.c_str());
     if (reply == nullptr) {
         std::cout << "Erreur lors de l'envoi de la commande DEL: " << c->errstr << "\n";
         fermertureRedis(c);
+        return;
     }
-    cout << "Reponse a DEL: " << reply->str << "\n";
+    cout << "Reponse a DEL: " << reply->integer << "\n";
+    freeReplyObject(reply);
     fermertureRedis(c);
 }
+
 
 
 

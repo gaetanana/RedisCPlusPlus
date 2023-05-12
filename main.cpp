@@ -4,6 +4,7 @@
 #include "ConnectionRedis\connection.h"
 #include "CREATE\CREATE.h"
 #include "DELETE\DELETE.h"
+#include "READ\READ.h"
 using namespace std;
 
 int main() {
@@ -13,13 +14,14 @@ int main() {
     //Partie CREATE
     //createOneKeyValue(); //Fonction qui permet de créer une clé et une valeur dans la base de données Redis
     //createAllKeyValue(); //Fonction qui permet de insérer toutes les clés (nom du fichier) et les valeurs (contenue du fichier) dans la base de données Redis
-    createOneKeyValueXML(); //Fonction qui permet de créer une clé et une valeur dans la base de données Redis à partir d'un fichier XML
+    //createOneKeyValueXML(); //Fonction qui permet de créer une clé et une valeur dans la base de données Redis à partir d'un fichier XML
     //Partie DELETE
     deleteOneKeyValue(); //Fonction qui permet de supprimer une clé et une valeur dans la base de données Redis
     //deleteAllKeyValue();
 
 
     //Partie READ
+    //readAll();
 
     return 0;
 }

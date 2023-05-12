@@ -6,3 +6,5 @@
 #define REDISCPLUSPLUS_READ_H
 
 #endif //REDISCPLUSPLUS_READ_H
+
+void readAll();
