@@ -6,3 +6,5 @@
 #define REDISCPLUSPLUS_DELETE_H
 
 #endif //REDISCPLUSPLUS_DELETE_H
+
+void deleteAllKeyValue();

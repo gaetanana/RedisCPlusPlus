@@ -44,6 +44,24 @@ void createOneKeyValue(){
  * @param xml
  * @return
   */
+Json::Value xmlNodeToJson(const pugi::xml_node& xmlNode){
+    Json::Value jsonNode;
+
+    for (pugi::xml_attribute attr = xmlNode.first_attribute(); attr; attr = attr.next_attribute()){
+        jsonNode[attr.name()] = attr.value();
+    }
+
+    for (pugi::xml_node child = xmlNode.first_child(); child; child = child.next_sibling()){
+        if (child.first_child().type() == pugi::node_pcdata){
+            jsonNode[child.name()] = child.child_value();
+        } else {
+            jsonNode[child.name()].append(xmlNodeToJson(child));
+        }
+    }
+
+    return jsonNode;
+}
+
 string xmlToJson(string xml){
     pugi::xml_document doc;
     pugi::xml_parse_result result = doc.load_string(xml.c_str());
@@ -51,23 +69,10 @@ string xmlToJson(string xml){
         std::cout << "Erreur lors du chargement du fichier XML : " << result.description() << "\n";
         return "";
     }
+
     pugi::xml_node root = doc.document_element();
-    Json::Value rootJson;
-    pugi::xml_node child = root.first_child();
-    while (child) {
-        Json::Value childJson;
-        pugi::xml_attribute attr = child.first_attribute();
-        while (attr) {
-            childJson[attr.name()] = attr.value();
-            attr = attr.next_attribute();
-        }
-        // ajoute le texte du noeud à l'objet JSON
-        if (!child.text().empty()) {
-            childJson["text"] = child.text().get();
-        }
-        rootJson[child.name()].append(childJson);
-        child = child.next_sibling();
-    }
+
+    Json::Value rootJson = xmlNodeToJson(root);
 
     Json::StreamWriterBuilder builder;
     builder["indentation"] = "\t";
@@ -75,13 +80,11 @@ string xmlToJson(string xml){
     return jsonStr;
 }
 
-
 /**
 * Cette fonction me permet de créer toutes les clés et valeurs d'un dossier dans la base de données Redis
  * En demandant le chemin absolu du dossier et tous les fichiers XML sont convertis en JSON et stockés dans la base de données Redis
  * Et le nom des clés est le nom du fichier XML
 */
-
 void createAllKeyValue() {
     redisContext* c = connectionRedis();
     string path;

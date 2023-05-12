@@ -6,5 +6,11 @@
 #define REDISCPLUSPLUS_CREATE_H
 
 #endif //REDISCPLUSPLUS_CREATE_H
+#include <iostream>
+using namespace std;
 
 void createOneKeyValue();
+
+string xmlToJson(string xml);
+
+void createAllKeyValue();

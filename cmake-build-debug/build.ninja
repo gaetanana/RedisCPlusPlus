@@ -50,26 +50,42 @@ cmake_ninja_workdir = C$:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build
 build cmake_object_order_depends_target_RedisCPlusPlus: phony || CMakeFiles\RedisCPlusPlus.dir
 
 build CMakeFiles\RedisCPlusPlus.dir\main.cpp.obj: CXX_COMPILER__RedisCPlusPlus_Debug C$:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\main.cpp || cmake_object_order_depends_target_RedisCPlusPlus
-  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -std:c++14
-  INCLUDES = -IC:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverHiredis\hiredis\build\install\include
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -std:c++17
+  INCLUDES = -IC:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverHiredis\hiredis\build\install\include -IC:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverPugiXML\pugixml\build\install\include -IC:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON\jsoncpp\build\install\include
   OBJECT_DIR = CMakeFiles\RedisCPlusPlus.dir
   OBJECT_FILE_DIR = CMakeFiles\RedisCPlusPlus.dir
   TARGET_COMPILE_PDB = CMakeFiles\RedisCPlusPlus.dir\
   TARGET_PDB = RedisCPlusPlus.pdb
 
 build CMakeFiles\RedisCPlusPlus.dir\CREATE\CREATE.cpp.obj: CXX_COMPILER__RedisCPlusPlus_Debug C$:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\CREATE\CREATE.cpp || cmake_object_order_depends_target_RedisCPlusPlus
-  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -std:c++14
-  INCLUDES = -IC:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverHiredis\hiredis\build\install\include
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -std:c++17
+  INCLUDES = -IC:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverHiredis\hiredis\build\install\include -IC:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverPugiXML\pugixml\build\install\include -IC:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON\jsoncpp\build\install\include
   OBJECT_DIR = CMakeFiles\RedisCPlusPlus.dir
   OBJECT_FILE_DIR = CMakeFiles\RedisCPlusPlus.dir\CREATE
   TARGET_COMPILE_PDB = CMakeFiles\RedisCPlusPlus.dir\
   TARGET_PDB = RedisCPlusPlus.pdb
 
 build CMakeFiles\RedisCPlusPlus.dir\ConnectionRedis\connection.cpp.obj: CXX_COMPILER__RedisCPlusPlus_Debug C$:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\ConnectionRedis\connection.cpp || cmake_object_order_depends_target_RedisCPlusPlus
-  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -std:c++14
-  INCLUDES = -IC:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverHiredis\hiredis\build\install\include
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -std:c++17
+  INCLUDES = -IC:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverHiredis\hiredis\build\install\include -IC:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverPugiXML\pugixml\build\install\include -IC:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON\jsoncpp\build\install\include
   OBJECT_DIR = CMakeFiles\RedisCPlusPlus.dir
   OBJECT_FILE_DIR = CMakeFiles\RedisCPlusPlus.dir\ConnectionRedis
+  TARGET_COMPILE_PDB = CMakeFiles\RedisCPlusPlus.dir\
+  TARGET_PDB = RedisCPlusPlus.pdb
+
+build CMakeFiles\RedisCPlusPlus.dir\DELETE\DELETE.cpp.obj: CXX_COMPILER__RedisCPlusPlus_Debug C$:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DELETE\DELETE.cpp || cmake_object_order_depends_target_RedisCPlusPlus
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -std:c++17
+  INCLUDES = -IC:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverHiredis\hiredis\build\install\include -IC:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverPugiXML\pugixml\build\install\include -IC:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON\jsoncpp\build\install\include
+  OBJECT_DIR = CMakeFiles\RedisCPlusPlus.dir
+  OBJECT_FILE_DIR = CMakeFiles\RedisCPlusPlus.dir\DELETE
+  TARGET_COMPILE_PDB = CMakeFiles\RedisCPlusPlus.dir\
+  TARGET_PDB = RedisCPlusPlus.pdb
+
+build CMakeFiles\RedisCPlusPlus.dir\READ\READ.cpp.obj: CXX_COMPILER__RedisCPlusPlus_Debug C$:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\READ\READ.cpp || cmake_object_order_depends_target_RedisCPlusPlus
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -std:c++17
+  INCLUDES = -IC:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverHiredis\hiredis\build\install\include -IC:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverPugiXML\pugixml\build\install\include -IC:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON\jsoncpp\build\install\include
+  OBJECT_DIR = CMakeFiles\RedisCPlusPlus.dir
+  OBJECT_FILE_DIR = CMakeFiles\RedisCPlusPlus.dir\READ
   TARGET_COMPILE_PDB = CMakeFiles\RedisCPlusPlus.dir\
   TARGET_PDB = RedisCPlusPlus.pdb
 
@@ -81,11 +97,11 @@ build CMakeFiles\RedisCPlusPlus.dir\ConnectionRedis\connection.cpp.obj: CXX_COMP
 #############################################
 # Link the executable RedisCPlusPlus.exe
 
-build RedisCPlusPlus.exe: CXX_EXECUTABLE_LINKER__RedisCPlusPlus_Debug CMakeFiles\RedisCPlusPlus.dir\main.cpp.obj CMakeFiles\RedisCPlusPlus.dir\CREATE\CREATE.cpp.obj CMakeFiles\RedisCPlusPlus.dir\ConnectionRedis\connection.cpp.obj
+build RedisCPlusPlus.exe: CXX_EXECUTABLE_LINKER__RedisCPlusPlus_Debug CMakeFiles\RedisCPlusPlus.dir\main.cpp.obj CMakeFiles\RedisCPlusPlus.dir\CREATE\CREATE.cpp.obj CMakeFiles\RedisCPlusPlus.dir\ConnectionRedis\connection.cpp.obj CMakeFiles\RedisCPlusPlus.dir\DELETE\DELETE.cpp.obj CMakeFiles\RedisCPlusPlus.dir\READ\READ.cpp.obj
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd
   LINK_FLAGS = /machine:X86 /debug /INCREMENTAL /subsystem:console
-  LINK_LIBRARIES = hiredisd.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
-  LINK_PATH = -LIBPATH:C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverHiredis\hiredis\build\install\lib
+  LINK_LIBRARIES = hiredisd.lib  pugixml.lib  jsoncpp.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  LINK_PATH = -LIBPATH:C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverHiredis\hiredis\build\install\lib   -LIBPATH:C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverPugiXML\pugixml\build\install\lib   -LIBPATH:C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON\jsoncpp\build\install\lib
   OBJECT_DIR = CMakeFiles\RedisCPlusPlus.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
