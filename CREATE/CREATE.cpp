@@ -15,11 +15,10 @@
 #include <filesystem>
 #include <fstream>
 #include <pugixml.hpp>
-//#include <json/json.h>
 #include <hiredis/hiredis.h>
 
 using namespace std;
-
+namespace fs = std::filesystem;
 /**
  * Cette fonction me permet de créer une clé et une valeur dans la base de données Redis
  * Demandé à l'utilisateur de saisir une clé et une valeur
@@ -45,7 +44,7 @@ void createOneKeyValue(){
  * Cette fonction prend en paramètre du XML et le convertit en JSON
  * @param xml
  * @return
-    */
+  */
 
 string xmlToJson(string xml){
     pugi::xml_document doc;
@@ -86,7 +85,7 @@ string xmlToJson(string xml){
  * Et le nom des clés est le nom du fichier XML
 */
 
-/*void createAllKeyValue() {
+void createAllKeyValue() {
     redisContext* c = connectionRedis();
     string path;
 
@@ -110,4 +109,4 @@ string xmlToJson(string xml){
         }
     }
     redisFree(c);
-}*/
+}
