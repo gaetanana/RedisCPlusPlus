@@ -1,0 +1,38 @@
+Fais moi un tuto pour installer MongoDB C++ sur window  sachant que j'ai les zip suivant : 
+
+mongo-c-driver-1.22.1.tar.gz
+mongo-cxx-driver-r3.7.1.tar.gz
+
+J'ai boost également Cmake, et visual studio 2019 
+Boost se trouve à l'emplacement suivant : 
+C:\boost
+
+Driver MongoDB C
+
+Chemin vers Cmake : "C:\Program Files\CMake\bin\cmake.exe"
+cmake -G "Visual Studio 16 2019" -A x64 -DCMAKE_INSTALL_PREFIX=”C:\Users\g.gonfiantini\Desktop\MongoDBCPlusPlus\DriverMongoDB\mongo-c-driver-1.22.1\mongo-c-driver-1.22.1\build\install” .. 
+
+cmake -G "Visual Studio 16 2019" -A x64 -D Python3_EXECUTABLE="C:\Program Files\Python\Python311\python.exe" -DCMAKE_INSTALL_PREFIX="C:\Users\g.gonfiantini\Desktop\MongoDBCPlusPlus\DriverMongoDB\mongo-c-driver-1.22.1\mongo-c-driver-1.22.1\build\install" ..
+
+
+cmake --build . 
+cmake --build . --target install
+
+
+Driver MongoDB C++
+
+cmake -G "Visual Studio 16 2019" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="C:\Users\g.gonfiantini\Desktop\MongoDBCPlusPlus\DriverMongoDB\mongo-cxx-driver-r3.7.1\mongo-cxx-driver-r3.7.1\build\install" -DBOOST_ROOT=C:\boost -DCMAKE_PREFIX_PATH="C:\Users\g.gonfiantini\Desktop\MongoDBCPlusPlus\DriverMongoDB\mongo-c-driver-1.22.1\mongo-c-driver-1.22.1\build\install" ..
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Les chemins des installations des drivers : 
+
+MongoDB C : 
+C:\Users\g.gonfiantini\Desktop\MongoDBCPlusPlus\DriverMongoDB\mongo-c-driver-1.22.1\mongo-c-driver-1.22.1\build\install
+
+MongoDB C++ : 
+C:\Users\g.gonfiantini\Desktop\MongoDBCPlusPlus\DriverMongoDB\mongo-cxx-driver-r3.7.1\mongo-cxx-driver-r3.7.1\build\install
+
+

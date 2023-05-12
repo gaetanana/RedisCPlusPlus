@@ -1,0 +1,20 @@
+
+Pour installer PugiXML : 
+
+git clone https://github.com/zeux/pugixml.git
+cd pugixml
+mkdir build
+cd build
+cmake -G "Visual Studio 16 2019" -A Win32 -DCMAKE_INSTALL_PREFIX="C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverPugiXML" .. 
+cmake --build . 
+cmake --build . --target install
+
+Pour installer JSON :
+
+git clone https://github.com/open-source-parsers/jsoncpp.git
+cd jsoncpp
+mkdir build
+cd build
+cmake -G "Visual Studio 16 2019" -A Win32 -DCMAKE_INSTALL_PREFIX="C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverJSON" .. 
+cmake --build . 
+cmake --build . --target install

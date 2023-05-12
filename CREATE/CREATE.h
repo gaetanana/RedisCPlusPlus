@@ -14,3 +14,5 @@ void createOneKeyValue();
 string xmlToJson(string xml);
 
 void createAllKeyValue();
+
+void createOneKeyValueXML();

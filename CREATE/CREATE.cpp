@@ -81,6 +81,34 @@ string xmlToJson(string xml){
 }
 
 /**
+ * Cette fonction me permet de créer une clé valeur à partir d'un fichier XML
+ */
+
+void createOneKeyValueXML() {
+    redisContext* c = connectionRedis();
+    string path;
+    string key;
+
+    cout << "Saisir le chemin absolu du fichier : ";
+    cin >> path;
+
+    ifstream inFile;
+    inFile.open(path);
+
+    stringstream strStream;
+    strStream << inFile.rdbuf(); // read the file
+    string xmlStr = strStream.str(); // str holds the content of the file
+
+    string jsonStr = xmlToJson(xmlStr);
+
+    // Save jsonStr in Redis with the key being the file name
+    cout << "Saisir une clé : ";
+    cin >> key;
+    redisCommand(c,"SET %s %s", key.c_str(), jsonStr.c_str());
+}
+
+
+/**
 * Cette fonction me permet de créer toutes les clés et valeurs d'un dossier dans la base de données Redis
  * En demandant le chemin absolu du dossier et tous les fichiers XML sont convertis en JSON et stockés dans la base de données Redis
  * Et le nom des clés est le nom du fichier XML

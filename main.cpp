@@ -12,8 +12,8 @@ int main() {
 
     //Partie CREATE
     //createOneKeyValue(); //Fonction qui permet de créer une clé et une valeur dans la base de données Redis
-    createAllKeyValue(); //Fonction qui permet de insérer toutes les clés (nom du fichier) et les valeurs (contenue du fichier) dans la base de données Redis
-
+    //createAllKeyValue(); //Fonction qui permet de insérer toutes les clés (nom du fichier) et les valeurs (contenue du fichier) dans la base de données Redis
+    createOneKeyValueXML(); //Fonction qui permet de créer une clé et une valeur dans la base de données Redis à partir d'un fichier XML
     //Partie DELETE
     //deleteAllKeyValue();
 

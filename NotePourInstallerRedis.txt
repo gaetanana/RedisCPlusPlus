@@ -1,0 +1,40 @@
+Pour installer Redis j'ai procédé de la manière suivante : 
+
+Prérequis : 
+
+- Git pour Window 
+- 
+
+
+1) Je me suis rendu sur la page suivante qui est un lien github : 
+
+https://github.com/redis/hiredis
+
+2) J'ai cloné le dépôt dans le dossier que je souhaitais
+
+git clone https://github.com/redis/hiredis.git
+
+
+3) Je me suis rendu dans le dossier Hiredis 
+
+
+4) J'ai crée un dossier build
+
+5) J'ai ouvert un git bash dans le dossier build
+
+6) J'ai executé la commande suivante : 
+
+cmake -G "Visual Studio 16 2019" -A Win32 -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX="C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DriverHiredis\hiredis\build\install" ..
+
+"Visual Studio 16 2019" : décrit quelle compileur utiliser
+-A Win32 permet que Hiredis soit compatible avec les projet x86
+-DCMAKE_INSTALL_PREFIX permet de spécifier le dossier dans lequel Hiredis sera installé
+
+
+cmake --build . --target install
+
+-DCMAKE_INSTALL_PREFIX
+
+x) Configuration du fichier CmakeList.txt
+
+
