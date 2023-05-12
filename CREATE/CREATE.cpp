@@ -7,16 +7,16 @@
 #include <iostream>
 #include "CREATE.h"
 #include "..\ConnectionRedis\connection.h"
+#include "json/value.h"
+#include "json/writer.h"
 
-#include <iostream>
+
 #include <string>
 #include <filesystem>
 #include <fstream>
-//#include <pugixml.hpp>
+#include <pugixml.hpp>
 //#include <json/json.h>
 #include <hiredis/hiredis.h>
-
-class xml_document;
 
 using namespace std;
 
@@ -41,8 +41,13 @@ void createOneKeyValue(){
     fermertureRedis(c);
 }
 
-//TODO je dois installer la librairie jsoncpp
-/*string xmlToJson(string xml){
+/**
+ * Cette fonction prend en paramètre du XML et le convertit en JSON
+ * @param xml
+ * @return
+    */
+
+string xmlToJson(string xml){
     pugi::xml_document doc;
     pugi::xml_parse_result result = doc.load_string(xml.c_str());
     if (!result) {
@@ -60,6 +65,10 @@ void createOneKeyValue(){
             childJson[attr.name()] = attr.value();
             attr = attr.next_attribute();
         }
+        // ajoute le texte du noeud à l'objet JSON
+        if (!child.text().empty()) {
+            childJson["text"] = child.text().get();
+        }
         rootJson[child.name()].append(childJson);
         child = child.next_sibling();
     }
@@ -68,7 +77,8 @@ void createOneKeyValue(){
     builder["indentation"] = "\t";
     string jsonStr = Json::writeString(builder, rootJson);
     return jsonStr;
-}*/
+}
+
 
 /**
 * Cette fonction me permet de créer toutes les clés et valeurs d'un dossier dans la base de données Redis
