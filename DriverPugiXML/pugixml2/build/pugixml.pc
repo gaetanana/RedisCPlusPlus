@@ -1,0 +1,11 @@
+prefix=C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML
+exec_prefix=${prefix}
+includedir=C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/include
+libdir=C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/lib
+
+Name: pugixml
+Description: Light-weight, simple and fast XML parser for C++ with XPath support.
+URL: https://pugixml.org/
+Version: 1.13
+Cflags: -I${includedir}
+Libs: -L${libdir} -lpugixml

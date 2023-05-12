@@ -1,0 +1,8 @@
+C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/lib/pugixml.lib
+C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/lib/cmake/pugixml/pugixml-targets.cmake
+C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/lib/cmake/pugixml/pugixml-targets-debug.cmake
+C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/lib/cmake/pugixml/pugixml-config-version.cmake
+C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/lib/cmake/pugixml/pugixml-config.cmake
+C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/lib/pkgconfig/pugixml.pc
+C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/include/pugiconfig.hpp
+C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/include/pugixml.hpp

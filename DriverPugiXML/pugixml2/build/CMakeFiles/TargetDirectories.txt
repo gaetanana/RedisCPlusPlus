@@ -1,0 +1,9 @@
+C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/pugixml/build/CMakeFiles/Experimental.dir
+C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/pugixml/build/CMakeFiles/Nightly.dir
+C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/pugixml/build/CMakeFiles/Continuous.dir
+C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/pugixml/build/CMakeFiles/NightlyMemoryCheck.dir
+C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/pugixml/build/CMakeFiles/pugixml-static.dir
+C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/pugixml/build/CMakeFiles/RUN_TESTS.dir
+C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/pugixml/build/CMakeFiles/INSTALL.dir
+C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/pugixml/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/pugixml/build/CMakeFiles/ZERO_CHECK.dir

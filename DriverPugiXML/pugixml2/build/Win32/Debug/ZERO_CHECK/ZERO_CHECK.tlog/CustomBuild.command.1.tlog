@@ -1,0 +1,10 @@
+^C:\USERS\G.GONFIANTINI\DESKTOP\REDISCPLUSPLUS\DRIVERPUGIXML\PUGIXML\BUILD\CMAKEFILES\7974414D6ADB7CF89A8639517C1A94A8\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/pugixml -BC:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/pugixml/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DriverPugiXML/pugixml/build/pugixml.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
