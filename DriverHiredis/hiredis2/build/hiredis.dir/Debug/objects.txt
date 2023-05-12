@@ -1,0 +1,7 @@
+C:/Users/gaeta/OneDrive - umontpellier.fr/Stage-projets/RedisCPlusPlus/DriverHiredis/hiredis/build/hiredis.dir/Debug/alloc.obj
+C:/Users/gaeta/OneDrive - umontpellier.fr/Stage-projets/RedisCPlusPlus/DriverHiredis/hiredis/build/hiredis.dir/Debug/async.obj
+C:/Users/gaeta/OneDrive - umontpellier.fr/Stage-projets/RedisCPlusPlus/DriverHiredis/hiredis/build/hiredis.dir/Debug/hiredis.obj
+C:/Users/gaeta/OneDrive - umontpellier.fr/Stage-projets/RedisCPlusPlus/DriverHiredis/hiredis/build/hiredis.dir/Debug/net.obj
+C:/Users/gaeta/OneDrive - umontpellier.fr/Stage-projets/RedisCPlusPlus/DriverHiredis/hiredis/build/hiredis.dir/Debug/read.obj
+C:/Users/gaeta/OneDrive - umontpellier.fr/Stage-projets/RedisCPlusPlus/DriverHiredis/hiredis/build/hiredis.dir/Debug/sds.obj
+C:/Users/gaeta/OneDrive - umontpellier.fr/Stage-projets/RedisCPlusPlus/DriverHiredis/hiredis/build/hiredis.dir/Debug/sockcompat.obj
