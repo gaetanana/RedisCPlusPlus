@@ -3,7 +3,7 @@ Pour installer Redis j'ai procédé de la manière suivante :
 Prérequis : 
 
 - Git pour Window 
-- 
+- Visual Studio 2019
 
 
 1) Je me suis rendu sur la page suivante qui est un lien github : 

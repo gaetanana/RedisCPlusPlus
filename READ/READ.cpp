@@ -24,7 +24,31 @@ using namespace std;
 /**
  * Cette fonction lit une clé et une valeur de la base de données Redis
  */
-void readAll() {
+void readOneKeyValue() {
+    redisContext *c = connectionRedis();
+    string key;
+    cout << "Saisir une cle : ";
+    cin >> key;
+    auto *reply = (redisReply *) redisCommand(c, "GET %s", key.c_str());
+    if (reply == nullptr) {
+        std::cout << "Erreur lors de l'envoi de la commande GET: " << c->errstr << "\n";
+        fermertureRedis(c);
+        return;
+    }
+    if (reply->type == REDIS_REPLY_ERROR) {
+        std::cout << "Erreur lors de l'envoi de la commande GET: " << reply->str << "\n";
+    } else if (reply->type == REDIS_REPLY_STRING) {
+        std::cout << "Reponse a GET: " << reply->str << "\n";
+    }
+    freeReplyObject(reply);
+    fermertureRedis(c);
+}
+
+
+/**
+ * Cette fonction lit une clé et une valeur de la base de données Redis
+ */
+void readAllKey() {
     redisContext *c = connectionRedis();
     auto* reply = (redisReply*)redisCommand(c, "KEYS *");
     if (reply == nullptr) {
@@ -53,7 +77,10 @@ void readAll() {
     fermertureRedis(c);
 }
 
-
+/**
+ * Cette fonction permet de retrouver toutes les clé-valeur de la base de données Redis
+ * Elle permet de filtrer les valeurs qui possèdent le type Human
+ */
 
 
 

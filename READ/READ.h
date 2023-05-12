@@ -7,4 +7,4 @@
 
 #endif //REDISCPLUSPLUS_READ_H
 
-void readAll();
+void readAllKey();

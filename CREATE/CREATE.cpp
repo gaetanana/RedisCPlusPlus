@@ -46,11 +46,9 @@ void createOneKeyValue(){
   */
 Json::Value xmlNodeToJson(const pugi::xml_node& xmlNode){
     Json::Value jsonNode;
-
     for (pugi::xml_attribute attr = xmlNode.first_attribute(); attr; attr = attr.next_attribute()){
         jsonNode[attr.name()] = attr.value();
     }
-
     for (pugi::xml_node child = xmlNode.first_child(); child; child = child.next_sibling()){
         if (child.first_child().type() == pugi::node_pcdata){
             jsonNode[child.name()] = child.child_value();
@@ -58,7 +56,6 @@ Json::Value xmlNodeToJson(const pugi::xml_node& xmlNode){
             jsonNode[child.name()].append(xmlNodeToJson(child));
         }
     }
-
     return jsonNode;
 }
 
