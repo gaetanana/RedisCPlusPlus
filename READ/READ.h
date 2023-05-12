@@ -7,4 +7,8 @@
 
 #endif //REDISCPLUSPLUS_READ_H
 
+void readOneKeyValue();
+
 void readAllKey();
+
+void readAllKeyWithHuman();
