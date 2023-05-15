@@ -56,5 +56,8 @@ int main() {
     //readAllKeyWithHuman();
     //readAllKeyWithHumanProbability();
 
+    readAllKeyWithHumanProbabilityAndDate();
+
+
     return 0;
 }

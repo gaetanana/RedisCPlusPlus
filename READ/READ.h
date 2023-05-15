@@ -18,3 +18,5 @@ void readAllKeyWithHuman();
 void readAllKeyWithHumanProbability();
 
 bool dateIsAfter(const std::string& dateTimeStr, const std::string& filterDate);
+
+void readAllKeyWithHumanProbabilityAndDate();
