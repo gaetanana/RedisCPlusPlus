@@ -2,6 +2,8 @@
 // Created by g.gonfiantini on 12/05/2023.
 //
 
+#include <string>
+
 #ifndef REDISCPLUSPLUS_READ_H
 #define REDISCPLUSPLUS_READ_H
 
@@ -14,3 +16,5 @@ void readAllKey();
 void readAllKeyWithHuman();
 
 void readAllKeyWithHumanProbability();
+
+bool dateIsAfter(const std::string& dateTimeStr, const std::string& filterDate);

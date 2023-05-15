@@ -33,6 +33,13 @@ int main() {
                       "</tt:VideoAnalytics>\n"
                       "</tt:MetadataStream>");*/
 
+    //Test de la fonction dateIsAfter qui permet de comparer deux dates
+
+    //cout << dateIsAfter("2023-03-21T14:40:20.72Z", "2023-04-21T14:40:20.72Z") << endl; //Return 0 qui est false
+    //cout << dateIsAfter("2023-05-21T14:40:20.72Z", "2023-04-21T14:40:20.72Z") << endl; //Return 1 qui est true
+
+    //--------------------------------------------------------------------------------------------------------------
+
     //Partie DELETE
     //deleteOneKeyValue(); //Fonction qui permet de supprimer une clé et une valeur dans la base de données Redis
     //deleteAllKeyValue(); //Fonction qui permet de supprimer toutes les clés et valeurs dans la base de données Redis

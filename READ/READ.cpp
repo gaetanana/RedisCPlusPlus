@@ -19,6 +19,7 @@
 #include <fstream>
 #include <pugixml.hpp>
 #include <hiredis/hiredis.h>
+#include <sstream>
 using namespace std;
 
 
@@ -123,7 +124,6 @@ void readAllKeyWithHuman(){
     fermertureRedis(c);
 }
 
-
 /**
  * Cette fonction permet de retrouver toutes les clé-valeur de la base de données Redis
  * Elle permet de filtrer les valeurs qui possèdent le type "Human"
@@ -175,14 +175,93 @@ void readAllKeyWithHumanProbability(){
     fermertureRedis(c);
 }
 
+
+
+#include <chrono>
+
+
+bool dateIsAfter(const std::string& dateTimeStr, const std::string& filterDate) {
+    std::istringstream dateTimeStream(dateTimeStr);
+    std::istringstream filterStream(filterDate);
+    std::tm dateTimeTm = {};
+    std::tm filterTm = {};
+
+    dateTimeStream >> std::get_time(&dateTimeTm, "%Y-%m-%dT%H:%M:%SZ");
+    filterStream >> std::get_time(&filterTm, "%Y-%m-%dT%H:%M:%SZ");
+
+    auto dateTimeTp = std::chrono::system_clock::from_time_t(std::mktime(&dateTimeTm));
+    auto filterTp = std::chrono::system_clock::from_time_t(std::mktime(&filterTm));
+
+    return dateTimeTp > filterTp;
+}
+
 /**
  * Cette fonction permet de retrouver toutes les clé-valeur de la base de données Redis
  * Elle permet de filtrer les valeurs qui possèdent le type "Human"
  * Elle permet de filtrer les valeurs qui possèdent une probabilité supérieur à 0.5
- * AJOUTER UN FILTRE (DATE )
+ * Elle permet de filtrer les valeurs qui possèdent une date supérieur à la date mise dans le filtre (qui est dans le code)
  * 3 filtres
  */
+void readAllKeyWithHumanProbabilityAndDate(){
+    redisContext *c = connectionRedis();
+    auto* reply = (redisReply*)redisCommand(c, "KEYS *");
+    if (reply == nullptr) {
+        std::cout << "Erreur lors de l'envoi de la commande KEYS *: " << c->errstr << "\n";
+        fermertureRedis(c);
+        return;
+    }
+    if (reply->type == REDIS_REPLY_ERROR) {
+        std::cout << "Erreur lors de l'envoi de la commande KEYS *: " << reply->str << "\n";
+    } else if (reply->type == REDIS_REPLY_ARRAY) {
+        for (int i = 0; i < reply->elements; i++) {
+            auto* valueReply = (redisReply*)redisCommand(c, "GET %s", reply->element[i]->str);
+            if (valueReply != nullptr) {
+                if (valueReply->type == REDIS_REPLY_ERROR) {
+                    std::cout << "Erreur lors de l'obtention de la valeur: " << valueReply->str << "\n";
+                }
+                else if (valueReply->type == REDIS_REPLY_STRING) {
+                    std::string valueStr(valueReply->str);
+                    // Parse the JSON string
+                    Json::Value valueJson;
+                    Json::CharReaderBuilder builder;
+                    std::string errs;
+                    std::istringstream iss(valueStr);
+                    if (!Json::parseFromStream(builder, iss, &valueJson, &errs)) {
+                        std::cout << "Erreur lors de l'analyse de la valeur JSON: " << errs << "\n";
+                    } else {
+                        // Navigate the JSON structure to find "tt:Type" and "tt:Probability" and "UtcTime"
+                        // This is just an example and might not match your actual JSON structure
+                        const Json::Value& ttFrame = valueJson["tt:VideoAnalytics"][0]["tt:Frame"][0];
+                        std::string dateTimeStr = ttFrame["UtcTime"].asString();
+                        std::string filterDate = "2023-05-01T00:00:00Z"; //Filtre la date
 
-//Todo à faire plus tard
+                        // If dateTimeStr is after filterDate, proceed with the other checks
+                        if (dateIsAfter(dateTimeStr, filterDate)) {
+                            const Json::Value& ttClass = ttFrame["tt:Object"][0]["tt:Appearance"][0]["tt:Class"][0];
+                            if (ttClass["tt:Type"].asString() == "Human") {
+                                if (ttClass["Likelihood"].asFloat() > 0.5) {
+                                    std::cout << "Cle " << i+1 << ": " << reply->element[i]->str << "\n";
+                                }
+                            }
+                        }
+                    }
+                }
+                freeReplyObject(valueReply);
+            }
+        }
+    }
+    freeReplyObject(reply);
+    fermertureRedis(c);
+}
+
+/**
+ * Cette fonction permet de retrouver toutes les clé-valeur de la base de données Redis
+ * Elle permet de filtrer les valeurs qui possèdent le type "Human"
+ * Elle permet de filtrer les valeurs qui possèdent une probabilité supérieur à 0.5
+ *
+ * Permet de filtrer le genre Masculin
+ * 4 filtres
+ */
+
 
 
