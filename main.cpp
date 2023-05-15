@@ -99,6 +99,49 @@ int main() {
             }
         }
         else if(choix == 2){
+            std::cout << "\n=======================================================================\n";
+            std::cout << "||                          Menu Read                                ||\n";
+            std::cout << "=======================================================================\n";
+            std::cout << "=================== Veuillez choisir une option : ====================\n";
+            std::cout << "||                                                                   ||\n";
+            std::cout << "|| 1 - Lire la valeur d'une cle                                      ||\n";
+            std::cout << "|| 2 - Lire toutes les cles presentes dans la base de donnees        ||\n";
+            std::cout << "|| 3 - Lire toutes les cles qui a dans les valeurs un humain         ||\n";
+            std::cout << "|| 4 - Lire toutes les cles qui a dans les valeurs un humain avec    ||\n";
+            std::cout << "||     une probabilite de survie superieure a 0.5                    ||\n";
+            std::cout << "|| 5 - Lire toutes les cle qui a dans les valeurs un humain avec une ||\n"
+                         "||     probabilite de 0.5 et les donnees datent d'apres le           ||\n"
+                         "||     2023-04-21T14:45:23                                           ||\n";
+            std::cout << "|| 6 - Lire toutes les cle qui a dans les valeurs un humain avec une ||\n"
+                         "||     probabilite de 0.5 et les donnees datent d'apres le           ||\n"
+                         "||     2023-04-21T14:45:23 et qui sont de genre masculin             ||\n";
+            std::cout << "|| 7 - Quitter le menu Read                                          ||\n";
+            std::cout << "||                                                                   ||\n";
+            std::cout << "=======================================================================\n";
+
+            int choixRead;
+            std::cout << "\nVotre choix : ";
+            std::cin >> choixRead;
+            if(choixRead == 1){
+                readOneKeyValue();
+            }else if(choixRead == 2){
+                readAllKey();
+            }
+            else if(choixRead == 3){
+                readAllKeyWithHuman();
+            }
+            else if(choixRead == 4){
+                readAllKeyWithHumanProbability();
+            }
+            else if(choixRead == 5){
+                readAllKeyWithHumanProbabilityAndDate();
+            }
+            else if(choixRead == 6){
+                readAllKeyWithHumanProbabilityAndDateGender();
+            }
+            else if(choixRead == 7){
+                std::cout << "\nVous avez quitté le menu Read\n";
+            }
 
         }
         else if(choix == 3){
@@ -107,7 +150,26 @@ int main() {
             cout << "========================================================\n";
         }
         else if(choix == 4){
-
+            std::cout << "\n=======================================================================\n";
+            std::cout << "||                          Menu Delete                              ||\n";
+            std::cout << "=======================================================================\n";
+            std::cout << "=================== Veuillez choisir une option : ====================\n";
+            std::cout << "||                                                                   ||\n";
+            std::cout << "|| 1 - Supprimer une cle                                             ||\n";
+            std::cout << "|| 2 - Supprimer toutes les cles                                     ||\n";
+            std::cout << "|| 3 - Quitter le menu Delete                                        ||\n";
+            std::cout << "||                                                                   ||\n";
+            std::cout << "=======================================================================\n";
+            int choixDelete;
+            std::cout << "\nVotre choix : ";
+            std::cin >> choixDelete;
+            if(choixDelete == 1){
+                deleteOneKeyValue();
+            }else if(choixDelete == 2){
+                deleteAllKeyValue();
+            }else if(choixDelete == 3){
+                std::cout << "\nVous avez quitté le menu Delete\n";
+            }
         }
 
 
