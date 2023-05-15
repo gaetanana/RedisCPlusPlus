@@ -66,6 +66,10 @@ Json::Value xmlNodeToJson(const pugi::xml_node& xmlNode){
 
 
 string xmlToJson(string xml){
+    //Chrono pour mesurer le temps d'exécution
+    auto start = chrono::high_resolution_clock::now();
+
+
     pugi::xml_document doc;
     pugi::xml_parse_result result = doc.load_string(xml.c_str());
     if (!result) {
@@ -80,6 +84,10 @@ string xmlToJson(string xml){
     Json::StreamWriterBuilder builder;
     builder["indentation"] = "\t";
     string jsonStr = Json::writeString(builder, rootJson);
+
+    auto stop = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
+    cout << "Temps d'exécution de la conversion : " << duration.count() << " microsecondes" << endl;
     return jsonStr;
 }
 

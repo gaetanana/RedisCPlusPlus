@@ -149,6 +149,7 @@ int main() {
             cout << "|| Update n'est pas encore disponible                  ||\n";
             cout << "========================================================\n";
         }
+
         else if(choix == 4){
             std::cout << "\n=======================================================================\n";
             std::cout << "||                          Menu Delete                              ||\n";
@@ -171,8 +172,6 @@ int main() {
                 std::cout << "\nVous avez quitté le menu Delete\n";
             }
         }
-
-
         else if(choix == 5){
             cout << "========================================================\n";
             cout << "|| Vous avez quitte le programme, a bientot !         ||\n";
@@ -181,7 +180,5 @@ int main() {
         }
 
     }
-
-
     return 0;
 }
