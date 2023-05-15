@@ -5,6 +5,7 @@
 #include "CREATE\CREATE.h"
 #include "DELETE\DELETE.h"
 #include "READ\READ.h"
+
 using namespace std;
 
 int main() {
@@ -55,7 +56,70 @@ int main() {
     //readAllKey();
     //readAllKeyWithHuman();
     //readAllKeyWithHumanProbability();
-    readAllKeyWithHumanProbabilityAndDate();
+    //readAllKeyWithHumanProbabilityAndDate();
+    //readAllKeyWithHumanProbabilityAndDateGender();
+
+    while (true) {
+        std::cout << "\n========================================================\n";
+        std::cout << "|| Programme de test de la base de donnees Redis      ||\n";
+        std::cout << "========================================================\n";
+        std::cout << "============== Veuillez choisir une option : ===========\n";
+        std::cout << "||                                                    ||\n";
+        std::cout << "|| 1 - Create                                         ||\n";
+        std::cout << "|| 2 - Read                                           ||\n";
+        std::cout << "|| 3 - Update                                         ||\n";
+        std::cout << "|| 4 - Delete                                         ||\n";
+        std::cout << "|| 5 - Quitter le programme                           ||\n";
+        std::cout << "||                                                    ||\n";
+        std::cout << "========================================================\n";
+        int choix;
+        std::cout << "Votre choix : ";
+        std::cin >> choix;
+        std::cout << "\n";
+        if (choix == 1) {
+            std::cout << "\n=======================================================================\n";
+            std::cout << "||                          Menu Create                              ||\n";
+            std::cout << "=======================================================================\n";
+            std::cout << "=================== Veuillez choisir une option : ====================\n";
+            std::cout << "||                                                                   ||\n";
+            std::cout << "|| 1 - Creer une cle avec un fichier XML en valeur                   ||\n";
+            std::cout << "|| 2 - Stocker l'ensemble des fichiers XML d'un dossier dans Redis   ||\n";
+            std::cout << "|| 3 - Quitter le menu Create                                        ||\n";
+            std::cout << "||                                                                   ||\n";
+            std::cout << "========================================================================\n";
+            int choixCreate;
+            std::cout << "\nVotre choix : ";
+            std::cin >> choixCreate;
+            if(choixCreate == 1 ){
+                createOneKeyValueXML();
+            }else if(choixCreate == 2){
+                createAllKeyValue();
+            }else if(choixCreate == 3){
+                std::cout << "\nVous avez quitté le menu Create\n";
+            }
+        }
+        else if(choix == 2){
+
+        }
+        else if(choix == 3){
+            cout << "========================================================\n";
+            cout << "|| Update n'est pas encore disponible                  ||\n";
+            cout << "========================================================\n";
+        }
+        else if(choix == 4){
+
+        }
+
+
+        else if(choix == 5){
+            cout << "========================================================\n";
+            cout << "|| Vous avez quitte le programme, a bientot !         ||\n";
+            cout << "========================================================\n";
+            break;
+        }
+
+    }
+
 
     return 0;
 }
