@@ -59,6 +59,8 @@ int main() {
     //readAllKeyWithHumanProbabilityAndDate();
     //readAllKeyWithHumanProbabilityAndDateGender();
 
+    //Partie application
+
     while (true) {
         std::cout << "\n========================================================\n";
         std::cout << "|| Programme de test de la base de donnees Redis      ||\n";

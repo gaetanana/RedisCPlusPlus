@@ -130,7 +130,7 @@ void readAllKeyWithHuman() {
  * Elle permet de filtrer les valeurs qui possèdent une probabilité supérieur à 0.5
  * 2 filtres
  */
-#include <json/json.h>
+
 
 void readAllKeyWithHumanProbability() {
     redisContext *c = connectionRedis();
