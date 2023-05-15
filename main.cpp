@@ -9,7 +9,6 @@
 using namespace std;
 
 int main() {
-    updateOneKeyValue();
     //Partie test des fonctions
     /*cout << xmlToJson("<tt:MetadataStream xmlns:tt=\"http://www.onvif.org/ver10/schema\" xmlns:fc=\"http://www.onvif.org/ver20/analytics/humanface\" xmlns:bd=\"http://www.onvif.org/ver20/analytics/humanbody\">\n"
                       "<tt:VideoAnalytics>\n"
