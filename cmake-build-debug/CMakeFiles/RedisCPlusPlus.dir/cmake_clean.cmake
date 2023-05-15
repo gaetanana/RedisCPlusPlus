@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/RedisCPlusPlus.dir/DELETE/DELETE.cpp.obj.d"
   "CMakeFiles/RedisCPlusPlus.dir/READ/READ.cpp.obj"
   "CMakeFiles/RedisCPlusPlus.dir/READ/READ.cpp.obj.d"
+  "CMakeFiles/RedisCPlusPlus.dir/UPDATE/UPDATE.cpp.obj"
+  "CMakeFiles/RedisCPlusPlus.dir/UPDATE/UPDATE.cpp.obj.d"
   "CMakeFiles/RedisCPlusPlus.dir/main.cpp.obj"
   "CMakeFiles/RedisCPlusPlus.dir/main.cpp.obj.d"
   "RedisCPlusPlus.exe"

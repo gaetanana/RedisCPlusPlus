@@ -214,6 +214,30 @@ READ\READ.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\RedisCPlusPlus.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\RedisCPlusPlus.dir\READ\READ.cpp.s
 .PHONY : READ\READ.cpp.s
 
+UPDATE\UPDATE.obj: UPDATE\UPDATE.cpp.obj
+.PHONY : UPDATE\UPDATE.obj
+
+# target to build an object file
+UPDATE\UPDATE.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RedisCPlusPlus.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\RedisCPlusPlus.dir\UPDATE\UPDATE.cpp.obj
+.PHONY : UPDATE\UPDATE.cpp.obj
+
+UPDATE\UPDATE.i: UPDATE\UPDATE.cpp.i
+.PHONY : UPDATE\UPDATE.i
+
+# target to preprocess a source file
+UPDATE\UPDATE.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RedisCPlusPlus.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\RedisCPlusPlus.dir\UPDATE\UPDATE.cpp.i
+.PHONY : UPDATE\UPDATE.cpp.i
+
+UPDATE\UPDATE.s: UPDATE\UPDATE.cpp.s
+.PHONY : UPDATE\UPDATE.s
+
+# target to generate assembly for a file
+UPDATE\UPDATE.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\RedisCPlusPlus.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\RedisCPlusPlus.dir\UPDATE\UPDATE.cpp.s
+.PHONY : UPDATE\UPDATE.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -259,6 +283,9 @@ help:
 	@echo ... READ/READ.obj
 	@echo ... READ/READ.i
 	@echo ... READ/READ.s
+	@echo ... UPDATE/UPDATE.obj
+	@echo ... UPDATE/UPDATE.i
+	@echo ... UPDATE/UPDATE.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

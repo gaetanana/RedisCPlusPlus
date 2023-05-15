@@ -114,6 +114,12 @@
 		<Unit filename="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/READ/READ.h">
 			<Option target="RedisCPlusPlus"/>
 		</Unit>
+		<Unit filename="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/UPDATE/UPDATE.cpp">
+			<Option target="RedisCPlusPlus"/>
+		</Unit>
+		<Unit filename="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/UPDATE/UPDATE.h">
+			<Option target="RedisCPlusPlus"/>
+		</Unit>
 		<Unit filename="C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/main.cpp">
 			<Option target="RedisCPlusPlus"/>
 		</Unit>
