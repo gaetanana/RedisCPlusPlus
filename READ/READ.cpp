@@ -272,9 +272,11 @@ void readAllKeyWithHumanProbabilityAndDate() {
         std::istringstream ss(dateTime);
         ss >> std::get_time(&tm, "%Y-%m-%dT%H:%M:%S");
         auto tp = std::chrono::system_clock::from_time_t(std::mktime(&tm));
-
+        //std::cout << "Date: " << dateTime << std::endl; //A ce stade il y a pas le filtre date
         // Définir la date de filtre
-        std::string filterDateTimeStr = "2023-03-01T00:00:00";  // Modifiez cette valeur en conséquence
+        //Actuellement le filtre est sur 2023-04-21T14:45:23 c'est à dire que toutes les valeurs qui ont une date inférieur à celle-ci ne seront pas affichées
+        std::string filterDateTimeStr = "2023-04-21T14:45:23";  // Modifiez cette valeur en conséquence
+
         std::tm filterTm = {};
         std::istringstream filterSs(filterDateTimeStr);
         filterSs >> std::get_time(&filterTm, "%Y-%m-%dT%H:%M:%S");
@@ -308,4 +310,6 @@ void readAllKeyWithHumanProbabilityAndDate() {
  */
 
 
+void readAllKeyWithHumanProbabilityAndDateGender(){
 
+}
