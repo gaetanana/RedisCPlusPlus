@@ -10,7 +10,7 @@
 using namespace std;
 
 int main() {
-
+    updateOneHumanKey("testtete","fzzeg");
 
     while (true) {
         std::cout << "\n========================================================\n";
@@ -96,12 +96,26 @@ int main() {
             std::cout << "=======================================================================\n";
             std::cout << "=================== Veuillez choisir une option : ====================\n";
             std::cout << "||                                                                   ||\n";
-            std::cout << "|| 1 - Modifier une cle                                              ||\n";
-            std::cout << "|| 2 - Modifier toutes les valeurs des cle (remplace Human           ||\n"
+            std::cout << "|| 1 - Modifier la valeur d'une cle                                  ||\n";
+            std::cout << "|| 2 - Modifier la valeur d'une clé (remplace Human                  ||\n";
+                         "||     par une autre valeur)                                         ||\n";
+            std::cout << "|| 3 - Modifier toutes les valeurs des cle (remplace Human           ||\n"
                          "|| par une autre valeur)                                             ||\n";
-            std::cout << "|| 3 - Quitter le menu Update                                        ||\n";
+            std::cout << "|| 4 - Quitter le menu Update                                        ||\n";
             std::cout << "||                                                                   ||\n";
             std::cout << "=======================================================================\n";
+            int choixUpdate;
+            std::cout << "\nVotre choix : ";
+            std::cin >> choixUpdate;
+            if (choixUpdate == 1) {
+                updateOneKeyValue();
+            } else if (choixUpdate == 2) {
+                cout << "Pas encore disponible\n"
+            } else if (choixUpdate == 3) {
+                cout << "Pas encore disponible\n"
+            } else if (choixUpdate == 4) {
+                std::cout << "\nVous avez quitté le menu Update\n";
+            }
 
         } else if (choix == 4) {
             std::cout << "\n=======================================================================\n";
