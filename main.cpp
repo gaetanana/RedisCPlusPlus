@@ -108,13 +108,13 @@ int main() {
             std::cout << "||                                                                   ||\n";
             std::cout << "|| 1 - Lire la valeur d'une cle                                      ||\n";
             std::cout << "|| 2 - Lire toutes les cles presentes dans la base de donnees        ||\n";
-            std::cout << "|| 3 - Lire toutes les cles qui a dans les valeurs un humain         ||\n";
-            std::cout << "|| 4 - Lire toutes les cles qui a dans les valeurs un humain avec    ||\n";
+            std::cout << "|| 3 - Lire toutes les cles qui ont un Human                         ||\n";
+            std::cout << "|| 4 - Lire toutes les cles qui ont un Human avec                    ||\n";
             std::cout << "||     une probabilite de superieure a 0.5                           ||\n";
-            std::cout << "|| 5 - Lire toutes les cle qui a dans les valeurs un humain avec une ||\n"
+            std::cout << "|| 5 - Lire toutes les cles qui ont un Human avec une                ||\n"
                          "||     probabilite de 0.5 et les donnees datent d'apres le           ||\n"
                          "||     2023-04-21T14:45:23                                           ||\n";
-            std::cout << "|| 6 - Lire toutes les cle qui a dans les valeurs un humain avec une ||\n"
+            std::cout << "|| 6 - Lire toutes les cle qui ont un Human avec une                 ||\n"
                          "||     probabilite de 0.5 et les donnees datent d'apres le           ||\n"
                          "||     2023-04-21T14:45:23 et qui sont de genre masculin             ||\n";
             std::cout << "|| 7 - Quitter le menu Read                                          ||\n";
