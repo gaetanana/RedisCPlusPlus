@@ -6,3 +6,11 @@
 #define REDISCPLUSPLUS_UPDATE_H
 
 #endif //REDISCPLUSPLUS_UPDATE_H
+
+
+void updateOneKeyValue();
+
+
+void updateOneHumanKey();
+
+void updateAllHumanKey();

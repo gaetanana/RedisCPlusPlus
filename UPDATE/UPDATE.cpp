@@ -39,4 +39,19 @@ void updateOneKeyValue(){
     fermertureRedis(c);
 }
 
+/**
+ * Cette fonction me permet de mettre à jour une valeur qui contient Human et le remplace par une autre valeur
+ * L'utilisateur doit donenr le nom de la clé et la valeur à remplacer
+ */
+ void updateOneHumanKey(){
 
+ }
+
+ /**
+  * Cette fonction me permet de mettre à jour toutes les valeurs de la base de données Redis qui contiennent Human
+  * L'utilisateur doit donner la valeur à remplacer
+  */
+
+    void updateAllHumanKey(){
+
+    }
