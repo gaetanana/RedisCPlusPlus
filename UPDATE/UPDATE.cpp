@@ -44,10 +44,30 @@ void updateOneKeyValue(){
  * Cette fonction me permet de mettre à jour une valeur qui contient Human et le remplace par une autre valeur
  * L'utilisateur doit donenr le nom de la clé et la valeur à remplacer
  */
-void updateOneHumanKey(const std::string& key, const std::string& newValue) {
+// Fonction auxiliaire pour mettre à jour les valeurs de manière récursive
+void updateJsonValue(Json::Value& val, const std::string& newValue) {
+    if (val.isObject()) { // Si c'est un objet
+        for (auto& item : val.getMemberNames()) {
+            updateJsonValue(val[item], newValue);
+        }
+    } else if (val.isArray()) { // Si c'est un tableau
+        for (auto& item : val) {
+            updateJsonValue(item, newValue);
+        }
+    } else if (val.isString() && val.asString() == "Human") { // Si c'est une chaîne et sa valeur est "Human"
+        val = newValue;
+    }
+}
+
+void updateOneHumanKey() {
     redisContext *c = connectionRedis();
+    cout << "Saisir une clé : ";
+    string key;
+    cin >> key;
+
     // Récupérer la valeur de la clé de la base de données Redis
     redisReply *reply = (redisReply *)redisCommand(c, "GET %s", key.c_str());
+
     if (reply->type == REDIS_REPLY_STRING) {
         // Parser le document JSON
         Json::Value root;
@@ -64,24 +84,14 @@ void updateOneHumanKey(const std::string& key, const std::string& newValue) {
             return;
         }
 
-        // Parcourir tous les éléments du document JSON
-        for (auto& item : root) {
-            if (item.isObject()) { // si l'élément est un objet JSON
-                for (auto& innerItem : item) {
-                    if (innerItem.isObject()) { // si l'élément interne est aussi un objet JSON
-                        for (auto& attributeItem : innerItem) {
-                            if (attributeItem.isObject()) { // si l'attribut est un objet JSON
-                                // Vérifier si la clé est celle que nous recherchons et si la valeur est "Human"
-                                if (attributeItem["value"].asString() == "Human") {
-                                    // Si oui, mettre à jour la valeur
-                                    attributeItem["value"] = newValue;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        // Demander à l'utilisateur la nouvelle valeur
+        std::cout << "Saisir une nouvelle valeur : ";
+        std::string newValue;
+        std::cin >> newValue;
+
+
+        // Mettre à jour les valeurs dans le document JSON
+        updateJsonValue(root, newValue);
 
         // Convertir le document JSON mis à jour en chaîne
         Json::StreamWriterBuilder writerBuilder;

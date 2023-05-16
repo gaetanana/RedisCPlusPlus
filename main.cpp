@@ -10,8 +10,6 @@
 using namespace std;
 
 int main() {
-    updateOneHumanKey("testtete","fzzeg");
-
     while (true) {
         std::cout << "\n========================================================\n";
         std::cout << "|| Programme de test de la base de donnees Redis      ||\n";
@@ -110,9 +108,9 @@ int main() {
             if (choixUpdate == 1) {
                 updateOneKeyValue();
             } else if (choixUpdate == 2) {
-                cout << "Pas encore disponible\n"
+                updateOneHumanKey();
             } else if (choixUpdate == 3) {
-                cout << "Pas encore disponible\n"
+                cout << "Pas encore disponible\n";
             } else if (choixUpdate == 4) {
                 std::cout << "\nVous avez quitté le menu Update\n";
             }
