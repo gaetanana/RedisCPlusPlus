@@ -1,5 +1,5 @@
 //
-// Created by g.gonfiantini on 15/05/2023.
+// Created by g.gonfiantini on 16/05/2023.
 //
 
 #include "UPDATE.h"
@@ -7,7 +7,6 @@
 #include <WinSock2.h>
 #include <string>
 #include <iostream>
-#include "UPDATE.h"
 #include "..\ConnectionRedis\connection.h"
 #include "json/value.h"
 #include "json/writer.h"
@@ -21,9 +20,8 @@
 using namespace std;
 
 /**
-* Cette fonction permet de modifier une valeur d'une clé en lui donnant le nom de la clé et une nouvelle valeur
-*/
-
+ * Cette fonction me permet de mettre à jour une valeur d'une clé grâce au nom de la clé
+ */
 void updateOneKeyValue(){
     redisContext *c = connectionRedis();
     string key;
@@ -41,10 +39,4 @@ void updateOneKeyValue(){
     fermertureRedis(c);
 }
 
-/**
- * Cette fonction permet de modifier toutes les valeurs qui ont le type "Human" pour le remplacer par une nouvelle valeur
- */
-void updateAllHuman(){
-
-}
 
