@@ -41,3 +41,10 @@ void updateOneKeyValue(){
     fermertureRedis(c);
 }
 
+/**
+ * Cette fonction permet de modifier toutes les valeurs qui ont le type "Human" pour le remplacer par une nouvelle valeur
+ */
+void updateAllHuman(){
+
+}
+

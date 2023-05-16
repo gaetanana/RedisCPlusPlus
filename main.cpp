@@ -110,7 +110,7 @@ int main() {
             std::cout << "|| 2 - Lire toutes les cles presentes dans la base de donnees        ||\n";
             std::cout << "|| 3 - Lire toutes les cles qui a dans les valeurs un humain         ||\n";
             std::cout << "|| 4 - Lire toutes les cles qui a dans les valeurs un humain avec    ||\n";
-            std::cout << "||     une probabilite de survie superieure a 0.5                    ||\n";
+            std::cout << "||     une probabilite de superieure a 0.5                           ||\n";
             std::cout << "|| 5 - Lire toutes les cle qui a dans les valeurs un humain avec une ||\n"
                          "||     probabilite de 0.5 et les donnees datent d'apres le           ||\n"
                          "||     2023-04-21T14:45:23                                           ||\n";

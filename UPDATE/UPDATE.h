@@ -9,3 +9,4 @@
 
 
 void updateOneKeyValue();
+void updateAllHuman();
