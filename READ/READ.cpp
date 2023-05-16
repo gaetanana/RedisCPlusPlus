@@ -371,8 +371,9 @@ void readAllKeyWithHumanProbabilityAndDateGender() {
             freeReplyObject(keyReply);
             continue;
         }
-
         // Filtrer les valeurs qui possèdent le genre "Masculin"
+
+        //Je suis obligé de mettre ce if car certaines valeurs ne possèdent pas le genre "Masculin" et donc le programme plante
         if(!root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Extension"][0]["HumanFace"][0]["Gender"][0]["Male"][0].isNull()){
             const Json::Value genderValue = root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Extension"][0]["HumanFace"][0]["Gender"][0]["Male"][0]["value"];
             std::cout << "Cle " << i + 1 << ": " << reply->element[i]->str << "\n";
@@ -383,8 +384,6 @@ void readAllKeyWithHumanProbabilityAndDateGender() {
         }else{
             //cout << "Key path does not exist" << endl;
         }
-
-
         // Imprimer les valeurs qui passent tous les filtres
         freeReplyObject(keyReply);
     }
