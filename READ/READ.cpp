@@ -70,7 +70,7 @@ void readAllKey() {
                 if (valueReply->type == REDIS_REPLY_ERROR) {
                     std::cout << "Erreur lors de l'obtention de la valeur: " << valueReply->str << "\n";
                 } else if (valueReply->type == REDIS_REPLY_STRING) {
-                    std::cout << "Valeur: " << valueReply->str << "\n";
+                    //std::cout << "Valeur: " << valueReply->str << "\n";
                 }
                 freeReplyObject(valueReply);
             }
@@ -373,14 +373,19 @@ void readAllKeyWithHumanProbabilityAndDateGender() {
         }
 
         // Filtrer les valeurs qui possèdent le genre "Masculin"
-        const Json::Value genderValue = root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Extension"][0]["HumanFace"][0]["Gender"][0]["value"];
-        if (genderValue.asString() != "Male") {
-            freeReplyObject(keyReply);
-            continue;
+        if(!root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Extension"][0]["HumanFace"][0]["Gender"][0]["Male"][0].isNull()){
+            const Json::Value genderValue = root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Extension"][0]["HumanFace"][0]["Gender"][0]["Male"][0]["value"];
+            std::cout << "Cle " << i + 1 << ": " << reply->element[i]->str << "\n";
+            if (stod(genderValue.asString()) <= 0.5) {
+                freeReplyObject(keyReply);
+                continue;
+            }
+        }else{
+            //cout << "Key path does not exist" << endl;
         }
 
+
         // Imprimer les valeurs qui passent tous les filtres
-        std::cout << "Cle " << i + 1 << ": " << reply->element[i]->str << "\n";
         freeReplyObject(keyReply);
     }
 

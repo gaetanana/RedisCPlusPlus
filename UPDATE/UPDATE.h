@@ -12,6 +12,6 @@
 
 void updateOneKeyValue();
 
-void updateOneHumanKey(const std::string& key, const std::string& newValue);
+void updateOneHumanKey();
 
 void updateAllHumanKey();
