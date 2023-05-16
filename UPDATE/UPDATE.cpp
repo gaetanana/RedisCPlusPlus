@@ -21,7 +21,7 @@
 using namespace std;
 
 /**
-* Cette fonction permet de modifier une valeur d'une clé en lui le nom de la clé et une nouvelle valeure
+* Cette fonction permet de modifier une valeur d'une clé en lui donnant le nom de la clé et une nouvelle valeur
 */
 
 void updateOneKeyValue(){
