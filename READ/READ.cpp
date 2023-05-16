@@ -85,44 +85,55 @@ void readAllKey() {
  * Elle permet de filtrer les valeurs qui possèdent le type "Human"
  * 1 filtre
  */
-
 void readAllKeyWithHuman() {
+    // Création d'un pointeur sur le contexte Redis
     redisContext *c = connectionRedis();
-    auto *reply = (redisReply *) redisCommand(c, "KEYS *");
-    if (reply == nullptr) {
-        std::cout << "Erreur lors de l'envoi de la commande KEYS *: " << c->errstr << "\n";
-        fermertureRedis(c);
+
+    if (c == NULL || c->err) {
+        if (c) {
+            std::cout << "Error: " << c->errstr << std::endl;
+        } else {
+            std::cout << "Cannot allocate redis context." << std::endl;
+        }
         return;
     }
-    if (reply->type == REDIS_REPLY_ERROR) {
-        std::cout << "Erreur lors de l'envoi de la commande KEYS *: " << reply->str << "\n";
-    } else if (reply->type == REDIS_REPLY_ARRAY) {
-        for (int i = 0; i < reply->elements; i++) {
+    // Obtenir toutes les clés de la base de données Redis
+    redisReply *reply = (redisReply *) redisCommand(c, "KEYS *");
 
-            auto *valueReply = (redisReply *) redisCommand(c, "GET %s", reply->element[i]->str);
-            if (valueReply != nullptr) {
-                if (valueReply->type == REDIS_REPLY_ERROR) {
-                    std::cout << "Erreur lors de l'obtention de la valeur: " << valueReply->str << "\n";
-                } else if (valueReply->type == REDIS_REPLY_STRING) {
-                    std::string valueStr(valueReply->str);
-                    // Vérifier si la valeur contient "tt:Type"
-                    std::size_t found = valueStr.find("\"tt:Type\"");
-                    if (found != std::string::npos) {
-                        // Vérifier si la valeur contient "Human"
-                        std::size_t foundHuman = valueStr.find("Human", found);
-                        if (foundHuman != std::string::npos) {
-                            std::cout << "Cle " << i + 1 << ": " << reply->element[i]->str << "\n";
-                            //std::cout << "Valeur: " << valueReply->str << "\n";
-                        }
-                    }
-                }
-                freeReplyObject(valueReply);
-            }
+    // Parcourir chaque clé
+    for (int i = 0; i < reply->elements; i++) {
+        redisReply *keyReply = (redisReply *) redisCommand(c, "GET %s", reply->element[i]->str);
+
+        // Analyser le JSON
+        Json::Reader reader;
+        Json::Value root;
+        bool parsingSuccessful = reader.parse(keyReply->str, root);
+
+        if (!parsingSuccessful) {
+            std::cout << "Failed to parse JSON." << std::endl;
+            freeReplyObject(keyReply);
+            continue;
         }
+
+        // Filtrer les valeurs qui possèdent le type "Human"
+        const Json::Value typeValue = root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Class"][0]["tt:Type"][0]["value"];
+        if (typeValue.asString() != "Human") {
+            freeReplyObject(keyReply);
+            continue;
+        }
+
+        // Imprimer les valeurs qui passent le filtre
+        std::cout << "Cle " << i + 1 << ": " << reply->element[i]->str << "\n";
+        freeReplyObject(keyReply);
     }
+
+    // Libération de la mémoire
     freeReplyObject(reply);
+
+    // Fermeture de la connexion
     fermertureRedis(c);
 }
+
 
 /**
  * Cette fonction permet de retrouver toutes les clé-valeur de la base de données Redis
@@ -133,67 +144,59 @@ void readAllKeyWithHuman() {
 
 
 void readAllKeyWithHumanProbability() {
+    // Création d'un pointeur sur le contexte Redis
     redisContext *c = connectionRedis();
-    auto *reply = (redisReply *) redisCommand(c, "KEYS *");
-    if (reply == nullptr) {
-        std::cout << "Erreur lors de l'envoi de la commande KEYS *: " << c->errstr << "\n";
-        fermertureRedis(c);
+
+    if (c == NULL || c->err) {
+        if (c) {
+            std::cout << "Error: " << c->errstr << std::endl;
+        } else {
+            std::cout << "Cannot allocate redis context." << std::endl;
+        }
         return;
     }
+    // Obtenir toutes les clés de la base de données Redis
+    redisReply *reply = (redisReply *) redisCommand(c, "KEYS *");
 
-    if (reply->type == REDIS_REPLY_ERROR) {
-        std::cout << "Erreur lors de l'envoi de la commande KEYS *: " << reply->str << "\n";
-    } else if (reply->type == REDIS_REPLY_ARRAY) {
-        for (int i = 0; i < reply->elements; i++) {
-            auto *valueReply = (redisReply *) redisCommand(c, "GET %s", reply->element[i]->str);
-            if (valueReply != nullptr) {
-                if (valueReply->type == REDIS_REPLY_ERROR) {
-                    std::cout << "Erreur lors de l'obtention de la valeur: " << valueReply->str << "\n";
-                } else if (valueReply->type == REDIS_REPLY_STRING) {
-                    std::string valueStr(valueReply->str);
-                    // Parse the JSON string
-                    Json::Value root;
-                    Json::CharReaderBuilder builder;
-                    std::string errs;
-                    std::istringstream iss(valueStr);
-                    if (!Json::parseFromStream(builder, iss, &root, &errs)) {
-                        std::cout << "Erreur lors de l'analyse de la valeur JSON: " << errs << "\n";
-                    } else {
-                        const Json::Value &videoAnalytics = root["tt:VideoAnalytics"];
-                        for (int j = 0; j < videoAnalytics.size(); j++) {
-                            const Json::Value &frames = videoAnalytics[j]["tt:Frame"];
-                            for (int k = 0; k < frames.size(); k++) {
-                                const Json::Value &objects = frames[k]["tt:Object"];
-                                for (int l = 0; l < objects.size(); l++) {
-                                    const Json::Value &appearances = objects[l]["tt:Appearance"];
-                                    for (int m = 0; m < appearances.size(); m++) {
-                                        const Json::Value &classes = appearances[m]["tt:Class"];
-                                        for (int n = 0; n < classes.size(); n++) {
-                                            const Json::Value &types = classes[n]["tt:Type"];
-                                            for (int o = 0; o < types.size(); o++) {
-                                                const Json::Value &attributes = types[o]["attributes"];
-                                                if (types[o]["value"].asString() == "Human" &&
-                                                    attributes.isMember("Likelihood") &&
-                                                    std::stod(attributes["Likelihood"].asString()) > 0.5) {
-                                                    std::cout << "Cle " << i + 1 << ": " << reply->element[i]->str
-                                                              << "\n";
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                freeReplyObject(valueReply);
-            }
+    // Parcourir chaque clé
+    for (int i = 0; i < reply->elements; i++) {
+        redisReply *keyReply = (redisReply *) redisCommand(c, "GET %s", reply->element[i]->str);
+
+        // Analyser le JSON
+        Json::Reader reader;
+        Json::Value root;
+        bool parsingSuccessful = reader.parse(keyReply->str, root);
+
+        if (!parsingSuccessful) {
+            std::cout << "Failed to parse JSON." << std::endl;
+            freeReplyObject(keyReply);
+            continue;
         }
+
+        // Filtrer les valeurs qui possèdent le type "Human"
+        const Json::Value typeValue = root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Class"][0]["tt:Type"][0]["value"];
+        if (typeValue.asString() != "Human") {
+            freeReplyObject(keyReply);
+            continue;
+        }
+
+        // Filtrer les valeurs qui possèdent une probabilité supérieure à 0.5
+        const Json::Value likelihoodValue = root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Class"][0]["tt:Type"][0]["attributes"]["Likelihood"];
+        if (stod(likelihoodValue.asString()) <= 0.5) {
+            freeReplyObject(keyReply);
+            continue;
+        }
+        // Imprimer les valeurs qui passent tous les filtres
+        std::cout << "Cle " << i + 1 << ": " << reply->element[i]->str << "\n";
+        freeReplyObject(keyReply);
     }
+
+    // Libération de la mémoire
     freeReplyObject(reply);
+
+    // Fermeture de la connexion
     fermertureRedis(c);
 }
-
 
 bool dateIsAfter(const std::string &dateTimeStr, const std::string &filterDate) {
     std::istringstream dateTimeStream(dateTimeStr);
@@ -220,7 +223,6 @@ bool dateIsAfter(const std::string &dateTimeStr, const std::string &filterDate) 
 void readAllKeyWithHumanProbabilityAndDate() {
     // Création d'un pointeur sur le contexte Redis
     redisContext *c = connectionRedis();
-
     if (c == NULL || c->err) {
         if (c) {
             std::cout << "Error: " << c->errstr << std::endl;

@@ -48,26 +48,26 @@ Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" p
 The CXX compiler identification is MSVC, found in "C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/cmake-build-debug/CMakeFiles/3.25.2/CompilerIdCXX/CMakeCXXCompilerId.exe"
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-35t6jb
+Change Dir: C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ayqhk6
 
-Run Build Command(s):nmake -f Makefile /nologo cmTC_a1e8b\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\HostX86\x86\nmake.exe"  -f CMakeFiles\cmTC_a1e8b.dir\build.make /nologo -L                  CMakeFiles\cmTC_a1e8b.dir\build
-Building C object CMakeFiles/cmTC_a1e8b.dir/CMakeCCompilerABI.c.obj
-	"C:\Program Files\JetBrains\CLion 2023.1.2\bin\cmake\win\x64\bin\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\cmTC_a1e8b.dir\CMakeCCompilerABI.c.obj.d --working-dir=C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\CMakeFiles\CMakeScratch\TryCompile-35t6jb --filter-prefix="Remarqueá: inclusion du fichierá:  " -- C:\PROGRA~2\MIB055~1\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\cl.exe @C:\Users\G24AB~1.GON\AppData\Local\Temp\nmFAC8.tmp
+Run Build Command(s):nmake -f Makefile /nologo cmTC_d7722\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\HostX86\x86\nmake.exe"  -f CMakeFiles\cmTC_d7722.dir\build.make /nologo -L                  CMakeFiles\cmTC_d7722.dir\build
+Building C object CMakeFiles/cmTC_d7722.dir/CMakeCCompilerABI.c.obj
+	"C:\Program Files\JetBrains\CLion 2023.1.2\bin\cmake\win\x64\bin\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\cmTC_d7722.dir\CMakeCCompilerABI.c.obj.d --working-dir=C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\CMakeFiles\CMakeScratch\TryCompile-ayqhk6 --filter-prefix="Remarqueá: inclusion du fichierá:  " -- C:\PROGRA~2\MIB055~1\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\cl.exe @C:\Users\G24AB~1.GON\AppData\Local\Temp\nmBA79.tmp
 CMakeCCompilerABI.c
-Linking C executable cmTC_a1e8b.exe
-	"C:\Program Files\JetBrains\CLion 2023.1.2\bin\cmake\win\x64\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_a1e8b.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x86\mt.exe --manifests -- C:\PROGRA~2\MIB055~1\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cmTC_a1e8b.dir\objects1 @C:\Users\G24AB~1.GON\AppData\Local\Temp\nmFB84.tmp
+Linking C executable cmTC_d7722.exe
+	"C:\Program Files\JetBrains\CLion 2023.1.2\bin\cmake\win\x64\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_d7722.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x86\mt.exe --manifests -- C:\PROGRA~2\MIB055~1\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cmTC_d7722.dir\objects1 @C:\Users\G24AB~1.GON\AppData\Local\Temp\nmBC9D.tmp
 
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-3a20h0
+Change Dir: C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-gxerfj
 
-Run Build Command(s):nmake -f Makefile /nologo cmTC_66c8a\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\HostX86\x86\nmake.exe"  -f CMakeFiles\cmTC_66c8a.dir\build.make /nologo -L                  CMakeFiles\cmTC_66c8a.dir\build
-Building CXX object CMakeFiles/cmTC_66c8a.dir/CMakeCXXCompilerABI.cpp.obj
-	"C:\Program Files\JetBrains\CLion 2023.1.2\bin\cmake\win\x64\bin\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\cmTC_66c8a.dir\CMakeCXXCompilerABI.cpp.obj.d --working-dir=C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\CMakeFiles\CMakeScratch\TryCompile-3a20h0 --filter-prefix="Remarqueá: inclusion du fichierá:  " -- C:\PROGRA~2\MIB055~1\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\cl.exe @C:\Users\G24AB~1.GON\AppData\Local\Temp\nmFF4C.tmp
+Run Build Command(s):nmake -f Makefile /nologo cmTC_4597f\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\HostX86\x86\nmake.exe"  -f CMakeFiles\cmTC_4597f.dir\build.make /nologo -L                  CMakeFiles\cmTC_4597f.dir\build
+Building CXX object CMakeFiles/cmTC_4597f.dir/CMakeCXXCompilerABI.cpp.obj
+	"C:\Program Files\JetBrains\CLion 2023.1.2\bin\cmake\win\x64\bin\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\cmTC_4597f.dir\CMakeCXXCompilerABI.cpp.obj.d --working-dir=C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\cmake-build-debug\CMakeFiles\CMakeScratch\TryCompile-gxerfj --filter-prefix="Remarqueá: inclusion du fichierá:  " -- C:\PROGRA~2\MIB055~1\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\cl.exe @C:\Users\G24AB~1.GON\AppData\Local\Temp\nmC45D.tmp
 CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_66c8a.exe
-	"C:\Program Files\JetBrains\CLion 2023.1.2\bin\cmake\win\x64\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_66c8a.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x86\mt.exe --manifests -- C:\PROGRA~2\MIB055~1\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cmTC_66c8a.dir\objects1 @C:\Users\G24AB~1.GON\AppData\Local\Temp\nmFFF9.tmp
+Linking CXX executable cmTC_4597f.exe
+	"C:\Program Files\JetBrains\CLion 2023.1.2\bin\cmake\win\x64\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_4597f.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x86\mt.exe --manifests -- C:\PROGRA~2\MIB055~1\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cmTC_4597f.dir\objects1 @C:\Users\G24AB~1.GON\AppData\Local\Temp\nmC623.tmp
 
 
 
