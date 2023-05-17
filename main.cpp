@@ -13,7 +13,7 @@ using namespace std;
 
 int main() {
 
-    updateAllKeyTypeContent();
+
     //*************** TESTS *****************//
 
     /*fstream inFile;

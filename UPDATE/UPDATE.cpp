@@ -151,6 +151,7 @@ void updateAllHumanKey() {
                                         if (type["value"].asString() == "Human") {
                                             type["value"] = newValue;
                                             modified = true;
+                                            nbFichierUpdate++;
                                         }
                                     }
                                 }
@@ -175,7 +176,7 @@ void updateAllHumanKey() {
     auto end = chrono::high_resolution_clock::now();
     chrono::duration<double> elapsed = end - start;
     cout << "Temps d'execution : " << elapsed.count() << " s" << endl;
-    cout << "Nombre de fichier update : " << nbFichierUpdate << endl;
+    cout << "Nombre d'update dans la base de donnes : " << nbFichierUpdate << endl;
 }
 
 void updateAllKeyTypeContent() {
@@ -240,7 +241,7 @@ void updateAllKeyTypeContent() {
     auto end = chrono::high_resolution_clock::now();
     chrono::duration<double> elapsed = end - start;
     cout << "Temps d'execution : " << elapsed.count() << " s" << endl;
-    cout << "Nombre de fichier update : " << nbFichierUpdate << endl;
+    cout << "Nombre d'update dans la base de données : " << nbFichierUpdate << endl;
 
 }
 
