@@ -132,14 +132,11 @@ void readAllKeyWithHuman() {
 
         // Filtrer les valeurs qui possèdent le type "Human"
         const Json::Value typeValue = root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Class"][0]["tt:Type"][0]["value"];
-        if (typeValue.asString() != "Human") {
+        if (typeValue.asString() == "Human") { // Ici, on compare si la valeur est "Human"
+            std::cout << "Cle " << i + 1 << ": " << reply->element[i]->str << "\n";
             nbCle++;
             freeReplyObject(keyReply);
-            continue;
         }
-
-        // Imprimer les valeurs qui passent le filtre
-        std::cout << "Cle " << i + 1 << ": " << reply->element[i]->str << "\n";
         freeReplyObject(keyReply);
     }
 
@@ -153,10 +150,7 @@ void readAllKeyWithHuman() {
     chrono::duration<double> elapsed = finish - start;
     cout << "Nombre de cle : " << nbCle << endl;
     cout << "Temps d'execution : " << elapsed.count() << " s\n";
-
 }
-
-
 /**
  * Cette fonction permet de retrouver toutes les clé-valeur de la base de données Redis
  * Elle permet de filtrer les valeurs qui possèdent le type "Human"
@@ -209,7 +203,6 @@ void readAllKeyWithHumanProbability() {
         const Json::Value likelihoodValue = root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Class"][0]["tt:Type"][0]["attributes"]["Likelihood"];
         if (stod(likelihoodValue.asString()) <= 0.5) {
             nbCle++;
-
             freeReplyObject(keyReply);
             continue;
         }
@@ -219,10 +212,8 @@ void readAllKeyWithHumanProbability() {
 
 
     }
-
     // Libération de la mémoire
     freeReplyObject(reply);
-
     // Fermeture de la connexion
     fermertureRedis(c);
     //Fin chrono

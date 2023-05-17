@@ -242,6 +242,5 @@ void updateAllKeyTypeContent() {
     chrono::duration<double> elapsed = end - start;
     cout << "Temps d'execution : " << elapsed.count() << " s" << endl;
     cout << "Nombre d'update dans la base de données : " << nbFichierUpdate << endl;
-
 }
 

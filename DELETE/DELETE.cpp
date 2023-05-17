@@ -47,11 +47,20 @@ void deleteOneKeyValue() {
 /**
  * Cette fonction supprime toutes les clés et valeurs de la base de données Redis
  */
-
 void deleteAllKeyValue(){
     //Chronos
     auto start = chrono::high_resolution_clock::now();
     redisContext *c = connectionRedis();
+
+    // Get the total number of keys
+    auto* keyCountReply = (redisReply*)redisCommand(c, "DBSIZE");
+    if (keyCountReply == nullptr) {
+        std::cout << "Erreur lors de l'envoi de la commande DBSIZE: " << c->errstr << "\n";
+        fermertureRedis(c);
+    }
+    int keyCount = keyCountReply->integer;
+    freeReplyObject(keyCountReply);
+
     auto* reply = (redisReply*)redisCommand(c, "FLUSHALL");
     if (reply == nullptr) {
         std::cout << "Erreur lors de l'envoi de la commande FLUSHALL: " << c->errstr << "\n";
@@ -62,5 +71,6 @@ void deleteAllKeyValue(){
     auto stop = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
     cout << "Temps d'execution de la fonction deleteAllKeyValue : " << duration.count() << " microsecondes" << endl;
+    cout << "Nombre de cles supprimees : " << keyCount << endl;
 }
 
