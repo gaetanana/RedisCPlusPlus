@@ -15,3 +15,5 @@ void updateOneKeyValue();
 void updateOneHumanKey();
 
 void updateAllHumanKey();
+
+void updateAllKeyTypeContent();

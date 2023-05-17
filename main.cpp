@@ -13,6 +13,7 @@ using namespace std;
 
 int main() {
 
+    updateAllKeyTypeContent();
     //*************** TESTS *****************//
 
     /*fstream inFile;
@@ -121,8 +122,10 @@ int main() {
             std::cout << "|| 2 - Modifier la valeur d'une clé (remplace Human                  ||\n";
                          "||     par une autre valeur)                                         ||\n";
             std::cout << "|| 3 - Modifier toutes les valeurs des cle (remplace Human           ||\n"
-                         "|| par une autre valeur)                                             ||\n";
-            std::cout << "|| 4 - Quitter le menu Update                                        ||\n";
+                         "||     par une autre valeur)                                         ||\n";
+            std::cout << "|| 4 - Modifier toutes les valeurs des cle (remplace le Type par une ||\n"
+                         "||     autre valeur qui est generalement Human)                      ||\n";
+            std::cout << "|| 5 - Quitter le menu Update                                        ||\n";
             std::cout << "||                                                                   ||\n";
             std::cout << "=======================================================================\n";
             int choixUpdate;
@@ -134,7 +137,10 @@ int main() {
                 updateOneHumanKey();
             } else if (choixUpdate == 3) {
                updateAllHumanKey();
-            } else if (choixUpdate == 4) {
+            } else if(choixUpdate == 4){
+                updateAllKeyTypeContent();
+            }
+            else if (choixUpdate == 5) {
                 std::cout << "\nVous avez quitté le menu Update\n";
             }
 
@@ -165,7 +171,6 @@ int main() {
             cout << "========================================================\n";
             break;
         }
-
     }
     return 0;
 }
