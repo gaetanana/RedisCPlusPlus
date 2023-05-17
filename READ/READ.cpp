@@ -151,13 +151,13 @@ void readAllKeyWithHuman() {
     cout << "Temps d'execution : " << elapsed.count() << " s\n";
 
 }
+
 /**
  * Cette fonction permet de retrouver toutes les clé-valeur de la base de données Redis
  * Elle permet de filtrer les valeurs qui possèdent le type "Human"
  * Elle permet de filtrer les valeurs qui possèdent une probabilité supérieur à 0.5
  * 2 filtres
  */
-
 
 void readAllKeyWithHumanProbability() {
     //Chrono
@@ -175,11 +175,11 @@ void readAllKeyWithHumanProbability() {
         return;
     }
     // Obtenir toutes les clés de la base de données Redis
-    redisReply *reply = (redisReply *) redisCommand(c, "KEYS *");
+    auto *reply = (redisReply *) redisCommand(c, "KEYS *");
 
     // Parcourir chaque clé
     for (int i = 0; i < reply->elements; i++) {
-        redisReply *keyReply = (redisReply *) redisCommand(c, "GET %s", reply->element[i]->str);
+        auto *keyReply = (redisReply *) redisCommand(c, "GET %s", reply->element[i]->str);
 
         // Analyser le JSON
         Json::Reader reader;
@@ -201,17 +201,21 @@ void readAllKeyWithHumanProbability() {
 
         // Filtrer les valeurs qui possèdent une probabilité supérieure à 0.5
         const Json::Value likelihoodValue = root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Class"][0]["tt:Type"][0]["attributes"]["Likelihood"];
-        if (stod(likelihoodValue.asString()) <= 0.5) {
+        std::string likelihoodString = likelihoodValue.asString();
+        std::stringstream ss;
+        ss << std::fixed << std::setprecision(2) << likelihoodString;
 
+        double likelihoodDouble = stod(ss.str());
+        if (likelihoodDouble < 0.50) {
             freeReplyObject(keyReply);
             continue;
+        }else{
+            cout << likelihoodValue.asString() << endl;
+            // Imprimer les valeurs qui passent tous les filtres
+            //std::cout << "Cle " << i + 1 << ": " << reply->element[i]->str << "\n";
+            nbCle++;
+            freeReplyObject(keyReply);
         }
-        // Imprimer les valeurs qui passent tous les filtres
-        std::cout << "Cle " << i + 1 << ": " << reply->element[i]->str << "\n";
-        nbCle++;
-        freeReplyObject(keyReply);
-
-
     }
     // Libération de la mémoire
     freeReplyObject(reply);
