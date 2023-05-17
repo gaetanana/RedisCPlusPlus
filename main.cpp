@@ -15,16 +15,18 @@ int main() {
 
     //*************** TESTS *****************//
 
-    fstream inFile;
+    /*fstream inFile;
     inFile.open("C:\\Users\\g.gonfiantini\\Desktop\\data\\FichiersXML\\FichierXMLLourd\\copy_2_Onvif_Metadata_C1000_2023-04-27_16-31-18.695.xml");
 
     stringstream strStream;
     strStream << inFile.rdbuf(); // read the file
     string xmlStr = strStream.str(); // str holds the content of the file
 
-    string jsonStr = xmlToJson(xmlStr);
+    auto result = xmlToJson(xmlStr);
+    string jsonStr = result.first;
+    long long duration = result.second;
 
-    cout << "Conversion ::::::" << jsonStr << "\n";
+    cout << "Conversion ::::::" << jsonStr << "\n";*/
 
     //*************** Application *****************//
 
@@ -51,7 +53,7 @@ int main() {
             std::cout << "=======================================================================\n";
             std::cout << "=================== Veuillez choisir une option : ====================\n";
             std::cout << "||                                                                   ||\n";
-            std::cout << "|| 1 - Crer une cle avec une valeur                                  ||\n";
+            std::cout << "|| 1 - Creer une cle avec une valeur                                 ||\n";
             std::cout << "|| 2 - Creer une cle avec un fichier XML en valeur                   ||\n";
             std::cout << "|| 3 - Stocker l'ensemble des fichiers XML d'un dossier dans Redis   ||\n";
             std::cout << "|| 4 - Quitter le menu Create                                        ||\n";

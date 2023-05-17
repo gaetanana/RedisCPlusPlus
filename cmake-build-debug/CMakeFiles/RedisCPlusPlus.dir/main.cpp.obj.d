@@ -323,9 +323,11 @@ C:/Program Files (x86)/Windows Kits/10/include/10.0.19041.0/um/ime_cmodes.h
 C:/Program Files (x86)/Windows Kits/10/include/10.0.19041.0/shared/ws2def.h
 C:/Program Files (x86)/Windows Kits/10/include/10.0.19041.0/shared/inaddr.h
 C:/Program Files (x86)/Windows Kits/10/include/10.0.19041.0/shared/qos.h
+C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/fstream
+C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/sstream
+C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/string
 C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/ConnectionRedis/connection.h
 C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/CREATE/CREATE.h
 C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/DELETE/DELETE.h
 C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/READ/READ.h
-C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/string
 C:/Users/g.gonfiantini/Desktop/RedisCPlusPlus/UPDATE/UPDATE.h

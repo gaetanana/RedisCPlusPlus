@@ -52,6 +52,10 @@ void readOneKeyValue() {
  * Cette fonction lit une clé et une valeur de la base de données Redis
  */
 void readAllKey() {
+    //Chrono
+    auto start = chrono::high_resolution_clock::now();
+    int nbCle = 0;
+
     redisContext *c = connectionRedis();
     auto *reply = (redisReply *) redisCommand(c, "KEYS *");
     if (reply == nullptr) {
@@ -64,6 +68,7 @@ void readAllKey() {
     } else if (reply->type == REDIS_REPLY_ARRAY) {
         for (int i = 0; i < reply->elements; i++) {
             std::cout << "Cle " << i + 1 << ": " << reply->element[i]->str << "\n";
+            nbCle++;
 
             auto *valueReply = (redisReply *) redisCommand(c, "GET %s", reply->element[i]->str);
             if (valueReply != nullptr) {
@@ -78,6 +83,12 @@ void readAllKey() {
     }
     freeReplyObject(reply);
     fermertureRedis(c);
+    //Fin chrono
+    auto finish = chrono::high_resolution_clock::now();
+    chrono::duration<double> elapsed = finish - start;
+    cout << "Nombre de cle : " << nbCle << endl;
+    cout << "Temps d'execution : " << elapsed.count() << " s\n";
+
 }
 
 /**
@@ -86,6 +97,9 @@ void readAllKey() {
  * 1 filtre
  */
 void readAllKeyWithHuman() {
+    //Chrono
+    auto start = chrono::high_resolution_clock::now();
+    int nbCle = 0;
     // Création d'un pointeur sur le contexte Redis
     redisContext *c = connectionRedis();
 
@@ -102,6 +116,7 @@ void readAllKeyWithHuman() {
 
     // Parcourir chaque clé
     for (int i = 0; i < reply->elements; i++) {
+
         redisReply *keyReply = (redisReply *) redisCommand(c, "GET %s", reply->element[i]->str);
 
         // Analyser le JSON
@@ -118,6 +133,7 @@ void readAllKeyWithHuman() {
         // Filtrer les valeurs qui possèdent le type "Human"
         const Json::Value typeValue = root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Class"][0]["tt:Type"][0]["value"];
         if (typeValue.asString() != "Human") {
+            nbCle++;
             freeReplyObject(keyReply);
             continue;
         }
@@ -132,6 +148,12 @@ void readAllKeyWithHuman() {
 
     // Fermeture de la connexion
     fermertureRedis(c);
+    //Fin chrono
+    auto finish = chrono::high_resolution_clock::now();
+    chrono::duration<double> elapsed = finish - start;
+    cout << "Nombre de cle : " << nbCle << endl;
+    cout << "Temps d'execution : " << elapsed.count() << " s\n";
+
 }
 
 
@@ -144,6 +166,9 @@ void readAllKeyWithHuman() {
 
 
 void readAllKeyWithHumanProbability() {
+    //Chrono
+    auto start = chrono::high_resolution_clock::now();
+    int nbCle = 0;
     // Création d'un pointeur sur le contexte Redis
     redisContext *c = connectionRedis();
 
@@ -183,12 +208,18 @@ void readAllKeyWithHumanProbability() {
         // Filtrer les valeurs qui possèdent une probabilité supérieure à 0.5
         const Json::Value likelihoodValue = root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Class"][0]["tt:Type"][0]["attributes"]["Likelihood"];
         if (stod(likelihoodValue.asString()) <= 0.5) {
+            nbCle++;
+
             freeReplyObject(keyReply);
             continue;
         }
         // Imprimer les valeurs qui passent tous les filtres
         std::cout << "Cle " << i + 1 << ": " << reply->element[i]->str << "\n";
         freeReplyObject(keyReply);
+        //Fin chrono
+        auto finish = chrono::high_resolution_clock::now();
+        chrono::duration<double> elapsed = finish - start;
+        cout << "Nombre de cle : " << nbCle << endl;
     }
 
     // Libération de la mémoire
@@ -221,6 +252,10 @@ bool dateIsAfter(const std::string &dateTimeStr, const std::string &filterDate) 
  * 3 filtres
  */
 void readAllKeyWithHumanProbabilityAndDate() {
+    //Chrono
+    auto start = chrono::high_resolution_clock::now();
+    int nbCle = 0;
+
     // Création d'un pointeur sur le contexte Redis
     redisContext *c = connectionRedis();
     if (c == NULL || c->err) {
@@ -288,6 +323,7 @@ void readAllKeyWithHumanProbabilityAndDate() {
 
         // Imprimer les valeurs qui passent tous les filtres
         std::cout << "Cle " << i + 1 << ": " << reply->element[i]->str << "\n";
+        nbCle++;
         //std::cout << keyReply->str << std::endl;
         freeReplyObject(keyReply);
     }
@@ -297,6 +333,12 @@ void readAllKeyWithHumanProbabilityAndDate() {
 
     // Fermeture de la connexion
     fermertureRedis(c);
+
+    //Fin du chrono
+    auto finish = chrono::high_resolution_clock::now();
+    chrono::duration<double> elapsed = finish - start;
+    cout << "Temps d'execution : " << elapsed.count() << " s\n";
+    cout << "Nombre de cle : " << nbCle << "\n";
 }
 
 /**
@@ -308,6 +350,9 @@ void readAllKeyWithHumanProbabilityAndDate() {
  * 4 filtres
  */
 void readAllKeyWithHumanProbabilityAndDateGender() {
+    //Chrono
+    auto start = chrono::high_resolution_clock::now();
+    int nbCle = 0;
     // Création d'un pointeur sur le contexte Redis
     redisContext *c = connectionRedis();
 
@@ -374,14 +419,16 @@ void readAllKeyWithHumanProbabilityAndDateGender() {
         // Filtrer les valeurs qui possèdent le genre "Masculin"
 
         //Je suis obligé de mettre ce if car certaines valeurs ne possèdent pas le genre "Masculin" et donc le programme plante
-        if(!root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Extension"][0]["HumanFace"][0]["Gender"][0]["Male"][0].isNull()){
+        if (!root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Extension"][0]["HumanFace"][0]["Gender"][0]["Male"][0].isNull()) {
             const Json::Value genderValue = root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Extension"][0]["HumanFace"][0]["Gender"][0]["Male"][0]["value"];
-            std::cout << "Cle " << i + 1 << ": " << reply->element[i]->str << "\n";
+
             if (stod(genderValue.asString()) <= 0.5) {
+                std::cout << "Cle " << i + 1 << ": " << reply->element[i]->str << "\n";
+                nbCle++;
                 freeReplyObject(keyReply);
                 continue;
             }
-        }else{
+        } else {
             //cout << "Key path does not exist" << endl;
         }
         // Imprimer les valeurs qui passent tous les filtres
@@ -393,5 +440,11 @@ void readAllKeyWithHumanProbabilityAndDateGender() {
 
     // Fermeture de la connexion Redis
     redisFree(c);
+    //Fin du chrono
+    auto finish = chrono::high_resolution_clock::now();
+    chrono::duration<double> elapsed = finish - start;
+    cout << "Temps d'execution : " << elapsed.count() << " s\n";
+    cout << "Nombre de cle : " << nbCle << "\n";
+
 }
 

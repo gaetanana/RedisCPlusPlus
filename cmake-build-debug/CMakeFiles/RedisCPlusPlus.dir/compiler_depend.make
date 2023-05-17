@@ -2107,11 +2107,13 @@ CMakeFiles\RedisCPlusPlus.dir\main.cpp.obj: "C:\Program Files (x86)\Windows Kits
 CMakeFiles\RedisCPlusPlus.dir\main.cpp.obj: "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared\ws2def.h"
 CMakeFiles\RedisCPlusPlus.dir\main.cpp.obj: "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared\inaddr.h"
 CMakeFiles\RedisCPlusPlus.dir\main.cpp.obj: "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared\qos.h"
+CMakeFiles\RedisCPlusPlus.dir\main.cpp.obj: "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\fstream"
+CMakeFiles\RedisCPlusPlus.dir\main.cpp.obj: "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\sstream"
+CMakeFiles\RedisCPlusPlus.dir\main.cpp.obj: "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\string"
 CMakeFiles\RedisCPlusPlus.dir\main.cpp.obj: C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\ConnectionRedis\connection.h
 CMakeFiles\RedisCPlusPlus.dir\main.cpp.obj: C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\CREATE\CREATE.h
 CMakeFiles\RedisCPlusPlus.dir\main.cpp.obj: C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\DELETE\DELETE.h
 CMakeFiles\RedisCPlusPlus.dir\main.cpp.obj: C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\READ\READ.h
-CMakeFiles\RedisCPlusPlus.dir\main.cpp.obj: "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\string"
 CMakeFiles\RedisCPlusPlus.dir\main.cpp.obj: C:\Users\g.gonfiantini\Desktop\RedisCPlusPlus\UPDATE\UPDATE.h
 
 

@@ -130,7 +130,10 @@ void createOneKeyValueXML() {
  * Et le nom des clés est le nom du fichier XML
 */
 void createAllKeyValue() {
+    //Chrono pour mesurer le temps d'exécution
+    auto start = chrono::high_resolution_clock::now();
     long long totalConvertTime = 0;
+    int compteurNbFichier = 0;
     redisContext* c = connectionRedis();
     string path;
 
@@ -139,6 +142,7 @@ void createAllKeyValue() {
 
     for (const auto & entry : fs::directory_iterator(path)){
         if (entry.path().extension() == ".xml"){
+            compteurNbFichier++;
             ifstream inFile;
             inFile.open(entry.path());
 
@@ -158,6 +162,10 @@ void createAllKeyValue() {
     }
 
     redisFree(c);
-
+    //Fin du chrono
+    auto stop = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
+    cout << "Temps total d'exécution de l'insertion : " << duration.count() << " microsecondes" << endl;
     cout << "Temps total d'exécution des conversions : " << totalConvertTime << " microsecondes" << endl;
+    cout << "Nombre de fichiers insérés : " << compteurNbFichier << endl;
 }
