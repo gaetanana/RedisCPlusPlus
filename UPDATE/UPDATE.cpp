@@ -179,6 +179,9 @@ void updateAllHumanKey() {
 }
 
 void updateAllKeyTypeContent() {
+    //Chrono
+    auto start = chrono::high_resolution_clock::now();
+    int nbFichierUpdate = 0;
     redisContext* c = connectionRedis();
     string newValue;
 
@@ -212,6 +215,7 @@ void updateAllKeyTypeContent() {
                                         // Update the value, regardless of its current content
                                         type["value"] = newValue;
                                         modified = true;
+                                        nbFichierUpdate++;
                                     }
                                 }
                             }
@@ -225,13 +229,18 @@ void updateAllKeyTypeContent() {
                     builder["indentation"] = "";
                     string newJsonStr = Json::writeString(builder, root);
                     redisCommand(c, "SET %s %s", key.c_str(), newJsonStr.c_str());
+
                 }
             }
             freeReplyObject(getReply);
         }
     }
     freeReplyObject(reply);
-
     redisFree(c);
+    auto end = chrono::high_resolution_clock::now();
+    chrono::duration<double> elapsed = end - start;
+    cout << "Temps d'execution : " << elapsed.count() << " s" << endl;
+    cout << "Nombre de fichier update : " << nbFichierUpdate << endl;
+
 }
 
