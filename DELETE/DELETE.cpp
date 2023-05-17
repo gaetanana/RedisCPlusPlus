@@ -49,6 +49,8 @@ void deleteOneKeyValue() {
  */
 
 void deleteAllKeyValue(){
+    //Chronos
+    auto start = chrono::high_resolution_clock::now();
     redisContext *c = connectionRedis();
     auto* reply = (redisReply*)redisCommand(c, "FLUSHALL");
     if (reply == nullptr) {
@@ -57,5 +59,8 @@ void deleteAllKeyValue(){
     }
     cout << "Reponse a FLUSHALL: " << reply->str << "\n";
     fermertureRedis(c);
+    auto stop = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
+    cout << "Temps d'execution de la fonction deleteAllKeyValue : " << duration.count() << " microsecondes" << endl;
 }
 

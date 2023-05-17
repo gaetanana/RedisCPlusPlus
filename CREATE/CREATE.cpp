@@ -65,18 +65,16 @@ Json::Value xmlNodeToJson(const pugi::xml_node& xmlNode){
 }
 
 
-string xmlToJson(string xml){
+std::pair<string, long long> xmlToJson(string xml){
     //Chrono pour mesurer le temps d'exécution
     auto start = chrono::high_resolution_clock::now();
-
 
     pugi::xml_document doc;
     pugi::xml_parse_result result = doc.load_string(xml.c_str());
     if (!result) {
         std::cout << "Erreur lors du chargement du fichier XML : " << result.description() << "\n";
-        return "";
+        return std::make_pair("", 0);
     }
-
     pugi::xml_node root = doc.document_element();
 
     Json::Value rootJson = xmlNodeToJson(root);
@@ -87,9 +85,11 @@ string xmlToJson(string xml){
 
     auto stop = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
-    cout << "Temps d'exécution de la conversion : " << duration.count() << " microsecondes" << endl;
-    return jsonStr;
+    //cout << "Temps d'exécution de la conversion : " << duration.count() << " microsecondes" << endl;
+
+    return std::make_pair(jsonStr, duration.count());
 }
+
 
 /**
  * Cette fonction me permet de créer une clé valeur à partir d'un fichier XML
@@ -110,7 +110,9 @@ void createOneKeyValueXML() {
     strStream << inFile.rdbuf(); // read the file
     string xmlStr = strStream.str(); // str holds the content of the file
 
-    string jsonStr = xmlToJson(xmlStr);
+    auto result = xmlToJson(xmlStr);
+    string jsonStr = result.first;
+    long long duration = result.second;
 
     // Save jsonStr in Redis with the key being the file name
     cout << "Saisir une cle : ";
@@ -118,8 +120,9 @@ void createOneKeyValueXML() {
     redisCommand(c,"SET %s %s", key.c_str(), jsonStr.c_str());
 
     fermertureRedis(c);
-}
 
+    cout << "Temps d'exécution de la conversion : " << duration << " microsecondes" << endl;
+}
 
 /**
 * Cette fonction me permet de créer toutes les clés et valeurs d'un dossier dans la base de données Redis
@@ -127,14 +130,12 @@ void createOneKeyValueXML() {
  * Et le nom des clés est le nom du fichier XML
 */
 void createAllKeyValue() {
+    long long totalConvertTime = 0;
     redisContext* c = connectionRedis();
     string path;
 
     cout << "Saisir le chemin absolu du dossier : ";
     cin >> path;
-
-    // Début du chrono
-    auto start = std::chrono::high_resolution_clock::now();
 
     for (const auto & entry : fs::directory_iterator(path)){
         if (entry.path().extension() == ".xml"){
@@ -145,7 +146,10 @@ void createAllKeyValue() {
             strStream << inFile.rdbuf(); // read the file
             string xmlStr = strStream.str(); // str holds the content of the file
 
-            string jsonStr = xmlToJson(xmlStr);
+            auto result = xmlToJson(xmlStr);
+            string jsonStr = result.first;
+            long long duration = result.second;
+            totalConvertTime += duration;
 
             // Save jsonStr in Redis with the key being the file name
             string key = entry.path().stem().string();
@@ -153,11 +157,7 @@ void createAllKeyValue() {
         }
     }
 
-    // Fin du chrono
-    auto finish = std::chrono::high_resolution_clock::now();
-
-    // Calcul de la durée d'exécution
-    std::chrono::duration<double> elapsed = finish - start;
-    std::cout << "Elapsed time: " << elapsed.count() << " s\n";
     redisFree(c);
+
+    cout << "Temps total d'exécution des conversions : " << totalConvertTime << " microsecondes" << endl;
 }

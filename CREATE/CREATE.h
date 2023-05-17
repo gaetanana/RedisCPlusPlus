@@ -11,7 +11,7 @@ using namespace std;
 
 void createOneKeyValue();
 
-string xmlToJson(string xml);
+std::pair<string, long long> xmlToJson(string xml);
 
 void createAllKeyValue();
 

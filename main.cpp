@@ -1,6 +1,8 @@
 #include <iostream>
 #include <hiredis/hiredis.h>
 #include <WinSock2.h>
+#include <fstream>
+#include <sstream>
 #include "ConnectionRedis\connection.h"
 #include "CREATE\CREATE.h"
 #include "DELETE\DELETE.h"
@@ -10,6 +12,22 @@
 using namespace std;
 
 int main() {
+
+    //*************** TESTS *****************//
+
+    fstream inFile;
+    inFile.open("C:\\Users\\g.gonfiantini\\Desktop\\data\\FichiersXML\\FichierXMLLourd\\copy_2_Onvif_Metadata_C1000_2023-04-27_16-31-18.695.xml");
+
+    stringstream strStream;
+    strStream << inFile.rdbuf(); // read the file
+    string xmlStr = strStream.str(); // str holds the content of the file
+
+    string jsonStr = xmlToJson(xmlStr);
+
+    cout << "Conversion ::::::" << jsonStr << "\n";
+
+    //*************** Application *****************//
+
     while (true) {
         std::cout << "\n========================================================\n";
         std::cout << "|| Programme de test de la base de donnees Redis      ||\n";
@@ -33,19 +51,22 @@ int main() {
             std::cout << "=======================================================================\n";
             std::cout << "=================== Veuillez choisir une option : ====================\n";
             std::cout << "||                                                                   ||\n";
-            std::cout << "|| 1 - Creer une cle avec un fichier XML en valeur                   ||\n";
-            std::cout << "|| 2 - Stocker l'ensemble des fichiers XML d'un dossier dans Redis   ||\n";
-            std::cout << "|| 3 - Quitter le menu Create                                        ||\n";
+            std::cout << "|| 1 - Crer une cle avec une valeur                                  ||\n";
+            std::cout << "|| 2 - Creer une cle avec un fichier XML en valeur                   ||\n";
+            std::cout << "|| 3 - Stocker l'ensemble des fichiers XML d'un dossier dans Redis   ||\n";
+            std::cout << "|| 4 - Quitter le menu Create                                        ||\n";
             std::cout << "||                                                                   ||\n";
             std::cout << "========================================================================\n";
             int choixCreate;
             std::cout << "\nVotre choix : ";
             std::cin >> choixCreate;
             if (choixCreate == 1) {
-                createOneKeyValueXML();
+                createOneKeyValue();
             } else if (choixCreate == 2) {
-                createAllKeyValue();
+                createOneKeyValueXML();
             } else if (choixCreate == 3) {
+                createAllKeyValue();
+            }else if(choixCreate == 4){
                 std::cout << "\nVous avez quitté le menu Create\n";
             }
         } else if (choix == 2) {
