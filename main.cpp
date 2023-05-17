@@ -133,7 +133,7 @@ int main() {
             } else if (choixUpdate == 2) {
                 updateOneHumanKey();
             } else if (choixUpdate == 3) {
-                cout << "Pas encore disponible\n";
+               updateAllHumanKey();
             } else if (choixUpdate == 4) {
                 std::cout << "\nVous avez quitté le menu Update\n";
             }

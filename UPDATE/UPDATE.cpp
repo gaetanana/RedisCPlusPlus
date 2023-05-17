@@ -113,7 +113,69 @@ void updateOneHumanKey() {
  * Cette fonction me permet de mettre à jour toutes les valeurs de la base de données Redis qui contiennent Human
  * L'utilisateur doit donner la valeur à remplacer
  */
-void updateAllHumanKey(){
+void updateAllHumanKey() {
+    //Chrono
+    auto start = chrono::high_resolution_clock::now();
+    int nbFichierUpdate = 0;
 
+    redisContext* c = connectionRedis();
+    string newValue;
+
+    cout << "Saisir la nouvelle valeur pour remplacer 'Human' : ";
+    cin >> newValue;
+
+    // Get all keys in Redis
+    redisReply* reply = static_cast<redisReply*>(redisCommand(c, "KEYS *"));
+    if (reply->type == REDIS_REPLY_ARRAY) {
+        for (int i = 0; i < reply->elements; i++) {
+            string key = reply->element[i]->str;
+
+            // Get the value for the key
+            redisReply* getReply = static_cast<redisReply*>(redisCommand(c, "GET %s", key.c_str()));
+            if (getReply->type == REDIS_REPLY_STRING) {
+                string jsonStr = getReply->str;
+
+                // Parse the JSON string
+                Json::Value root;
+                std::stringstream sstr(jsonStr);
+                sstr >> root;
+
+                // Check if the JSON contains "Human"
+                bool modified = false;
+                for (Json::Value& value : root["tt:VideoAnalytics"]) {
+                    for (Json::Value& frame : value["tt:Frame"]) {
+                        for (Json::Value& object : frame["tt:Object"]) {
+                            for (Json::Value& appearance : object["tt:Appearance"]) {
+                                for (Json::Value& classValue : appearance["tt:Class"]) {
+                                    for (Json::Value& type : classValue["tt:Type"]) {
+                                        if (type["value"].asString() == "Human") {
+                                            type["value"] = newValue;
+                                            modified = true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // If the JSON was modified, update the value in Redis
+                if (modified) {
+                    Json::StreamWriterBuilder builder;
+                    builder["indentation"] = "";
+                    string newJsonStr = Json::writeString(builder, root);
+                    redisCommand(c, "SET %s %s", key.c_str(), newJsonStr.c_str());
+                }
+            }
+            freeReplyObject(getReply);
+        }
+    }
+    freeReplyObject(reply);
+    redisFree(c);
+    auto end = chrono::high_resolution_clock::now();
+    chrono::duration<double> elapsed = end - start;
+    cout << "Temps d'execution : " << elapsed.count() << " s" << endl;
+    cout << "Nombre de fichier update : " << nbFichierUpdate << endl;
 }
+
 
