@@ -23,7 +23,7 @@ using namespace std;
 /**
  * Cette fonction me permet de mettre à jour une valeur d'une clé grâce au nom de la clé
  */
-void updateOneKeyValue(){
+void updateOneKeyValue() {
     redisContext *c = connectionRedis();
     string key;
     string value;
@@ -31,7 +31,7 @@ void updateOneKeyValue(){
     cin >> key;
     cout << "Saisir une valeur : ";
     cin >> value;
-    auto* reply = (redisReply*)redisCommand(c, "SET %s %s", key.c_str(), value.c_str());
+    auto *reply = (redisReply *) redisCommand(c, "SET %s %s", key.c_str(), value.c_str());
     if (reply == nullptr) {
         std::cout << "Erreur lors de l'envoi de la commande SET: " << c->errstr << "\n";
         fermertureRedis(c);
@@ -45,13 +45,13 @@ void updateOneKeyValue(){
  * L'utilisateur doit donenr le nom de la clé et la valeur à remplacer
  */
 // Fonction auxiliaire pour mettre à jour les valeurs de manière récursive
-void updateJsonValue(Json::Value& val, const std::string& newValue) {
+void updateJsonValue(Json::Value &val, const std::string &newValue) {
     if (val.isObject()) { // Si c'est un objet
-        for (auto& item : val.getMemberNames()) {
+        for (auto &item: val.getMemberNames()) {
             updateJsonValue(val[item], newValue);
         }
     } else if (val.isArray()) { // Si c'est un tableau
-        for (auto& item : val) {
+        for (auto &item: val) {
             updateJsonValue(item, newValue);
         }
     } else if (val.isString() && val.asString() == "Human") { // Si c'est une chaîne et sa valeur est "Human"
@@ -66,13 +66,13 @@ void updateOneHumanKey() {
     cin >> key;
 
     // Récupérer la valeur de la clé de la base de données Redis
-    redisReply *reply = (redisReply *)redisCommand(c, "GET %s", key.c_str());
+    redisReply *reply = (redisReply *) redisCommand(c, "GET %s", key.c_str());
 
     if (reply->type == REDIS_REPLY_STRING) {
         // Parser le document JSON
         Json::Value root;
         Json::CharReaderBuilder builder;
-        Json::CharReader* reader = builder.newCharReader();
+        Json::CharReader *reader = builder.newCharReader();
         std::string errors;
 
         bool parsingSuccessful = reader->parse(reply->str, reply->str + reply->len, &root, &errors);
@@ -98,7 +98,7 @@ void updateOneHumanKey() {
         std::string updatedJson = Json::writeString(writerBuilder, root);
 
         // Mettre à jour la valeur dans la base de données Redis
-        redisReply *setReply = (redisReply *)redisCommand(c, "SET %s %s", key.c_str(), updatedJson.c_str());
+        redisReply *setReply = (redisReply *) redisCommand(c, "SET %s %s", key.c_str(), updatedJson.c_str());
 
         // Libérer la mémoire allouée pour les réponses
         freeReplyObject(reply);
@@ -109,11 +109,11 @@ void updateOneHumanKey() {
     }
 }
 
- /**
-  * Cette fonction me permet de mettre à jour toutes les valeurs de la base de données Redis qui contiennent Human
-  * L'utilisateur doit donner la valeur à remplacer
-  */
+/**
+ * Cette fonction me permet de mettre à jour toutes les valeurs de la base de données Redis qui contiennent Human
+ * L'utilisateur doit donner la valeur à remplacer
+ */
+void updateAllHumanKey(){
 
-    void updateAllHumanKey(){
+}
 
-    }

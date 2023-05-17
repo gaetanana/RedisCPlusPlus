@@ -216,10 +216,8 @@ void readAllKeyWithHumanProbability() {
         // Imprimer les valeurs qui passent tous les filtres
         std::cout << "Cle " << i + 1 << ": " << reply->element[i]->str << "\n";
         freeReplyObject(keyReply);
-        //Fin chrono
-        auto finish = chrono::high_resolution_clock::now();
-        chrono::duration<double> elapsed = finish - start;
-        cout << "Nombre de cle : " << nbCle << endl;
+
+
     }
 
     // Libération de la mémoire
@@ -227,6 +225,11 @@ void readAllKeyWithHumanProbability() {
 
     // Fermeture de la connexion
     fermertureRedis(c);
+    //Fin chrono
+    auto finish = chrono::high_resolution_clock::now();
+    chrono::duration<double> elapsed = finish - start;
+    cout << "Nombre de cle : " << nbCle << endl;
+    cout << "Temps d'execution : " << elapsed.count() << " s\n";
 }
 
 bool dateIsAfter(const std::string &dateTimeStr, const std::string &filterDate) {
@@ -421,7 +424,6 @@ void readAllKeyWithHumanProbabilityAndDateGender() {
         //Je suis obligé de mettre ce if car certaines valeurs ne possèdent pas le genre "Masculin" et donc le programme plante
         if (!root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Extension"][0]["HumanFace"][0]["Gender"][0]["Male"][0].isNull()) {
             const Json::Value genderValue = root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Extension"][0]["HumanFace"][0]["Gender"][0]["Male"][0]["value"];
-
             if (stod(genderValue.asString()) <= 0.5) {
                 std::cout << "Cle " << i + 1 << ": " << reply->element[i]->str << "\n";
                 nbCle++;
