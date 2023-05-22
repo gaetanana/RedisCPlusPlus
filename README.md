@@ -37,12 +37,19 @@ Une fois que vous êtes sur cette interface, vous pouvez tapez 1 pour accéder a
 
 Si vous tapez 1, vous accéderez au menu create :
 
+![choix1.png](imgREADME%2Fchoix1.png)
 
 Si vous tapez 2, vous accéderez au menu read :
 
+![choix2.png](imgREADME%2Fchoix2.png)
+
 Si vous tapez 3, vous accéderez au menu update :
 
+![choix3.png](imgREADME%2Fchoix3.png)
+
 Si vous tapez 4, vous accéderez au menu delete :
+
+![choix4.png](imgREADME%2Fchoix4.png)
 
 Si vous tapez 5, vous quitterez le programme : 
 
