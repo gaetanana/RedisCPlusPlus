@@ -24,20 +24,24 @@ using namespace std;
  * Cette fonction me permet de mettre à jour une valeur d'une clé grâce au nom de la clé
  */
 void updateOneKeyValue() {
-    redisContext *c = connectionRedis();
+    redisContext *c = connectionRedis(); // Connexion à la base de données Redis
+    //Demander à l'utilisateur la clé et la valeur à mettre à jour
     string key;
     string value;
     cout << "Saisir une clé : ";
     cin >> key;
     cout << "Saisir une valeur : ";
     cin >> value;
+    //Requête pour mettre à jour la valeur de la clé
     auto *reply = (redisReply *) redisCommand(c, "SET %s %s", key.c_str(), value.c_str());
+    //Condition si la requête n'a pas fonctionné
     if (reply == nullptr) {
         std::cout << "Erreur lors de l'envoi de la commande SET: " << c->errstr << "\n";
         fermertureRedis(c);
     }
+    //Affichage de la réponse
     cout << "Reponse a SET: " << reply->str << "\n";
-    fermertureRedis(c);
+    fermertureRedis(c); // Fermeture de la connexion à la base de données Redis
 }
 
 /**
@@ -117,13 +121,10 @@ void updateAllHumanKey() {
     //Chrono
     auto start = chrono::high_resolution_clock::now();
     int nbFichierUpdate = 0;
-
     redisContext* c = connectionRedis();
     string newValue;
-
     cout << "Saisir la nouvelle valeur pour remplacer 'Human' : ";
     cin >> newValue;
-
     // Get all keys in Redis
     redisReply* reply = static_cast<redisReply*>(redisCommand(c, "KEYS *"));
     if (reply->type == REDIS_REPLY_ARRAY) {
@@ -135,12 +136,9 @@ void updateAllHumanKey() {
             if (getReply->type == REDIS_REPLY_STRING) {
                 string jsonStr = getReply->str;
 
-                // Parse the JSON string
                 Json::Value root;
                 std::stringstream sstr(jsonStr);
                 sstr >> root;
-
-                // Check if the JSON contains "Human"
                 bool modified = false;
                 for (Json::Value& value : root["tt:VideoAnalytics"]) {
                     for (Json::Value& frame : value["tt:Frame"]) {
