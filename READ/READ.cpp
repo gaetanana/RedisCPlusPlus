@@ -186,7 +186,7 @@ void readAllKeyWithHumanProbability() {
             continue;
         }
         // Parcourir tous les tt:Appearance dans tt:Object
-        for (const auto& object : root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"]) {
+        for (const auto &object: root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"]) {
             // Filtrer les valeurs qui possèdent le type "Human"
             const Json::Value typeValue = object["tt:Appearance"][0]["tt:Class"][0]["tt:Type"][0]["value"];
             if (typeValue.asString() != "Human") {
@@ -261,17 +261,17 @@ void readAllKeyWithHumanProbabilityAndDate() {
             continue;
         }
         const auto &videoAnalytics = root["tt:VideoAnalytics"];
-        for (const auto &analytics : videoAnalytics) {
+        for (const auto &analytics: videoAnalytics) {
             const auto &frames = analytics["tt:Frame"];
-            for (const auto &frame : frames) {
+            for (const auto &frame: frames) {
                 const auto &objects = frame["tt:Object"];
-                for (const auto &object : objects) {
+                for (const auto &object: objects) {
                     const auto &appearances = object["tt:Appearance"];
-                    for (const auto &appearance : appearances) {
+                    for (const auto &appearance: appearances) {
                         const auto &classes = appearance["tt:Class"];
-                        for (const auto &cls : classes) {
+                        for (const auto &cls: classes) {
                             const auto &types = cls["tt:Type"];
-                            for (const auto &type : types) {
+                            for (const auto &type: types) {
                                 string valueType = type["value"].asString();
                                 double valueLikelihood = std::stod(type["attributes"]["Likelihood"].asString());
                                 string utcTime = frame["UtcTime"].asString();
@@ -364,7 +364,7 @@ void readAllKeyWithHumanProbabilityAndDateGender() {
         auto tp = std::chrono::system_clock::from_time_t(std::mktime(&tm));
 
         // Définir la date de filtre
-        std::string filterDateTimeStr = "2023-03-01T00:00:00";  // Modifiez cette valeur en conséquence
+        std::string filterDateTimeStr = "2023-05-16T00:00:00";  // Modifiez cette valeur en conséquence
         std::tm filterTm = {};
         std::istringstream filterSs(filterDateTimeStr);
         filterSs >> std::get_time(&filterTm, "%Y-%m-%dT%H:%M:%S");
@@ -379,7 +379,7 @@ void readAllKeyWithHumanProbabilityAndDateGender() {
         //Je suis obligé de mettre ce if car certaines valeurs ne possèdent pas le genre "Masculin" et donc le programme plante
         if (!root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Extension"][0]["HumanFace"][0]["Gender"][0]["Male"][0].isNull()) {
             const Json::Value genderValue = root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Extension"][0]["HumanFace"][0]["Gender"][0]["Male"][0]["value"];
-            if (stod(genderValue.asString()) <= 0.5) {
+            if (stod(genderValue.asString()) > 0.5) {
                 std::cout << "Cle " << i + 1 << ": " << reply->element[i]->str << "\n";
                 nbCle++;
                 freeReplyObject(keyReply);
@@ -391,10 +391,8 @@ void readAllKeyWithHumanProbabilityAndDateGender() {
         // Imprimer les valeurs qui passent tous les filtres
         freeReplyObject(keyReply);
     }
-
     // Libération de la mémoire
     freeReplyObject(reply);
-
     // Fermeture de la connexion Redis
     redisFree(c);
     //Fin du chrono
@@ -403,4 +401,5 @@ void readAllKeyWithHumanProbabilityAndDateGender() {
     cout << "Temps d'execution : " << elapsed.count() << " s\n";
     cout << "Nombre de cle : " << nbCle << "\n";
 }
+
 

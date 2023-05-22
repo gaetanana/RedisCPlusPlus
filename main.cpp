@@ -15,7 +15,7 @@ int main() {
     //*************** TESTS *****************//
 
     /*fstream inFile;
-    inFile.open("C:\\Users\\g.gonfiantini\\Desktop\\data\\FichiersXML\\FichierXMLLourd\\copy_2_Onvif_Metadata_C1000_2023-04-27_16-31-18.695.xml");
+    inFile.open("C:\\Users\\g.gonfiantini\\Desktop\\data\\FichiersXML\\FichiersXML104295\\Onvif_Metadata_C1000_2023-04-27_15-42-48.432.xml");
 
     stringstream strStream;
     strStream << inFile.rdbuf(); // read the file
@@ -25,7 +25,8 @@ int main() {
     string jsonStr = result.first;
     long long duration = result.second;
 
-    cout << "Conversion ::::::" << jsonStr << "\n";*/
+    cout << "Conversion ::::::" << jsonStr << "\n";
+    */
 
     //*************** Application *****************//
 
