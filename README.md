@@ -55,6 +55,7 @@ Si vous tapez 5, vous quitterez le programme :
 
 ![choix5.png](imgREADME%2Fchoix5.png)
 
+En suite selon le menu que vous avez choisi, vous pourrez faire des actions sur la base de données Redis.
 
 **Attention à ne pas faire de fautes de frappes, sinon le programme ne fonctionnera pas et plantera car je n'ai pas encore
 implémenté de gestion d'erreur.**
