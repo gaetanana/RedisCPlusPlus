@@ -151,7 +151,6 @@ void readAllKeyWithHuman() {
     cout << "Temps d'execution : " << elapsed.count() << " s\n";
 }
 
-
 /**
  * Cette fonction permet de retrouver toutes les clé-valeur de la base de données Redis
  * Elle permet de filtrer les valeurs qui possèdent le type "Human"
@@ -240,89 +239,66 @@ bool dateIsAfter(const std::string &dateTimeStr, const std::string &filterDate) 
  * 3 filtres
  */
 void readAllKeyWithHumanProbabilityAndDate() {
-    //Chrono
     auto start = chrono::high_resolution_clock::now();
-    int nbCle = 0;
-
-    // Création d'un pointeur sur le contexte Redis
+    int keyCount = 0;
     redisContext *c = connectionRedis();
     if (c == NULL || c->err) {
         if (c) {
-            std::cout << "Error: " << c->errstr << std::endl;
+            cout << "Error: " << c->errstr << endl;
         } else {
-            std::cout << "Cannot allocate redis context." << std::endl;
+            cout << "Cannot allocate redis context." << endl;
         }
         return;
     }
-    // Obtenir toutes les clés de la base de données Redis
-    redisReply *reply = (redisReply *) redisCommand(c, "KEYS *");
-
-    // Parcourir chaque clé
+    auto *reply = (redisReply *) redisCommand(c, "KEYS *");
     for (int i = 0; i < reply->elements; i++) {
-        redisReply *keyReply = (redisReply *) redisCommand(c, "GET %s", reply->element[i]->str);
-
-        // Analyser le JSON
-        Json::Reader reader;
+        auto *keyReply = (redisReply *) redisCommand(c, "GET %s", reply->element[i]->str);
         Json::Value root;
-        bool parsingSuccessful = reader.parse(keyReply->str, root);
-
-        if (!parsingSuccessful) {
-            std::cout << "Failed to parse JSON." << std::endl;
+        Json::Reader reader;
+        if (!reader.parse(keyReply->str, root)) {
+            cout << "Failed to parse JSON." << endl;
             freeReplyObject(keyReply);
             continue;
         }
+        const auto &videoAnalytics = root["tt:VideoAnalytics"];
+        for (const auto &analytics : videoAnalytics) {
+            const auto &frames = analytics["tt:Frame"];
+            for (const auto &frame : frames) {
+                const auto &objects = frame["tt:Object"];
+                for (const auto &object : objects) {
+                    const auto &appearances = object["tt:Appearance"];
+                    for (const auto &appearance : appearances) {
+                        const auto &classes = appearance["tt:Class"];
+                        for (const auto &cls : classes) {
+                            const auto &types = cls["tt:Type"];
+                            for (const auto &type : types) {
+                                string valueType = type["value"].asString();
+                                double valueLikelihood = std::stod(type["attributes"]["Likelihood"].asString());
+                                string utcTime = frame["UtcTime"].asString();
 
-        // Filtrer les valeurs qui possèdent le type "Human"
-        const Json::Value typeValue = root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Class"][0]["tt:Type"][0]["value"];
-        if (typeValue.asString() != "Human") {
-            freeReplyObject(keyReply);
-            continue;
+                                if (valueType == "Human" && valueLikelihood > 0.5 && utcTime > "2023-04-21T14:45:23") {
+                                    cout << "Cle " << i + 1 << ": " << reply->element[i]->str << "\n";
+                                    keyCount++;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
 
-        // Filtrer les valeurs qui possèdent une probabilité supérieure à 0.5
-        const Json::Value likelihoodValue = root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Class"][0]["tt:Type"][0]["attributes"]["Likelihood"];
-        if (stod(likelihoodValue.asString()) <= 0.5) {
-            freeReplyObject(keyReply);
-            continue;
-        }
-
-        // Filtrer les valeurs qui possèdent une date supérieure à la date mise dans le filtre
-        const Json::Value dateValue = root["tt:VideoAnalytics"][0]["tt:Frame"][0]["UtcTime"];
-        std::string dateTime = dateValue.asString();
-        std::tm tm = {};
-        std::istringstream ss(dateTime);
-        ss >> std::get_time(&tm, "%Y-%m-%dT%H:%M:%S");
-        auto tp = std::chrono::system_clock::from_time_t(std::mktime(&tm));
-        //std::cout << "Date: " << dateTime << std::endl; //A ce stade il y a pas le filtre date
-        // Définir la date de filtre
-        //Actuellement le filtre est sur 2023-04-21T14:45:23 c'est à dire que toutes les valeurs qui ont une date inférieur à celle-ci ne seront pas affichées
-        std::string filterDateTimeStr = "2023-04-21T14:45:23";  // Modifiez cette valeur en conséquence
-
-        std::tm filterTm = {};
-        std::istringstream filterSs(filterDateTimeStr);
-        filterSs >> std::get_time(&filterTm, "%Y-%m-%dT%H:%M:%S");
-        auto filterTp = std::chrono::system_clock::from_time_t(std::mktime(&filterTm));
-
-        if (tp < filterTp) {
-            freeReplyObject(keyReply);
-            continue;
-        }
-        // Imprimer les valeurs qui passent tous les filtres
-        std::cout << "Cle " << i + 1 << ": " << reply->element[i]->str << "\n";
-        nbCle++;
-        //std::cout << keyReply->str << std::endl;
         freeReplyObject(keyReply);
     }
-    // Libération de la mémoire
+
     freeReplyObject(reply);
-    // Fermeture de la connexion
     fermertureRedis(c);
-    //Fin du chrono
+
     auto finish = chrono::high_resolution_clock::now();
     chrono::duration<double> elapsed = finish - start;
     cout << "Temps d'execution : " << elapsed.count() << " s\n";
-    cout << "Nombre de cle : " << nbCle << "\n";
+    cout << "Nombre de cle : " << keyCount << "\n";
 }
+
 /**
  * Cette fonction permet de retrouver toutes les clé-valeur de la base de données Redis
  * Elle permet de filtrer les valeurs qui possèdent le type "Human"
@@ -426,6 +402,5 @@ void readAllKeyWithHumanProbabilityAndDateGender() {
     chrono::duration<double> elapsed = finish - start;
     cout << "Temps d'execution : " << elapsed.count() << " s\n";
     cout << "Nombre de cle : " << nbCle << "\n";
-
 }
 
