@@ -28,3 +28,27 @@ et en suite  vous pourrez utiliser le programme.
 Utilisation du programme
 ------------------------
 
+Lorsque vous lancez le programme, vous devriez avoir l'interface suivante :
+
+![interfaceProgramme.png](imgREADME%2FinterfaceProgramme.png)
+
+Une fois que vous êtes sur cette interface, vous pouvez tapez 1 pour accéder au menu create, 2 pour accéder au menu read,
+3 pour accéder au menu update et 4 pour accéder au menu delete ou 5 si vous souhaitez quitter le programme.
+
+Si vous tapez 1, vous accéderez au menu create :
+
+
+Si vous tapez 2, vous accéderez au menu read :
+
+Si vous tapez 3, vous accéderez au menu update :
+
+Si vous tapez 4, vous accéderez au menu delete :
+
+Si vous tapez 5, vous quitterez le programme : 
+
+![choix5.png](imgREADME%2Fchoix5.png)
+
+
+**Attention à ne pas faire de fautes de frappes, sinon le programme ne fonctionnera pas et plantera car je n'ai pas encore
+implémenté de gestion d'erreur.**
+

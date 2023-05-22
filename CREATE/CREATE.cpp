@@ -19,22 +19,26 @@
 using namespace std;
 namespace fs = std::filesystem;
 /**
- * Cette fonction me permet de créer une clé et une valeur dans la base de données Redis
- * Demandé à l'utilisateur de saisir une clé et une valeur
+ * Cette fonction me permet de créer une clé et une valeur dans la base de données Redis.
+ * Demande à l'utilisateur de saisir une clé et une valeur.
  */
 void createOneKeyValue(){
-    redisContext *c = connectionRedis();
+    redisContext *c = connectionRedis(); //Connexion à Redis
+    //Saisie de la clé et de la valeur
     string key;
     string value;
     cout << "Saisir une clé : ";
     cin >> key;
     cout << "Saisir une valeur : ";
     cin >> value;
+    //Création de la clé et de la valeur
     auto* reply = (redisReply*)redisCommand(c, "SET %s %s", key.c_str(), value.c_str());
+    //Condition si la requête n'a pas fonctionné
     if (reply == nullptr) {
         std::cout << "Erreur lors de l'envoi de la commande SET: " << c->errstr << "\n";
         fermertureRedis(c);
     }
+    //Affichage de la réponse
     cout << "Reponse a SET: " << reply->str << "\n";
     fermertureRedis(c);
 }
