@@ -322,10 +322,8 @@ void readAllKeyWithHumanProbabilityAndDateGender() {
         }
         return;
     }
-
     // Obtenir toutes les clés de la base de données Redis
     redisReply *reply = (redisReply *) redisCommand(c, "KEYS *");
-
     // Parcourir chaque clé
     for (int i = 0; i < reply->elements; i++) {
         redisReply *keyReply = (redisReply *) redisCommand(c, "GET %s", reply->element[i]->str);
