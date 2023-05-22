@@ -12,8 +12,6 @@
 using namespace std;
 
 int main() {
-
-
     //*************** TESTS *****************//
 
     /*fstream inFile;
