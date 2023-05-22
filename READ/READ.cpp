@@ -55,27 +55,32 @@ void readOneKeyValue() {
 
 
 /**
- * Cette fonction lit une clé et une valeur de la base de données Redis
+ * Cette fonction lit toutes les clés et valeurs de la base de données Redis
  */
 void readAllKey() {
-    //Chrono
-    auto start = chrono::high_resolution_clock::now();
-    int nbCle = 0;
+    auto start = chrono::high_resolution_clock::now(); //Début du chronomètre
+    int nbCle = 0; //Compteur de clés
 
-    redisContext *c = connectionRedis();
-    auto *reply = (redisReply *) redisCommand(c, "KEYS *");
+    redisContext *c = connectionRedis(); //Connexion à Redis
+    auto *reply = (redisReply *) redisCommand(c, "KEYS *"); //Récupération de toutes les clés
+    //Condition si la clé est nulle
     if (reply == nullptr) {
         std::cout << "Erreur lors de l'envoi de la commande KEYS *: " << c->errstr << "\n";
         fermertureRedis(c);
         return;
     }
+    //Si la requête renvoie une erreur
     if (reply->type == REDIS_REPLY_ERROR) {
         std::cout << "Erreur lors de l'envoi de la commande KEYS *: " << reply->str << "\n";
-    } else if (reply->type == REDIS_REPLY_ARRAY) {
+    }
+    //Si la requête renvoie un tableau
+    else if (reply->type == REDIS_REPLY_ARRAY) {
+        //Parcours du tableau
         for (int i = 0; i < reply->elements; i++) {
             std::cout << "Cle " << i + 1 << ": " << reply->element[i]->str << "\n";
             nbCle++;
 
+            //Récupération de la valeur de la clé
             auto *valueReply = (redisReply *) redisCommand(c, "GET %s", reply->element[i]->str);
             if (valueReply != nullptr) {
                 if (valueReply->type == REDIS_REPLY_ERROR) {
@@ -83,18 +88,17 @@ void readAllKey() {
                 } else if (valueReply->type == REDIS_REPLY_STRING) {
                     //std::cout << "Valeur: " << valueReply->str << "\n";
                 }
-                freeReplyObject(valueReply);
+                freeReplyObject(valueReply); //Libération de la mémoire
             }
         }
     }
-    freeReplyObject(reply);
-    fermertureRedis(c);
-    //Fin chrono
+    freeReplyObject(reply); //Libération de la mémoire
+    fermertureRedis(c); //Fermeture de la connexion
+    //Fin du chronomètre et affichage du temps d'exécution et du nombre de clés lues
     auto finish = chrono::high_resolution_clock::now();
     chrono::duration<double> elapsed = finish - start;
     cout << "Nombre de cle : " << nbCle << endl;
     cout << "Temps d'execution : " << elapsed.count() << " s\n";
-
 }
 
 /**
@@ -314,12 +318,14 @@ void readAllKeyWithHumanProbabilityAndDate() {
  * 4 filtres
  */
 void readAllKeyWithHumanProbabilityAndDateGender() {
-    //Chrono
+    // Démarrer le chronomètre
     auto start = chrono::high_resolution_clock::now();
-    int nbCle = 0;
-    // Création d'un pointeur sur le contexte Redis
+    int nbCle = 0; // Compteur de clés qui passent les filtres
+
+    // Connexion à Redis
     redisContext *c = connectionRedis();
 
+    // Si la connexion échoue, afficher l'erreur et quitter la fonction
     if (c == NULL || c->err) {
         if (c) {
             std::cout << "Error: " << c->errstr << std::endl;
@@ -328,38 +334,42 @@ void readAllKeyWithHumanProbabilityAndDateGender() {
         }
         return;
     }
-    // Obtenir toutes les clés de la base de données Redis
+
+    // Récupérer toutes les clés de Redis
     redisReply *reply = (redisReply *) redisCommand(c, "KEYS *");
-    // Parcourir chaque clé
+
+    // Parcourir toutes les clés
     for (int i = 0; i < reply->elements; i++) {
+        // Récupérer la valeur pour la clé actuelle
         redisReply *keyReply = (redisReply *) redisCommand(c, "GET %s", reply->element[i]->str);
 
-        // Analyser le JSON
+        // Analyser la valeur en tant que JSON
         Json::Reader reader;
         Json::Value root;
         bool parsingSuccessful = reader.parse(keyReply->str, root);
 
+        // Si l'analyse échoue, afficher une erreur et passer à la clé suivante
         if (!parsingSuccessful) {
             std::cout << "Failed to parse JSON." << std::endl;
             freeReplyObject(keyReply);
             continue;
         }
 
-        // Filtrer les valeurs qui possèdent le type "Human"
+        // Appliquer le premier filtre : le type doit être "Human"
         const Json::Value typeValue = root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Class"][0]["tt:Type"][0]["value"];
         if (typeValue.asString() != "Human") {
             freeReplyObject(keyReply);
             continue;
         }
 
-        // Filtrer les valeurs qui possèdent une probabilité supérieure à 0.5
+        // Appliquer le deuxième filtre : la probabilité doit être supérieure à 0.5
         const Json::Value likelihoodValue = root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Class"][0]["tt:Type"][0]["attributes"]["Likelihood"];
         if (stod(likelihoodValue.asString()) <= 0.5) {
             freeReplyObject(keyReply);
             continue;
         }
 
-        // Filtrer les valeurs qui possèdent une date supérieure à la date mise dans le filtre
+        // Appliquer le troisième filtre : la date doit être postérieure à une certaine date
         const Json::Value dateValue = root["tt:VideoAnalytics"][0]["tt:Frame"][0]["UtcTime"];
         std::string dateTime = dateValue.asString();
         std::tm tm = {};
@@ -367,8 +377,7 @@ void readAllKeyWithHumanProbabilityAndDateGender() {
         ss >> std::get_time(&tm, "%Y-%m-%dT%H:%M:%S");
         auto tp = std::chrono::system_clock::from_time_t(std::mktime(&tm));
 
-        // Définir la date de filtre
-        std::string filterDateTimeStr = "2023-05-16T00:00:00";  // Modifiez cette valeur en conséquence
+        std::string filterDateTimeStr = "2023-05-16T00:00:00";  // Cette date est le filtre
         std::tm filterTm = {};
         std::istringstream filterSs(filterDateTimeStr);
         filterSs >> std::get_time(&filterTm, "%Y-%m-%dT%H:%M:%S");
@@ -378,32 +387,32 @@ void readAllKeyWithHumanProbabilityAndDateGender() {
             freeReplyObject(keyReply);
             continue;
         }
-        // Filtrer les valeurs qui possèdent le genre "Masculin"
 
-        //Je suis obligé de mettre ce if car certaines valeurs ne possèdent pas le genre "Masculin" et donc le programme plante
+        // Appliquer le quatrième filtre : le genre doit être "Masculin" avec une probabilité supérieure à 0.5
         if (!root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Extension"][0]["HumanFace"][0]["Gender"][0]["Male"][0].isNull()) {
             const Json::Value genderValue = root["tt:VideoAnalytics"][0]["tt:Frame"][0]["tt:Object"][0]["tt:Appearance"][0]["tt:Extension"][0]["HumanFace"][0]["Gender"][0]["Male"][0]["value"];
             if (stod(genderValue.asString()) > 0.5) {
                 std::cout << "Cle " << i + 1 << ": " << reply->element[i]->str << "\n";
                 nbCle++;
-                freeReplyObject(keyReply);
-                continue;
             }
-        } else {
-            //cout << "Key path does not exist" << endl;
         }
-        // Imprimer les valeurs qui passent tous les filtres
+
+        // Libérer la mémoire allouée pour la réponse à la requête GET
         freeReplyObject(keyReply);
     }
-    // Libération de la mémoire
+
+    // Libérer la mémoire allouée pour la réponse à la requête KEYS
     freeReplyObject(reply);
-    // Fermeture de la connexion Redis
+
+    // Fermer la connexion à Redis
     redisFree(c);
-    //Fin du chrono
+
+    // Arrêter le chronomètre et afficher le temps d'exécution et le nombre de clés qui passent les filtres
     auto finish = chrono::high_resolution_clock::now();
     chrono::duration<double> elapsed = finish - start;
     cout << "Temps d'execution : " << elapsed.count() << " s\n";
     cout << "Nombre de cle : " << nbCle << "\n";
 }
+
 
 
