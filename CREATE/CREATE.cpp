@@ -48,49 +48,80 @@ void createOneKeyValue(){
  * @param xml
  * @return
   */
+// Cette fonction prend un nœud XML en entrée et le convertit en un objet JSON.
 Json::Value xmlNodeToJson(const pugi::xml_node& xmlNode){
+    // Initialise un nouvel objet JSON.
     Json::Value jsonNode;
+
+    // Parcoure tous les attributs du nœud XML en entrée.
     for (pugi::xml_attribute attr = xmlNode.first_attribute(); attr; attr = attr.next_attribute()){
+        // Ajoute chaque attribut à l'objet JSON.
         jsonNode[attr.name()] = attr.value();
     }
+
+    // Parcoure tous les nœuds enfants du nœud XML en entrée.
     for (pugi::xml_node child = xmlNode.first_child(); child; child = child.next_sibling()){
+        // Si le premier enfant est un nœud texte (node_pcdata),
+        // cela signifie que ce nœud a des données texte que nous devons enregistrer.
         if (child.first_child().type() == pugi::node_pcdata){
+            // Crée un nouvel objet JSON pour le nœud enfant.
             Json::Value childJson;
+            // Ajoute les données texte à l'objet JSON.
             childJson["value"] = child.child_value();
+
+            // Parcoure tous les attributs du nœud enfant.
             for (pugi::xml_attribute attr = child.first_attribute(); attr; attr = attr.next_attribute()){
+                // Ajoute chaque attribut à la section "attributes" de l'objet JSON enfant.
                 childJson["attributes"][attr.name()] = attr.value();
             }
+
+            // Ajoute l'objet JSON enfant à l'objet JSON parent sous le nom du nœud enfant.
             jsonNode[child.name()].append(childJson);
         } else {
+            // Si le nœud enfant n'est pas un nœud texte, nous répétons le processus
+            // de conversion pour ce nœud enfant (appel récursif de la fonction).
             jsonNode[child.name()].append(xmlNodeToJson(child));
         }
     }
+
+    // Renvoie l'objet JSON final.
     return jsonNode;
 }
 
-
+// Cette fonction prend une chaîne XML, la convertit en JSON, et mesure également le temps qu'il faut pour effectuer la conversion.
 std::pair<string, long long> xmlToJson(string xml){
-    //Chrono pour mesurer le temps d'exécution
+    // Enregistre l'heure actuelle.
     auto start = chrono::high_resolution_clock::now();
 
+    // Initialise un document XML.
     pugi::xml_document doc;
+    // Charge la chaîne XML dans le document.
     pugi::xml_parse_result result = doc.load_string(xml.c_str());
+
+    // Si le chargement échoue, affiche un message d'erreur et renvoie une paire vide.
     if (!result) {
         std::cout << "Erreur lors du chargement du fichier XML : " << result.description() << "\n";
         return std::make_pair("", 0);
     }
+
+    // Obtient le nœud racine du document XML.
     pugi::xml_node root = doc.document_element();
 
+    // Convertit le nœud racine en JSON.
     Json::Value rootJson = xmlNodeToJson(root);
 
+    // Initialise un générateur de chaînes JSON avec indentation.
     Json::StreamWriterBuilder builder;
     builder["indentation"] = "\t";
+    // Convertit l'objet JSON en une chaîne.
     string jsonStr = Json::writeString(builder, rootJson);
 
+    // Enregistre l'heure actuelle.
     auto stop = chrono::high_resolution_clock::now();
+    // Calcule la durée entre le début et la fin de la conversion.
     auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
-    //cout << "Temps d'exécution de la conversion : " << duration.count() << " microsecondes" << endl;
 
+    // Renvoie la chaîne JSON et le temps qu'il a fallu pour effectuer la conversion.
     return std::make_pair(jsonStr, duration.count());
 }
 
@@ -98,32 +129,32 @@ std::pair<string, long long> xmlToJson(string xml){
 /**
  * Cette fonction me permet de créer une clé valeur à partir d'un fichier XML
  */
-
 void createOneKeyValueXML() {
-    redisContext* c = connectionRedis();
+    redisContext* c = connectionRedis(); //Connexion à Redis
+    //Demande à l'utilisateur de saisir le chemin absolu du fichier XML  et demande le nom de la clé
     string path;
     string key;
 
     cout << "Saisir le chemin absolu du fichier : ";
     cin >> path;
 
-    ifstream inFile;
-    inFile.open(path);
+    ifstream inFile; //Création d'un flux d'entrée
+    inFile.open(path); //Ouverture du fichier
 
     stringstream strStream;
-    strStream << inFile.rdbuf(); // read the file
-    string xmlStr = strStream.str(); // str holds the content of the file
+    strStream << inFile.rdbuf(); //Lire le fichier
+    string xmlStr = strStream.str(); //Str contient le contenu du fichier
 
-    auto result = xmlToJson(xmlStr);
-    string jsonStr = result.first;
-    long long duration = result.second;
+    auto result = xmlToJson(xmlStr); //Convertir le XML en JSON
+    string jsonStr = result.first; //Récupérer le JSON
+    long long duration = result.second; //Récupérer le temps d'exécution de la conversion
 
     // Save jsonStr in Redis with the key being the file name
     cout << "Saisir une cle : ";
     cin >> key;
-    redisCommand(c,"SET %s %s", key.c_str(), jsonStr.c_str());
+    redisCommand(c,"SET %s %s", key.c_str(), jsonStr.c_str()); //Enregistrement de la clé et de la valeur dans Redis
 
-    fermertureRedis(c);
+    fermertureRedis(c); //Fermeture de la connexion à Redis
 
     cout << "Temps d'exécution de la conversion : " << duration << " microsecondes" << endl;
 }
@@ -135,40 +166,42 @@ void createOneKeyValueXML() {
 */
 void createAllKeyValue() {
     //Chrono pour mesurer le temps d'exécution
-    auto start = chrono::high_resolution_clock::now();
-    long long totalConvertTime = 0;
-    int compteurNbFichier = 0;
-    redisContext* c = connectionRedis();
-    string path;
-
+    auto start = chrono::high_resolution_clock::now(); //Enregistre l'heure actuelle
+    long long totalConvertTime = 0; //Comparer le temps d'exécution de la conversion de tous les fichiers
+    int compteurNbFichier = 0; //Compter le nombre de fichiers insérés dans la base de données Redis
+    redisContext* c = connectionRedis(); //Connexion à Redis
+    string path; //Chemin absolu du dossier
+    //Demande à l'utilisateur de saisir le chemin absolu du dossier
     cout << "Saisir le chemin absolu du dossier : ";
     cin >> path;
 
+    //Parcourir tous les fichiers du dossier
     for (const auto & entry : fs::directory_iterator(path)){
-        if (entry.path().extension() == ".xml"){
-            compteurNbFichier++;
-            ifstream inFile;
-            inFile.open(entry.path());
+        if (entry.path().extension() == ".xml"){ //Si le fichier est un fichier XML
+            compteurNbFichier++; //Incrémenter le compteur de fichiers
+            ifstream inFile; //Création d'un flux d'entrée
+            inFile.open(entry.path()); //Ouverture du fichier
 
-            stringstream strStream;
-            strStream << inFile.rdbuf(); // read the file
-            string xmlStr = strStream.str(); // str holds the content of the file
+            stringstream strStream; //Création d'un flux de chaînes
+            strStream << inFile.rdbuf(); //Lire le fichier
+            string xmlStr = strStream.str(); //Str contient le contenu du fichier
 
-            auto result = xmlToJson(xmlStr);
-            string jsonStr = result.first;
-            long long duration = result.second;
-            totalConvertTime += duration;
+            auto result = xmlToJson(xmlStr); //Convertir le XML en JSON
+            string jsonStr = result.first; //Récupérer le JSON
+            long long duration = result.second; //Récupérer le temps d'exécution de la conversion
+            totalConvertTime += duration; //Ajouter le temps d'exécution de la conversion à la variable totalConvertTime
 
-            // Save jsonStr in Redis with the key being the file name
-            string key = entry.path().stem().string();
-            redisCommand(c,"SET %s %s", key.c_str(), jsonStr.c_str());
+            //Sauvegarder jsonStr dans Redis avec la clé étant le nom du fichier
+            string key = entry.path().stem().string(); //Récupérer le nom du fichier sans l'extension
+            redisCommand(c,"SET %s %s", key.c_str(), jsonStr.c_str()); //Enregistrement de la clé et de la valeur dans Redis
         }
     }
 
-    redisFree(c);
+    redisFree(c); //Fermeture de la connexion à Redis
     //Fin du chrono
     auto stop = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
+    //Affichage des résultats
     cout << "Temps total d'exécution de l'insertion : " << duration.count() << " microsecondes" << endl;
     cout << "Temps total d'exécution des conversions : " << totalConvertTime << " microsecondes" << endl;
     cout << "Nombre de fichiers insérés : " << compteurNbFichier << endl;
