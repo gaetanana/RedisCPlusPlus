@@ -28,23 +28,29 @@ using namespace std;
  * Cette fonction lit une clé et une valeur de la base de données Redis
  */
 void readOneKeyValue() {
-    redisContext *c = connectionRedis();
+    redisContext *c = connectionRedis(); //Connexion à Redis
+    //Demande de la clé à lire
     string key;
     cout << "Saisir une cle : ";
     cin >> key;
     auto *reply = (redisReply *) redisCommand(c, "GET %s", key.c_str());
+    //Condition si la clé est nulle
     if (reply == nullptr) {
         std::cout << "Erreur lors de l'envoi de la commande GET: " << c->errstr << "\n";
         fermertureRedis(c);
         return;
     }
+
+    //Si la requête renvoie une erreur
     if (reply->type == REDIS_REPLY_ERROR) {
         std::cout << "Erreur lors de l'envoi de la commande GET: " << reply->str << "\n";
-    } else if (reply->type == REDIS_REPLY_STRING) {
+    }
+    //Affichage de la réponse de la requête
+    else if (reply->type == REDIS_REPLY_STRING) {
         std::cout << "Reponse a GET: " << reply->str << "\n";
     }
-    freeReplyObject(reply);
-    fermertureRedis(c);
+    freeReplyObject(reply); //Libération de la mémoire
+    fermertureRedis(c); //Fermeture de la connexion
 }
 
 
