@@ -209,7 +209,7 @@ void readAllKeyWithHumanProbability() {
 
             if (likelihoodDouble >= 0.50) {
                 nbCle++;
-                break;  // Stop checking if we find one match
+                break;  // Arrêt de la boucle for
             }
         }
         freeReplyObject(keyReply);
@@ -249,9 +249,14 @@ bool dateIsAfter(const std::string &dateTimeStr, const std::string &filterDate) 
  * 3 filtres
  */
 void readAllKeyWithHumanProbabilityAndDate() {
+    // Démarrer le chronomètre
     auto start = chrono::high_resolution_clock::now();
-    int keyCount = 0;
+    int keyCount = 0;  // Compteur de clés qui passent les filtres
+
+    // Connexion à Redis
     redisContext *c = connectionRedis();
+
+    // Si la connexion échoue, afficher l'erreur et quitter la fonction
     if (c == NULL || c->err) {
         if (c) {
             cout << "Error: " << c->errstr << endl;
@@ -260,9 +265,16 @@ void readAllKeyWithHumanProbabilityAndDate() {
         }
         return;
     }
+
+    // Récupérer toutes les clés de Redis
     auto *reply = (redisReply *) redisCommand(c, "KEYS *");
+
+    // Parcourir toutes les clés
     for (int i = 0; i < reply->elements; i++) {
+        // Récupérer la valeur pour la clé actuelle
         auto *keyReply = (redisReply *) redisCommand(c, "GET %s", reply->element[i]->str);
+
+        // Analyser la valeur en tant que JSON
         Json::Value root;
         Json::Reader reader;
         if (!reader.parse(keyReply->str, root)) {
@@ -270,6 +282,8 @@ void readAllKeyWithHumanProbabilityAndDate() {
             freeReplyObject(keyReply);
             continue;
         }
+
+        // Parcourir les données de video analytics dans le JSON
         const auto &videoAnalytics = root["tt:VideoAnalytics"];
         for (const auto &analytics: videoAnalytics) {
             const auto &frames = analytics["tt:Frame"];
@@ -282,11 +296,14 @@ void readAllKeyWithHumanProbabilityAndDate() {
                         for (const auto &cls: classes) {
                             const auto &types = cls["tt:Type"];
                             for (const auto &type: types) {
+                                // Récupérer les valeurs nécessaires pour les filtres
                                 string valueType = type["value"].asString();
                                 double valueLikelihood = std::stod(type["attributes"]["Likelihood"].asString());
                                 string utcTime = frame["UtcTime"].asString();
 
+                                // Appliquer les filtres : le type doit être "Human", la probabilité doit être supérieure à 0,5, et la date doit être postérieure à "2023-04-21T14:45:23"
                                 if (valueType == "Human" && valueLikelihood > 0.5 && utcTime > "2023-04-21T14:45:23") {
+                                    // Imprimer la clé si elle passe tous les filtres
                                     cout << "Cle " << i + 1 << ": " << reply->element[i]->str << "\n";
                                     keyCount++;
                                 }
@@ -297,17 +314,22 @@ void readAllKeyWithHumanProbabilityAndDate() {
             }
         }
 
+        // Libérer la mémoire allouée pour la réponse à la requête GET
         freeReplyObject(keyReply);
     }
 
+    // Libérer la mémoire allouée pour la réponse à la requête KEYS
     freeReplyObject(reply);
+    // Fermer la connexion à Redis
     fermertureRedis(c);
 
+    // Arrêter le chronomètre et imprimer le temps d'exécution et le nombre de clés qui passent les filtres
     auto finish = chrono::high_resolution_clock::now();
     chrono::duration<double> elapsed = finish - start;
     cout << "Temps d'execution : " << elapsed.count() << " s\n";
     cout << "Nombre de cle : " << keyCount << "\n";
 }
+
 
 /**
  * Cette fonction permet de retrouver toutes les clé-valeur de la base de données Redis
