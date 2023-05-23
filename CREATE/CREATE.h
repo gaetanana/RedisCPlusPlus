@@ -16,3 +16,5 @@ std::pair<string, long long> xmlToJson(string xml);
 void createAllKeyValue();
 
 void createOneKeyValueXML();
+
+void createAllKeyValueInMemory();

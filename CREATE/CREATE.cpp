@@ -18,31 +18,8 @@
 
 using namespace std;
 namespace fs = std::filesystem;
-/**
- * Cette fonction me permet de créer une clé et une valeur dans la base de données Redis.
- * Demande à l'utilisateur de saisir une clé et une valeur.
- */
-void createOneKeyValue(){
-    redisContext *c = connectionRedis(); //Connexion à Redis
-    //Saisie de la clé et de la valeur
-    string key;
-    string value;
-    cout << "Saisir une clé : ";
-    cin >> key;
-    cout << "Saisir une valeur : ";
-    cin >> value;
-    //Création de la clé et de la valeur
-    auto* reply = (redisReply*)redisCommand(c, "SET %s %s", key.c_str(), value.c_str());
-    //Condition si la requête n'a pas fonctionné
-    if (reply == nullptr) {
-        std::cout << "Erreur lors de l'envoi de la commande SET: " << c->errstr << "\n";
-        fermertureRedis(c);
-    }
-    //Affichage de la réponse
-    cout << "Reponse a SET: " << reply->str << "\n";
-    fermertureRedis(c);
-}
 
+//************************** Fonctions auxiliaires **************************//
 /**
  * Cette fonction prend en paramètre du XML et le convertit en JSON
  * @param xml
@@ -125,6 +102,66 @@ std::pair<string, long long> xmlToJson(string xml){
     return std::make_pair(jsonStr, duration.count());
 }
 
+/**
+ * Cette fonction permet de lire en mémoire tous les fichiers XML d'un dossier et renvoie un vecteur de chaîne
+ * @param path
+ * @return vector<string>
+ */
+std::vector<std::string> chargementEnMemoireXML(const std::string& dirPath) {
+    //Chrono pour mesurer le temps de la mise en mémoire des fichiers XML
+    auto start = chrono::high_resolution_clock::now();
+
+    std::vector<std::string> xmlFilesContents;
+    // Parcours chaque fichier dans le dossier
+    for (const auto& entry : std::filesystem::directory_iterator(dirPath)) {
+        if (entry.path().extension() == ".xml") {
+            // Ouvre le fichier et charge son contenu dans un flux de chaînes
+            std::ifstream file(entry.path());
+            if (!file) {
+                std::cout << "Erreur lors de l'ouverture du fichier " << entry.path() << ".\n";
+                continue;
+            }
+            std::stringstream buffer;
+            buffer << file.rdbuf();
+            xmlFilesContents.push_back(buffer.str());
+        }
+    }
+    //Fin du chrono
+    auto stop = chrono::high_resolution_clock::now();
+    //Calcule la durée de l'exécution
+    auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
+    std::cout << "Temps de chargement en memoire des fichiers XML : " << duration.count() << " microsecondes\n";
+    return xmlFilesContents;
+}
+
+
+//************************** Fonctions CREATE **************************//
+
+
+/**
+ * Cette fonction me permet de créer une clé et une valeur dans la base de données Redis.
+ * Demande à l'utilisateur de saisir une clé et une valeur.
+ */
+void createOneKeyValue(){
+    redisContext *c = connectionRedis(); //Connexion à Redis
+    //Saisie de la clé et de la valeur
+    string key;
+    string value;
+    cout << "Saisir une clé : ";
+    cin >> key;
+    cout << "Saisir une valeur : ";
+    cin >> value;
+    //Création de la clé et de la valeur
+    auto* reply = (redisReply*)redisCommand(c, "SET %s %s", key.c_str(), value.c_str());
+    //Condition si la requête n'a pas fonctionné
+    if (reply == nullptr) {
+        std::cout << "Erreur lors de l'envoi de la commande SET: " << c->errstr << "\n";
+        fermertureRedis(c);
+    }
+    //Affichage de la réponse
+    cout << "Reponse a SET: " << reply->str << "\n";
+    fermertureRedis(c);
+}
 
 /**
  * Cette fonction me permet de créer une clé valeur à partir d'un fichier XML
@@ -163,6 +200,7 @@ void createOneKeyValueXML() {
 * Cette fonction me permet de créer toutes les clés et valeurs d'un dossier dans la base de données Redis
  * En demandant le chemin absolu du dossier et tous les fichiers XML sont convertis en JSON et stockés dans la base de données Redis
  * Et le nom des clés est le nom du fichier XML
+ * Cette fonction ne charge pas tous les fichiers XML en mémoire avant de les convertir en JSON et de les stocker dans Redis
 */
 void createAllKeyValue() {
     //Chrono pour mesurer le temps d'exécution
@@ -206,3 +244,45 @@ void createAllKeyValue() {
     cout << "Temps total d'exécution des conversions : " << totalConvertTime << " microsecondes" << endl;
     cout << "Nombre de fichiers insérés : " << compteurNbFichier << endl;
 }
+
+/**
+* Cette fonction me permet de créer toutes les clés et valeurs d'un dossier dans la base de données Redis
+ * En demandant le chemin absolu du dossier et tous les fichiers XML sont convertis en JSON et stockés dans la base de données Redis
+ * Et le nom des clés est le nom du fichier XML
+ * Cette fonction charge tous les fichiers XML en mémoire avant de les convertir en JSON et de les stocker dans Redis.
+*/
+void createAllKeyValueInMemory() {
+    auto start = chrono::high_resolution_clock::now();
+    long long totalConvertTime = 0;
+    int compteurNbFichier = 0;
+    redisContext* c = connectionRedis();
+    string path;
+
+    cout << "Saisir le chemin absolu du dossier : ";
+    cin >> path;
+
+    std::vector<std::string> xmlFiles = chargementEnMemoireXML(path);
+
+    for(const auto& xmlStr : xmlFiles){
+        compteurNbFichier++;
+
+        auto result = xmlToJson(xmlStr);
+        string jsonStr = result.first;
+        long long duration = result.second;
+        totalConvertTime += duration;
+
+        string key = std::to_string(compteurNbFichier);
+        redisCommand(c,"SET %s %s", key.c_str(), jsonStr.c_str());
+    }
+
+    redisFree(c);
+
+    auto stop = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
+
+    cout << "Temps total d'exécution de l'insertion : " << duration.count() << " microsecondes" << endl;
+    cout << "Temps total d'exécution des conversions : " << totalConvertTime << " microsecondes" << endl;
+    cout << "Nombre de fichiers insérés : " << compteurNbFichier << endl;
+}
+
+

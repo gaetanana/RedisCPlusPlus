@@ -3,7 +3,7 @@ RedisCPlusPlus
 ==============
 
 ********
-Bienvenue dans mon projet qui a pour objectif de tester des bases de données NoSQL dans un programme C++.
+Bienvenue dans mon projet qui a pour objectif de tester Redis dans un programme C++.
 
 Prérequis 
 ---------
