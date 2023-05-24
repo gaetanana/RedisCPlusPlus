@@ -203,8 +203,7 @@ void createOneKeyValueXML() {
  * Cette fonction ne charge pas tous les fichiers XML en mémoire avant de les convertir en JSON et de les stocker dans Redis
 */
 void createAllKeyValue() {
-    //Chrono pour mesurer le temps d'exécution
-    auto start = chrono::high_resolution_clock::now(); //Enregistre l'heure actuelle
+
     long long totalConvertTime = 0; //Comparer le temps d'exécution de la conversion de tous les fichiers
     int compteurNbFichier = 0; //Compter le nombre de fichiers insérés dans la base de données Redis
     redisContext* c = connectionRedis(); //Connexion à Redis
@@ -212,6 +211,8 @@ void createAllKeyValue() {
     //Demande à l'utilisateur de saisir le chemin absolu du dossier
     cout << "Saisir le chemin absolu du dossier : ";
     cin >> path;
+    //Chrono pour mesurer le temps d'exécution
+    auto start = chrono::high_resolution_clock::now(); //Enregistre l'heure actuelle
 
     //Parcourir tous les fichiers du dossier
     for (const auto & entry : fs::directory_iterator(path)){
@@ -252,7 +253,7 @@ void createAllKeyValue() {
  * Cette fonction charge tous les fichiers XML en mémoire avant de les convertir en JSON et de les stocker dans Redis.
 */
 void createAllKeyValueInMemory() {
-    auto start = chrono::high_resolution_clock::now();
+
     long long totalConvertTime = 0;
     int compteurNbFichier = 0;
     redisContext* c = connectionRedis();
@@ -261,6 +262,7 @@ void createAllKeyValueInMemory() {
     cout << "Saisir le chemin absolu du dossier : ";
     cin >> path;
 
+    auto start = chrono::high_resolution_clock::now();
     std::vector<std::string> xmlFiles = chargementEnMemoireXML(path);
 
     for(const auto& xmlStr : xmlFiles){
@@ -278,9 +280,9 @@ void createAllKeyValueInMemory() {
     redisFree(c);
 
     auto stop = chrono::high_resolution_clock::now();
-    auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
+    auto duration = chrono::duration_cast<chrono::seconds>(stop - start);
 
-    cout << "Temps total d'exécution de l'insertion : " << duration.count() << " microsecondes" << endl;
+    cout << "Temps total d'exécution de l'insertion : " << duration.count() << " secondes" << endl;
     cout << "Temps total d'exécution des conversions : " << totalConvertTime << " microsecondes" << endl;
     cout << "Nombre de fichiers insérés : " << compteurNbFichier << endl;
 }
