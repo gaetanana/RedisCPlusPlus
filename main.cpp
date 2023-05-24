@@ -58,7 +58,10 @@ int main() {
             std::cout << "|| 1 - Creer une cle avec une valeur                                 ||\n";
             std::cout << "|| 2 - Creer une cle avec un fichier XML en valeur                   ||\n";
             std::cout << "|| 3 - Stocker l'ensemble des fichiers XML d'un dossier dans Redis   ||\n";
-            std::cout << "|| 4 - Quitter le menu Create                                        ||\n";
+            std::cout << "||     (EN NE CHARGEANT PAS LES FICHIERS EN MEMOIRE)                 ||\n";
+            std::cout << "|| 4 - Stocker l'ensemble des fichiers XML d'un dossier dans Redis   ||\n";
+            std::cout << "||     (EN CHARGEANT LES FICHIERS EN MEMOIRE)                        ||\n";
+            std::cout << "|| 5 - Quitter le menu Create                                        ||\n";
             std::cout << "||                                                                   ||\n";
             std::cout << "========================================================================\n";
             int choixCreate;
@@ -71,6 +74,9 @@ int main() {
             } else if (choixCreate == 3) {
                 createAllKeyValue();
             }else if(choixCreate == 4){
+                createAllKeyValueInMemory();
+            }
+            else if(choixCreate == 5){
                 std::cout << "\nVous avez quitté le menu Create\n";
             }
         } else if (choix == 2) {
