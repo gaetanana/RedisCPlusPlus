@@ -139,8 +139,7 @@ void updateOneHumanKey() {
  * L'utilisateur doit donner la valeur à remplacer
  */
 void updateAllHumanKey() {
-    // Démarrage du chronomètre pour mesurer le temps d'exécution
-    auto start = chrono::high_resolution_clock::now();
+
 
     int nbFichierUpdate = 0; // Compteur du nombre de fichiers mis à jour
 
@@ -151,6 +150,9 @@ void updateAllHumanKey() {
     string newValue;
     cout << "Saisir la nouvelle valeur pour remplacer 'Human' : ";
     cin >> newValue;
+
+    // Démarrage du chronomètre pour mesurer le temps d'exécution
+    auto start = chrono::high_resolution_clock::now();
 
     // Récupérer toutes les clés de Redis
     redisReply *reply = static_cast<redisReply *>(redisCommand(c, "KEYS *"));
@@ -224,8 +226,7 @@ void updateAllHumanKey() {
  * Redis avec la nouvelle valeur saisie par l'utilisateurve
  */
 void updateAllKeyTypeContent() {
-    // Début du chronomètre pour mesurer le temps d'exécution
-    auto start = chrono::high_resolution_clock::now();
+
 
     int nbFichierUpdate = 0; // Compteur du nombre de fichiers mis à jour
 
@@ -236,6 +237,9 @@ void updateAllKeyTypeContent() {
     string newValue;
     cout << "Saisir la nouvelle valeur pour remplacer la valeur actuelle : ";
     cin >> newValue;
+
+    // Début du chronomètre pour mesurer le temps d'exécution
+    auto start = chrono::high_resolution_clock::now();
 
     // Récupérer toutes les clés de Redis
     redisReply *reply = static_cast<redisReply *>(redisCommand(c, "KEYS *"));
