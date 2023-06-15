@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.17)
 project(RedisCPlusPlus)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_GENERATOR_PLATFORM x64)
+set(CMAKE_GENERATOR_PLATFORM x32)
 
 include_directories("DriverHiredis/hiredis2/build/install/include")
 include_directories("DriverPugiXML/pugixml2/build/install/include")

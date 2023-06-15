@@ -16,6 +16,14 @@ ensuite configurer le projet pour qu'il utilise le compilateur ``Visual Studio 2
 
 - Avoir un serveur Redis qui tourne sur le port 6379 (par défaut) sur votre machine.
 
+- Avoir dans vos variables d'environnement le chemin vers le dossier binaire des dépendances de cette application.
+
+Voici le chemin vers le dossier binaire des dépendances de cette application : 
+
+- `VOTRE CHEMIN\RedisCPlusPlus\DriverHiredis\hiredis2\build\install\bin`
+- `VOTRE CHEMIN\RedisCPlusPlus\DriverJSON\jsoncpp2\build\install\bin`
+
+
 Pas la peine d'installer le driver Redis pour C++ car il est déjà présent dans le projet.
 
 
@@ -23,7 +31,7 @@ Lancement du programme
 ----------------------
 
 Pour lancer le programme, il vous suffit de lancer le fichier ``main.cpp`` avec Visual Studio 2019,
-et en suite  vous pourrez utiliser le programme.
+et en suite, vous pourrez utiliser le programme.
 
 Utilisation du programme
 ------------------------
